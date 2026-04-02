@@ -4,12 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>超級穀食 膳糧五紅五黑｜行銷執行進度報告</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto Sans+TC:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
 :root{--teal:#0F6E56;--teal-mid:#1D9E75;--teal-light:#E1F5EE;--teal-pale:#f4fbf8;--amber:#854F0B;--amber-light:#FAEEDA;--blue:#185FA5;--blue-light:#E6F1FB;--gray:#5F5E5A;--gray-light:#F1EFE8;--gray-border:#D3D1C7;--black:#2C2C2A;--red:#A32D2D;--green:#3B6D11;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans TC',sans-serif;background:#f7f6f2;color:var(--black);font-size:14px;line-height:1.7}
-
 .hero{background:var(--teal);padding:44px 60px 36px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;right:-60px;top:-80px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,.04)}
 .hero-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1}
@@ -19,7 +18,6 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f7f6f2;color:var(--black)
 .mlabel{font-size:10px;letter-spacing:1.5px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:3px}
 .mval{font-size:13px;color:rgba(255,255,255,.8);font-weight:500;margin-bottom:8px}
 .hero-concept{max-width:960px;margin:16px auto 0;background:rgba(255,255,255,.08);border-left:3px solid rgba(255,255,255,.3);padding:10px 16px;font-size:13px;color:rgba(255,255,255,.7);font-style:italic;position:relative;z-index:1}
-
 .toolbar{background:#fff;border-bottom:1px solid var(--gray-border);padding:10px 60px;position:sticky;top:0;z-index:100}
 .toolbar-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .toolbar-hint{font-size:12px;color:var(--gray)}
@@ -30,35 +28,27 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f7f6f2;color:var(--black)
 .btn-add{background:var(--teal-light);color:var(--teal);border:1px dashed var(--teal-mid)}.btn-add:hover{background:#c5eedd}
 .save-ok{font-size:11px;color:var(--teal-mid);margin-left:auto;opacity:0;transition:.3s}
 .save-ok.show{opacity:1}
-
 .container{max-width:960px;margin:0 auto;padding:0 24px 60px}
 .sh{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px}
 .sh-left{display:flex;align-items:center;gap:12px}
 .sn{width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .sh h2{font-size:15px;font-weight:700;color:var(--teal)}
-
 .ec{outline:none;border-radius:4px;padding:2px 4px;transition:.15s;min-width:20px;display:inline-block}
 .ec:hover{background:var(--gray-light)}
 .ec:focus{background:var(--teal-light);box-shadow:0 0 0 1px var(--teal-mid)}
-
 .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
 .kc{background:#fff;border:1px solid var(--gray-border);border-radius:12px;padding:16px;position:relative}
 .kc-del{position:absolute;top:8px;right:8px;background:none;border:none;cursor:pointer;color:#ccc;font-size:14px;opacity:0;transition:.15s}
-.kc:hover .kc-del{opacity:1}
-.kc-del:hover{color:var(--red)}
+.kc:hover .kc-del{opacity:1}.kc-del:hover{color:var(--red)}
 .kc-label{font-size:11px;color:var(--gray);margin-bottom:5px;font-weight:500}
 .kc-val{font-size:22px;font-weight:700;color:var(--teal);line-height:1.1}
 .kc-hint{font-size:11px;color:#aaa;margin-top:3px}
-
 .pb{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
 .ph{border-radius:10px;padding:12px 14px;border-left:4px solid}
-.ph1{background:var(--teal-light);border-color:var(--teal-mid)}
-.ph2{background:var(--amber-light);border-color:var(--amber)}
-.ph3{background:var(--blue-light);border-color:var(--blue)}
+.ph1{background:var(--teal-light);border-color:var(--teal-mid)}.ph2{background:var(--amber-light);border-color:var(--amber)}.ph3{background:var(--blue-light);border-color:var(--blue)}
 .phn{font-size:12px;font-weight:700;margin-bottom:2px}
 .ph1 .phn{color:var(--teal)}.ph2 .phn{color:var(--amber)}.ph3 .phn{color:var(--blue)}
 .pht{font-size:11px;color:var(--gray)}
-
 .et{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--gray-border);font-size:13px}
 .et thead tr{background:var(--teal);color:rgba(255,255,255,.85)}
 .et thead th{padding:10px 12px;text-align:left;font-size:11px;font-weight:500;letter-spacing:.4px}
@@ -66,84 +56,70 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f7f6f2;color:var(--black)
 .et tbody tr:last-child{border-bottom:none}
 .et tbody tr:hover{background:var(--teal-pale)}
 .et td{padding:9px 12px;vertical-align:middle}
-
 .sw{position:relative;display:inline-block;min-width:84px}
 .sw::after{content:'▾';font-size:9px;position:absolute;right:6px;top:50%;transform:translateY(-50%);pointer-events:none}
 .ss{border:none;font-family:'Noto Sans TC',sans-serif;font-size:12px;font-weight:500;cursor:pointer;padding:3px 22px 3px 10px;border-radius:20px;appearance:none;-webkit-appearance:none;outline:none;width:100%}
-.sw-wait{background:var(--gray-light);color:var(--gray)}
-.sw-prog{background:var(--amber-light);color:var(--amber)}
-.sw-talk{background:var(--teal-light);color:var(--teal)}
-.sw-pend{background:var(--blue-light);color:var(--blue)}
-.sw-done{background:#EAF3DE;color:var(--green)}
-
+.sw-wait{background:var(--gray-light);color:var(--gray)}.sw-prog{background:var(--amber-light);color:var(--amber)}.sw-talk{background:var(--teal-light);color:var(--teal)}.sw-pend{background:var(--blue-light);color:var(--blue)}.sw-done{background:#EAF3DE;color:var(--green)}
 input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
 .prw{display:flex;align-items:center;gap:6px}
 .prp{font-size:11px;font-weight:600;color:var(--teal);min-width:30px;text-align:right}
-
 .del-row{background:none;border:none;cursor:pointer;color:#ccc;font-size:15px;padding:2px 4px;border-radius:4px;transition:.15s;line-height:1}
 .del-row:hover{color:var(--red);background:#FCEBEB}
-
 .ptag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500}
 .pt1{background:var(--teal-light);color:var(--teal)}.pt2{background:var(--amber-light);color:var(--amber)}.pt3{background:var(--blue-light);color:var(--blue)}
-
 .ph-sel{border:1px solid var(--gray-border);font-family:'Noto Sans TC',sans-serif;font-size:11px;border-radius:20px;padding:2px 8px;cursor:pointer;background:#fff;outline:none}
-
-/* URL input in task table */
-.url-input{border:none;background:transparent;font-family:'Noto Sans TC',sans-serif;font-size:12px;color:var(--blue);width:100%;outline:none;padding:2px 4px;border-radius:4px;transition:.15s;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
-.url-input:hover{background:var(--blue-light)}
-.url-input:focus{background:var(--blue-light);box-shadow:0 0 0 1px var(--blue);text-decoration:none}
-.url-input::placeholder{color:#bbb;text-decoration:none;font-style:italic}
-.url-link{font-size:12px;color:var(--blue);text-decoration:underline;text-underline-offset:2px;word-break:break-all}
+.url-input{border:none;background:transparent;font-family:'Noto Sans TC',sans-serif;font-size:12px;color:var(--blue);width:100%;outline:none;padding:2px 4px;border-radius:4px;transition:.15s}
+.url-input:hover{background:var(--blue-light)}.url-input:focus{background:var(--blue-light);box-shadow:0 0 0 1px var(--blue)}
+.url-input::placeholder{color:#bbb;font-style:italic}
+.url-link{font-size:12px;color:var(--blue);text-decoration:underline;text-underline-offset:2px}
 
 /* GANTT */
+.gantt-hint{font-size:11px;color:var(--gray);margin-bottom:10px;display:flex;align-items:center;gap:16px}
+.gantt-hint span{display:flex;align-items:center;gap:4px}
 .gw{background:#fff;border:1px solid var(--gray-border);border-radius:12px;overflow:hidden}
 .gs{overflow-x:auto}
-.gt{width:100%;border-collapse:collapse;font-size:11px;min-width:720px}
-.gt th{padding:8px 5px;text-align:center;background:var(--teal);color:rgba(255,255,255,.8);font-weight:500;font-size:10px}
-.gt th.ic{text-align:left;padding-left:14px;width:190px;font-size:11px}
-.gt th.pcc{text-align:left;padding-left:10px;width:72px}
-.gt th.mh{background:rgba(0,0,0,.15);font-size:11px;letter-spacing:1px}
-.gt td{padding:6px 5px;text-align:center;border-bottom:1px solid var(--gray-border);border-right:1px solid var(--gray-border)}
-.gt td.ic{text-align:left;padding-left:14px;font-size:12px;font-weight:500;border-right:2px solid var(--gray-border);white-space:nowrap}
-.gt td.pcc{text-align:left;padding-left:10px;color:var(--gray);font-size:11px;border-right:2px solid var(--gray-border)}
+.gt{width:100%;border-collapse:collapse;font-size:11px;min-width:780px}
+.gt th{padding:7px 4px;text-align:center;background:var(--teal);color:rgba(255,255,255,.85);font-weight:500;font-size:10px}
+.gt th.ic{text-align:left;padding-left:14px;width:185px;font-size:11px}
+.gt th.pcc{text-align:left;padding-left:8px;width:48px;font-size:10px}
+.gt th.mh{background:rgba(0,0,0,.18);font-size:11px;letter-spacing:.5px}
+.gt th.wk{font-size:9px;color:rgba(255,255,255,.7);padding:4px 2px}
+.gt th.dt{font-size:9px;color:rgba(255,255,255,.5);padding:2px;font-weight:400}
+.gt td{padding:5px 3px;text-align:center;border-bottom:1px solid var(--gray-border);border-right:1px solid #ece9e2;min-width:36px}
+.gt td.ic{text-align:left;padding-left:14px;font-size:12px;font-weight:500;border-right:2px solid var(--gray-border);white-space:nowrap;min-width:185px}
+.gt td.pcc{text-align:left;padding-left:8px;color:var(--gray);font-size:10px;border-right:1px solid var(--gray-border);min-width:48px}
 .gt tbody tr:last-child td{border-bottom:none}
 .gt tbody tr:nth-child(even){background:#fbfaf7}
-.bar{width:100%;height:13px;border-radius:3px;background:var(--teal-mid);opacity:.82}
-.bar-a{background:var(--amber);opacity:.7}
+.gt tbody tr:hover{background:var(--teal-pale)}
 
-/* BUDGET */
-.bg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
-.bc{background:#fff;border:1px solid var(--gray-border);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
-.bcl{font-size:13px;color:var(--gray)}.bch{font-size:11px;color:#aaa}.bcv{font-size:20px;font-weight:700;color:var(--teal)}
+/* gantt cell content */
+.g-bar{width:28px;height:10px;border-radius:3px;background:var(--teal-mid);opacity:.8;margin:0 auto}
+.g-bar-a{background:var(--amber);opacity:.7}
+.g-diamond{width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:11px solid var(--teal-mid);position:relative;margin:0 auto}
+.g-diamond::after{content:'';width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:11px solid var(--teal-mid);position:absolute;top:3px;left:-7px}
+.g-diamond-a{border-bottom-color:var(--amber)}.g-diamond-a::after{border-top-color:var(--amber)}
+.g-date{font-size:9px;color:var(--teal);font-weight:600;white-space:nowrap;display:block;margin-top:1px}
 
 .nf{width:100%;border:1px solid var(--gray-border);border-radius:8px;padding:12px;font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--black);resize:vertical;min-height:80px;background:#fff;outline:none;transition:.15s}
 .nf:focus{border-color:var(--teal-mid);box-shadow:0 0 0 2px rgba(29,158,117,.15)}
-
+.bg-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.bc{background:#fff;border:1px solid var(--gray-border);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.bcl{font-size:13px;color:var(--gray)}.bch{font-size:11px;color:#aaa}.bcv{font-size:20px;font-weight:700;color:var(--teal)}
 .footer{background:var(--teal);padding:22px 60px;text-align:center}
 .footer p{font-size:12px;color:rgba(255,255,255,.45)}
-
-/* MODAL */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:center;justify-content:center}
 .modal-bg.show{display:flex}
 .modal{background:#fff;border-radius:16px;padding:28px;width:500px;max-width:95vw;max-height:90vh;overflow-y:auto}
 .modal h3{font-size:15px;font-weight:700;color:var(--teal);margin-bottom:20px}
 .form-row{margin-bottom:14px}
 .form-row label{display:block;font-size:12px;color:var(--gray);margin-bottom:4px;font-weight:500}
-.form-row input,.form-row select,.form-row textarea{width:100%;border:1px solid var(--gray-border);border-radius:8px;padding:8px 12px;font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--black);outline:none;transition:.15s}
+.form-row input,.form-row select{width:100%;border:1px solid var(--gray-border);border-radius:8px;padding:8px 12px;font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--black);outline:none;transition:.15s}
 .form-row input:focus,.form-row select:focus{border-color:var(--teal-mid);box-shadow:0 0 0 2px rgba(29,158,117,.15)}
 .modal-btns{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
-
-@media(max-width:680px){
-  .hero,.toolbar{padding-left:16px;padding-right:16px}
-  .container{padding:0 12px 40px}
-  .kpi-grid{grid-template-columns:repeat(2,1fr)}
-  .pb,.bg{grid-template-columns:1fr}
-  .hero-inner{flex-direction:column;align-items:flex-start;gap:14px}
-}
+@media(max-width:680px){.hero,.toolbar{padding-left:16px;padding-right:16px}.container{padding:0 12px 40px}.kpi-grid{grid-template-columns:repeat(2,1fr)}.pb,.bg-grid{grid-template-columns:1fr}.hero-inner{flex-direction:column;align-items:flex-start;gap:14px}}
 </style>
 </head>
 <body>
-
 <div class="hero">
   <div class="hero-inner">
     <div>
@@ -161,7 +137,7 @@ input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
 
 <div class="toolbar">
   <div class="toolbar-inner">
-    <span class="toolbar-hint">✏️ 點擊文字直接編輯・＋新增・🗑刪除</span>
+    <span class="toolbar-hint">✏️ 點擊文字直接編輯・時間欄填日期後甘特圖自動更新</span>
     <button class="btn btn-p" onclick="saveAll()">💾 儲存</button>
     <button class="btn btn-o" onclick="exportClient()">📤 匯出客戶版</button>
     <button class="btn btn-d" onclick="resetAll()">🗑 重設</button>
@@ -171,14 +147,12 @@ input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
 
 <div class="container">
 
-  <!-- 1. 核心目標 -->
   <div class="sh">
     <div class="sh-left"><div class="sn">1</div><h2>核心目標</h2></div>
     <button class="btn btn-add" onclick="addKpiCard()">＋ 新增指標</button>
   </div>
   <div class="kpi-grid" id="kpi-cards"></div>
 
-  <!-- 2. 波段規劃 -->
   <div class="sh"><div class="sh-left"><div class="sn">2</div><h2>波段規劃</h2></div></div>
   <div class="pb">
     <div class="ph ph1"><div class="phn">口碑醞釀期</div><div class="pht">4月　IP 預告・試吃招募・商品頁</div></div>
@@ -186,7 +160,6 @@ input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
     <div class="ph ph3"><div class="phn">熱度維繫期</div><div class="pht">6月　618 市集・Threads・口碑延燒</div></div>
   </div>
 
-  <!-- 3. 執行項目 -->
   <div class="sh">
     <div class="sh-left"><div class="sn">3</div><h2>執行項目明細</h2></div>
     <button class="btn btn-add" onclick="openAddTask()">＋ 新增項目</button>
@@ -195,40 +168,31 @@ input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
     <thead><tr>
       <th style="width:20%">執行項目</th>
       <th style="width:8%">負責人</th>
-      <th style="width:7%">時間</th>
+      <th style="width:9%">執行日期<br><span style="font-weight:400;opacity:.7;font-size:10px">填 4/20 或 4/20–5/8</span></th>
       <th style="width:9%">波段</th>
       <th style="width:16%">目標 KPI</th>
-      <th style="width:13%">完成率</th>
+      <th style="width:12%">完成率</th>
       <th style="width:10%">狀態</th>
-      <th style="width:12%">成果連結</th>
+      <th style="width:11%">成果連結</th>
       <th style="width:5%"></th>
     </tr></thead>
     <tbody id="task-body"></tbody>
   </table>
 
-  <!-- 4. 甘特圖 -->
   <div class="sh"><div class="sh-left"><div class="sn">4</div><h2>時程甘特圖（4–6月）</h2></div></div>
+  <div class="gantt-hint">
+    <span><span style="display:inline-block;width:16px;height:8px;border-radius:2px;background:var(--teal-mid);opacity:.8"></span> 執行期間</span>
+    <span style="font-size:14px;color:var(--teal-mid)">◆</span><span> 確定日期</span>
+    <span style="font-size:14px;color:var(--amber)">◆</span><span> 準備/設計類</span>
+    <span style="color:#aaa">時間欄填入日期後自動連動</span>
+  </div>
   <div class="gw"><div class="gs">
     <table class="gt">
-      <thead>
-        <tr>
-          <th class="ic">執行項目</th><th class="pcc">負責人</th>
-          <th class="mh" colspan="5">4 月</th>
-          <th class="mh" colspan="4">5 月</th>
-          <th class="mh" colspan="4">6 月</th>
-        </tr>
-        <tr>
-          <th class="ic"></th><th class="pcc"></th>
-          <th>W1</th><th>W2</th><th>W3</th><th>W4</th><th>W5</th>
-          <th>W1</th><th>W2</th><th>W3</th><th>W4</th>
-          <th>W1</th><th>W2</th><th>W3</th><th>W4</th>
-        </tr>
-      </thead>
+      <thead id="gantt-head"></thead>
       <tbody id="gantt-body"></tbody>
     </table>
   </div></div>
 
-  <!-- 5. 預算總覽 -->
   <div class="sh">
     <div class="sh-left"><div class="sn">5</div><h2>預算總覽</h2></div>
     <button class="btn btn-add" onclick="openAddBudget()">＋ 新增預算項目</button>
@@ -246,7 +210,6 @@ input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
     <span style="font-weight:700;color:var(--teal);font-size:16px" id="budget-total">—</span>
   </div>
 
-  <!-- 6. KPI 追蹤 -->
   <div class="sh">
     <div class="sh-left"><div class="sn">6</div><h2>KPI 成效追蹤</h2></div>
     <button class="btn btn-add" onclick="openAddKpi()">＋ 新增 KPI</button>
@@ -259,10 +222,8 @@ input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
     <tbody id="kpi-body"></tbody>
   </table>
 
-  <!-- 7. 備註 -->
   <div class="sh"><div class="sh-left"><div class="sn">7</div><h2>備註 / 本期說明</h2></div></div>
   <textarea class="nf" id="notes" placeholder="可記錄本期重要備註、客戶回饋、執行調整說明…"></textarea>
-
 </div>
 
 <div class="footer"><p>超級穀食 膳糧五紅五黑｜行銷執行進度報告　2026年 4–6月　© Milla 行銷團隊</p></div>
@@ -273,25 +234,24 @@ input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
     <h3>＋ 新增執行項目</h3>
     <div class="form-row"><label>執行項目名稱</label><input id="m-name" placeholder="例：中醫師 KOL Reels"></div>
     <div class="form-row"><label>負責人</label><input id="m-person" placeholder="例：Milla"></div>
-    <div class="form-row"><label>執行時間</label><input id="m-time" placeholder="例：5月"></div>
+    <div class="form-row"><label>執行日期　填單一日期如 4/20，或範圍如 4/20–5/8</label><input id="m-time" placeholder="例：4/20 或 4/20–5/8"></div>
     <div class="form-row"><label>波段</label>
       <select id="m-phase"><option value="1">口碑醞釀期</option><option value="2">母親節宣傳期</option><option value="3">熱度維繫期</option></select>
     </div>
     <div class="form-row"><label>目標 KPI</label><input id="m-kpi" placeholder="例：觸及 ≥10,000"></div>
-    <div class="form-row"><label>成果連結（選填）</label><input id="m-url" placeholder="例：https://www.instagram.com/..."></div>
+    <div class="form-row"><label>成果連結（選填）</label><input id="m-url" placeholder="https://..."></div>
     <div class="modal-btns">
       <button class="btn btn-o" onclick="closeModal('modal-task')">取消</button>
       <button class="btn btn-p" onclick="confirmAddTask()">新增</button>
     </div>
   </div>
 </div>
-
 <div class="modal-bg" id="modal-budget">
   <div class="modal">
     <h3>＋ 新增預算項目</h3>
     <div class="form-row"><label>項目名稱</label><input id="b-name" placeholder="例：KOC Seeding"></div>
     <div class="form-row"><label>費用說明</label><input id="b-desc" placeholder="例：產品寄送 ×10位"></div>
-    <div class="form-row"><label>金額 (NT$)　留空填「另計」</label><input id="b-amount" placeholder="例：30000" type="number"></div>
+    <div class="form-row"><label>金額 (NT$)　留空填「另計」</label><input id="b-amount" type="number" placeholder="例：30000"></div>
     <div class="form-row"><label>負責人</label><input id="b-person" placeholder="例：Milla"></div>
     <div class="form-row"><label>波段</label><input id="b-wave" placeholder="例：5月"></div>
     <div class="modal-btns">
@@ -300,13 +260,12 @@ input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
     </div>
   </div>
 </div>
-
 <div class="modal-bg" id="modal-kpi">
   <div class="modal">
     <h3>＋ 新增 KPI 追蹤項目</h3>
     <div class="form-row"><label>執行項目</label><input id="k-item" placeholder="例：中醫師 KOL Reels"></div>
     <div class="form-row"><label>KPI 指標</label><input id="k-metric" placeholder="例：每支觀看數"></div>
-    <div class="form-row"><label>目標值（數字，用於計算達成率）</label><input id="k-target" placeholder="例：50000" type="number"></div>
+    <div class="form-row"><label>目標值（數字，用於計算達成率）</label><input id="k-target" type="number" placeholder="例：50000"></div>
     <div class="form-row"><label>目標值（顯示文字）</label><input id="k-display" placeholder="例：50,000"></div>
     <div class="modal-btns">
       <button class="btn btn-o" onclick="closeModal('modal-kpi')">取消</button>
@@ -316,27 +275,112 @@ input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
 </div>
 
 <script>
+// ── GANTT TIME UTILS ──
+// Weeks: 13 columns covering 4/1–6/30 2026
+const WEEKS = [
+  {label:'W1',date:'4/1',start:new Date(2026,3,1),end:new Date(2026,3,6)},
+  {label:'W2',date:'4/7',start:new Date(2026,3,7),end:new Date(2026,3,13)},
+  {label:'W3',date:'4/14',start:new Date(2026,3,14),end:new Date(2026,3,20)},
+  {label:'W4',date:'4/21',start:new Date(2026,3,21),end:new Date(2026,3,27)},
+  {label:'W5',date:'4/28',start:new Date(2026,3,28),end:new Date(2026,4,4)},
+  {label:'W1',date:'5/5',start:new Date(2026,4,5),end:new Date(2026,4,11)},
+  {label:'W2',date:'5/12',start:new Date(2026,4,12),end:new Date(2026,4,18)},
+  {label:'W3',date:'5/19',start:new Date(2026,4,19),end:new Date(2026,4,25)},
+  {label:'W4',date:'5/26',start:new Date(2026,4,26),end:new Date(2026,5,1)},
+  {label:'W1',date:'6/2',start:new Date(2026,5,2),end:new Date(2026,5,8)},
+  {label:'W2',date:'6/9',start:new Date(2026,5,9),end:new Date(2026,5,15)},
+  {label:'W3',date:'6/16',start:new Date(2026,5,16),end:new Date(2026,5,22)},
+  {label:'W4',date:'6/23',start:new Date(2026,5,23),end:new Date(2026,5,30)},
+];
+
+function parseDate(str){
+  // accepts "4/20", "5/8" etc in 2026
+  if(!str)return null;
+  const m=str.trim().match(/^(\d{1,2})\/(\d{1,2})$/);
+  if(!m)return null;
+  return new Date(2026,+m[1]-1,+m[2]);
+}
+
+function parseRange(str){
+  // "4/20–5/8" or "4/20-5/8" or "4月" (fuzzy month)
+  if(!str)return{start:null,end:null,single:null};
+  str=str.trim();
+  // range with dash
+  const rm=str.match(/^(\d{1,2}\/\d{1,2})\s*[–\-]\s*(\d{1,2}\/\d{1,2})$/);
+  if(rm)return{start:parseDate(rm[1]),end:parseDate(rm[2]),single:null};
+  // single date
+  const sd=parseDate(str);
+  if(sd)return{start:null,end:null,single:sd};
+  // fuzzy month like "4月", "5月", "5–6月"
+  const mm=str.match(/^(\d{1,2})[月]/);
+  if(mm){
+    const mo=+mm[1];
+    return{start:new Date(2026,mo-1,1),end:new Date(2026,mo-1,28),single:null};
+  }
+  const mm2=str.match(/^(\d{1,2})[–\-](\d{1,2})[月]/);
+  if(mm2){
+    return{start:new Date(2026,+mm2[1]-1,1),end:new Date(2026,+mm2[2]-1,28),single:null};
+  }
+  return{start:null,end:null,single:null};
+}
+
+function getGanttCells(timeStr, isAmber){
+  const {start,end,single}=parseRange(timeStr);
+  return WEEKS.map(w=>{
+    if(single){
+      // single date: show diamond in the week it falls in
+      if(single>=w.start && single<=w.end){
+        return{type:'diamond',date:timeStr,amber:isAmber};
+      }
+      return{type:'empty'};
+    }
+    if(start&&end){
+      // range: show bar across weeks that overlap
+      if(start<=w.end && end>=w.start){
+        return{type:'bar',amber:isAmber};
+      }
+      return{type:'empty'};
+    }
+    return{type:'empty'};
+  });
+}
+
+function renderGanttHead(){
+  document.getElementById('gantt-head').innerHTML=`
+    <tr>
+      <th class="ic">執行項目</th>
+      <th class="pcc">負責人</th>
+      <th class="mh" colspan="5">4 月</th>
+      <th class="mh" colspan="4">5 月</th>
+      <th class="mh" colspan="4">6 月</th>
+    </tr>
+    <tr>
+      <th class="ic"></th><th class="pcc"></th>
+      ${WEEKS.map(w=>`<th class="wk">${w.label}<br><span class="dt">${w.date}</span></th>`).join('')}
+    </tr>`;
+}
+
+function renderGantt(){
+  renderGanttHead();
+  // Use amber for phase 1 (prep tasks)
+  document.getElementById('gantt-body').innerHTML=D.tasks.map(t=>{
+    const isAmber = t.phase===1;
+    const cells=getGanttCells(t.time,isAmber);
+    return`<tr>
+      <td class="ic">${t.name}</td>
+      <td class="pcc">${t.person}</td>
+      ${cells.map(c=>{
+        if(c.type==='bar') return`<td><div class="g-bar${c.amber?' g-bar-a':''}"></div></td>`;
+        if(c.type==='diamond') return`<td><div class="g-diamond${c.amber?' g-diamond-a':''}"></div><span class="g-date">${c.date}</span></td>`;
+        return`<td></td>`;
+      }).join('')}
+    </tr>`;
+  }).join('');
+}
+
+// ── DATA ──
 const STATUSES=['待執行','進行中','洽談中','Pending','已完成'];
 const SC={'待執行':'sw-wait','進行中':'sw-prog','洽談中':'sw-talk','Pending':'sw-pend','已完成':'sw-done'};
-const PL={1:'口碑醞釀',2:'母親節期',3:'熱度維繫'};
-
-const GANTT_DATA=[
-  {name:'IP 社群預告影片',person:'小編',g:[0,0,0,0,1,0,0,0,0,0,0,0,0]},
-  {name:'為父母研發故事影片',person:'小編',g:[0,0,0,0,0,1,0,0,0,0,0,0,0]},
-  {name:'全聯尋找膳糧 Reels',person:'小編',g:[0,0,0,0,0,1,1,1,1,0,0,0,0]},
-  {name:'能量補給計劃貼文',person:'小編',g:[0,0,0,0,0,1,1,0,0,0,0,0,0]},
-  {name:'618 穀物市集貼文',person:'小編',g:[0,0,0,0,0,0,0,0,0,1,1,1,0]},
-  {name:'中醫師 KOL 洽談',person:'Milla',g:[1,1,1,1,1,0,0,0,0,0,0,0,0],a:true},
-  {name:'中醫師 KOL 發文',person:'Milla',g:[0,0,0,0,0,0,1,0,0,1,0,0,0]},
-  {name:'中醫師廣告主投放',person:'Milla',g:[0,0,0,0,0,0,0,1,1,0,1,1,1]},
-  {name:'蕎拉社團試吃招募',person:'小編',g:[0,0,1,1,1,0,1,1,0,0,0,0,0]},
-  {name:'全聯社團抽獎',person:'Milla+小編',g:[0,0,0,0,0,0,1,1,1,0,0,0,0]},
-  {name:'Threads 議題文',person:'Milla',g:[0,0,0,0,0,0,0,1,1,1,1,1,1]},
-  {name:'KOC Seeding',person:'Milla',g:[0,0,0,0,0,0,1,1,0,0,0,0,0]},
-  {name:'廣告投遞',person:'Paul',g:[0,0,0,0,0,0,1,1,1,1,1,1,1]},
-  {name:'商品說明頁',person:'Milla+阿和',g:[1,1,1,1,1,0,0,0,0,0,0,0,0],a:true},
-  {name:'母親節+618 優惠',person:'柔彥',g:[0,0,0,0,0,1,1,1,1,1,1,1,1]},
-];
 
 const DEFAULT_DATA={
   kpiCards:[
@@ -346,22 +390,22 @@ const DEFAULT_DATA={
     {label:'KOL 觸及目標',val:'100K+',hint:'中醫師 Reels'},
   ],
   tasks:[
-    {name:'IP 社群預告影片',person:'小編',time:'4月',phase:1,kpi:'觸及 ≥5,000｜互動率 ≥3%',status:'待執行',progress:0,url:''},
-    {name:'為父母研發故事影片',person:'小編',time:'5月',phase:2,kpi:'觀看 ≥10,000｜分享 ≥200',status:'待執行',progress:0,url:''},
-    {name:'全聯尋找膳糧 Reels',person:'小編',time:'5/8後',phase:2,kpi:'觸及 ≥20,000｜留言 ≥1,000',status:'待執行',progress:0,url:''},
-    {name:'能量補給計劃貼文',person:'小編',time:'5月',phase:2,kpi:'觸及 ≥10,000',status:'待執行',progress:0,url:''},
-    {name:'618 穀物市集貼文',person:'小編',time:'6月',phase:3,kpi:'觸及 ≥10,000',status:'待執行',progress:0,url:''},
-    {name:'中醫師 KOL Reels ×2–3',person:'Milla',time:'5/8後',phase:2,kpi:'每支觀看 ≥50,000',status:'洽談中',progress:5,url:''},
-    {name:'中醫師廣告主投放',person:'Milla',time:'5–6月',phase:2,kpi:'月觸及 ≥50,000｜ROAS=2',status:'待執行',progress:0,url:''},
-    {name:'蕎拉社團試吃招募',person:'小編',time:'4月底',phase:1,kpi:'心得回收率 ≥80%',status:'待執行',progress:0,url:''},
-    {name:'全聯社團抽獎',person:'Milla+小編',time:'5/8後',phase:2,kpi:'留言 ≥3,000｜曝光 ≥50,000',status:'待執行',progress:0,url:''},
-    {name:'全聯社團口碑文 ×3',person:'Milla',time:'5/8後',phase:2,kpi:'互動 ≥50',status:'Pending',progress:0,url:''},
-    {name:'Dcard 文章',person:'Milla',time:'5–6月',phase:3,kpi:'互動 ≥30',status:'Pending',progress:0,url:''},
-    {name:'Threads 議題文 ×5',person:'Milla',time:'5–6月',phase:3,kpi:'每則觸及 ≥3,000',status:'Pending',progress:0,url:''},
-    {name:'KOC Seeding 寄送',person:'Milla',time:'5月',phase:2,kpi:'曝光率 ≥80%',status:'待執行',progress:0,url:''},
-    {name:'廣告投遞（新品+促銷）',person:'Paul',time:'5–6月',phase:2,kpi:'ROAS ≥4｜CPA ≤$150',status:'待執行',progress:0,url:''},
-    {name:'商品說明頁文案+設計',person:'Milla+阿和',time:'4月底',phase:1,kpi:'頁面完成上線',status:'進行中',progress:25,url:''},
-    {name:'母親節+618 檔期優惠',person:'柔彥',time:'5–6月',phase:2,kpi:'母親節 ≥3,000包｜618 ≥4,200包',status:'待執行',progress:0,url:''},
+    {name:'IP 社群預告影片',person:'小編',time:'4/28',phase:1,kpi:'觸及 ≥5,000｜互動率 ≥3%',status:'待執行',progress:0,url:''},
+    {name:'為父母研發故事影片',person:'小編',time:'5/5',phase:2,kpi:'觀看 ≥10,000｜分享 ≥200',status:'待執行',progress:0,url:''},
+    {name:'全聯尋找膳糧 Reels',person:'小編',time:'5/8',phase:2,kpi:'觸及 ≥20,000｜留言 ≥1,000',status:'待執行',progress:0,url:''},
+    {name:'能量補給計劃貼文',person:'小編',time:'5/8–5/19',phase:2,kpi:'觸及 ≥10,000',status:'待執行',progress:0,url:''},
+    {name:'618 穀物市集貼文',person:'小編',time:'6/2',phase:3,kpi:'觸及 ≥10,000',status:'待執行',progress:0,url:''},
+    {name:'中醫師 KOL Reels ×2–3',person:'Milla',time:'5/12–6/9',phase:2,kpi:'每支觀看 ≥50,000',status:'洽談中',progress:5,url:''},
+    {name:'中醫師廣告主投放',person:'Milla',time:'5/19–6/30',phase:2,kpi:'月觸及 ≥50,000｜ROAS=2',status:'待執行',progress:0,url:''},
+    {name:'蕎拉社團試吃招募',person:'小編',time:'4/20',phase:1,kpi:'心得回收率 ≥80%',status:'待執行',progress:0,url:''},
+    {name:'全聯社團抽獎',person:'Milla+小編',time:'5/8–5/25',phase:2,kpi:'留言 ≥3,000｜曝光 ≥50,000',status:'待執行',progress:0,url:''},
+    {name:'全聯社團口碑文 ×3',person:'Milla',time:'5/8–5/25',phase:2,kpi:'互動 ≥50',status:'Pending',progress:0,url:''},
+    {name:'Dcard 文章',person:'Milla',time:'5/26',phase:3,kpi:'互動 ≥30',status:'Pending',progress:0,url:''},
+    {name:'Threads 議題文 ×5',person:'Milla',time:'5/19–6/30',phase:3,kpi:'每則觸及 ≥3,000',status:'Pending',progress:0,url:''},
+    {name:'KOC Seeding 寄送',person:'Milla',time:'5/12–5/25',phase:2,kpi:'曝光率 ≥80%',status:'待執行',progress:0,url:''},
+    {name:'廣告投遞（新品+促銷）',person:'Paul',time:'5/12–6/30',phase:2,kpi:'ROAS ≥4｜CPA ≤$150',status:'待執行',progress:0,url:''},
+    {name:'商品說明頁文案+設計',person:'Milla+阿和',time:'4/1–4/30',phase:1,kpi:'頁面完成上線',status:'進行中',progress:25,url:''},
+    {name:'母親節+618 檔期優惠',person:'柔彥',time:'5/5–6/30',phase:2,kpi:'母親節 ≥3,000包｜618 ≥4,200包',status:'待執行',progress:0,url:''},
   ],
   budget:[
     {name:'中醫師 KOL Reels',desc:'產品補氣介紹 Reels ×2–3 支',amount:110000,person:'Milla',wave:'5–6月'},
@@ -391,7 +435,7 @@ const DEFAULT_DATA={
 let D=JSON.parse(JSON.stringify(DEFAULT_DATA));
 
 function load(){
-  try{const s=localStorage.getItem('mg26v4');if(s)D=JSON.parse(s);}catch(e){}
+  try{const s=localStorage.getItem('mg26v5');if(s)D=JSON.parse(s);}catch(e){}
   document.getElementById('notes').value=D.notes||'';
   if(D.ls)document.getElementById('lu').textContent=D.ls;
 }
@@ -399,16 +443,16 @@ function load(){
 function saveAll(){
   D.notes=document.getElementById('notes').value;
   D.ls=new Date().toLocaleString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
-  localStorage.setItem('mg26v4',JSON.stringify(D));
+  localStorage.setItem('mg26v5',JSON.stringify(D));
   document.getElementById('lu').textContent=D.ls;
   const e=document.getElementById('sok');e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2200);
 }
 
-// ── KPI CARDS ──
+// KPI CARDS
 function renderKpiCards(){
   document.getElementById('kpi-cards').innerHTML=D.kpiCards.map((c,i)=>`
     <div class="kc">
-      <button class="kc-del" onclick="delKpiCard(${i})" title="刪除">✕</button>
+      <button class="kc-del" onclick="delKpiCard(${i})">✕</button>
       <div class="kc-label"><span class="ec" contenteditable="true" onblur="D.kpiCards[${i}].label=this.textContent;saveAll()">${c.label}</span></div>
       <div class="kc-val"><span class="ec" contenteditable="true" onblur="D.kpiCards[${i}].val=this.textContent;saveAll()">${c.val}</span></div>
       <div class="kc-hint"><span class="ec" contenteditable="true" onblur="D.kpiCards[${i}].hint=this.textContent;saveAll()">${c.hint}</span></div>
@@ -417,19 +461,17 @@ function renderKpiCards(){
 function addKpiCard(){D.kpiCards.push({label:'新指標',val:'—',hint:'說明'});renderKpiCards();saveAll();}
 function delKpiCard(i){if(!confirm('確定刪除？'))return;D.kpiCards.splice(i,1);renderKpiCards();saveAll();}
 
-// ── TASKS ──
+// TASKS
 function renderTasks(){
   document.getElementById('task-body').innerHTML=D.tasks.map((t,i)=>{
     const sc=SC[t.status]||'sw-wait';
-    const urlHtml=t.url
-      ?`<a href="${t.url}" target="_blank" class="url-link">🔗 查看</a>`
-      :`<input class="url-input" value="" placeholder="貼上連結" onblur="updateUrl(${i},this.value)">`;
+    const urlHtml=t.url?`<a href="${t.url}" target="_blank" class="url-link">🔗 查看</a>`:`<input class="url-input" value="" placeholder="貼上連結" onblur="updateUrl(${i},this.value)">`;
     return`<tr>
-      <td><span class="ec" contenteditable="true" style="font-weight:500" onblur="D.tasks[${i}].name=this.textContent;saveAll()">${t.name}</span></td>
-      <td><span class="ec" contenteditable="true" style="font-size:12px;color:var(--gray)" onblur="D.tasks[${i}].person=this.textContent;saveAll()">${t.person}</span></td>
-      <td><span class="ec" contenteditable="true" style="font-size:12px;color:var(--gray)" onblur="D.tasks[${i}].time=this.textContent;saveAll()">${t.time}</span></td>
+      <td><span class="ec" contenteditable="true" style="font-weight:500" onblur="D.tasks[${i}].name=this.textContent;saveAll();renderGantt()">${t.name}</span></td>
+      <td><span class="ec" contenteditable="true" style="font-size:12px;color:var(--gray)" onblur="D.tasks[${i}].person=this.textContent;saveAll();renderGantt()">${t.person}</span></td>
+      <td><span class="ec" contenteditable="true" style="font-size:12px;color:var(--teal);font-weight:500" onblur="D.tasks[${i}].time=this.textContent;saveAll();renderGantt()" title="填 4/20 或 4/20–5/8">${t.time}</span></td>
       <td>
-        <select class="ph-sel" onchange="D.tasks[${i}].phase=+this.value;saveAll()">
+        <select class="ph-sel" onchange="D.tasks[${i}].phase=+this.value;saveAll();renderGantt()">
           <option value="1"${t.phase==1?' selected':''}>口碑醞釀</option>
           <option value="2"${t.phase==2?' selected':''}>母親節期</option>
           <option value="3"${t.phase==3?' selected':''}>熱度維繫</option>
@@ -443,37 +485,17 @@ function renderTasks(){
     </tr>`;
   }).join('');
 }
-
-function updateUrl(i,val){
-  const url=val.trim();
-  D.tasks[i].url=url;
-  saveAll();
-  renderTasks();
-}
-
-function delTask(i){if(!confirm('確定刪除此項目？'))return;D.tasks.splice(i,1);renderTasks();saveAll();}
-function openAddTask(){
-  ['m-name','m-person','m-time','m-kpi','m-url'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('modal-task').classList.add('show');
-}
+function updateUrl(i,val){D.tasks[i].url=val.trim();saveAll();renderTasks();}
+function delTask(i){if(!confirm('確定刪除此項目？'))return;D.tasks.splice(i,1);renderTasks();renderGantt();saveAll();}
+function openAddTask(){['m-name','m-person','m-time','m-kpi','m-url'].forEach(id=>document.getElementById(id).value='');document.getElementById('modal-task').classList.add('show');}
 function confirmAddTask(){
   const name=document.getElementById('m-name').value.trim();
   if(!name)return alert('請填寫項目名稱');
-  D.tasks.push({name,person:document.getElementById('m-person').value||'—',time:document.getElementById('m-time').value||'—',phase:+document.getElementById('m-phase').value,kpi:document.getElementById('m-kpi').value||'—',status:'待執行',progress:0,url:document.getElementById('m-url').value.trim()});
-  renderTasks();saveAll();closeModal('modal-task');
+  D.tasks.push({name,person:document.getElementById('m-person').value||'—',time:document.getElementById('m-time').value||'',phase:+document.getElementById('m-phase').value,kpi:document.getElementById('m-kpi').value||'—',status:'待執行',progress:0,url:document.getElementById('m-url').value.trim()});
+  renderTasks();renderGantt();saveAll();closeModal('modal-task');
 }
 
-// ── GANTT ──
-function renderGantt(){
-  document.getElementById('gantt-body').innerHTML=GANTT_DATA.map(t=>`
-    <tr>
-      <td class="ic">${t.name}</td>
-      <td class="pcc">${t.person}</td>
-      ${t.g.map(v=>`<td>${v?`<div class="bar${t.a?' bar-a':''}"></div>`:''}</td>`).join('')}
-    </tr>`).join('');
-}
-
-// ── BUDGET ──
+// BUDGET
 function renderBudget(){
   document.getElementById('budget-body').innerHTML=D.budget.map((b,i)=>`
     <tr>
@@ -486,25 +508,18 @@ function renderBudget(){
     </tr>`).join('');
   updateBudgetTotal();
 }
-function updateBudgetAmt(i,val){
-  const n=parseFloat(val.replace(/[^0-9.]/g,''));
-  D.budget[i].amount=isNaN(n)?null:n;saveAll();updateBudgetTotal();
-}
-function updateBudgetTotal(){
-  const total=D.budget.reduce((s,b)=>s+(b.amount||0),0);
-  document.getElementById('budget-total').textContent=total>0?'NT$'+total.toLocaleString():'另計';
-}
+function updateBudgetAmt(i,val){const n=parseFloat(val.replace(/[^0-9.]/g,''));D.budget[i].amount=isNaN(n)?null:n;saveAll();updateBudgetTotal();}
+function updateBudgetTotal(){const t=D.budget.reduce((s,b)=>s+(b.amount||0),0);document.getElementById('budget-total').textContent=t>0?'NT$'+t.toLocaleString():'另計';}
 function delBudget(i){if(!confirm('確定刪除？'))return;D.budget.splice(i,1);renderBudget();saveAll();}
 function openAddBudget(){['b-name','b-desc','b-person','b-wave'].forEach(id=>document.getElementById(id).value='');document.getElementById('b-amount').value='';document.getElementById('modal-budget').classList.add('show');}
 function confirmAddBudget(){
-  const name=document.getElementById('b-name').value.trim();
-  if(!name)return alert('請填寫項目名稱');
+  const name=document.getElementById('b-name').value.trim();if(!name)return alert('請填寫項目名稱');
   const amt=parseFloat(document.getElementById('b-amount').value);
   D.budget.push({name,desc:document.getElementById('b-desc').value||'—',amount:isNaN(amt)?null:amt,person:document.getElementById('b-person').value||'—',wave:document.getElementById('b-wave').value||'—'});
   renderBudget();saveAll();closeModal('modal-budget');
 }
 
-// ── KPI TRACKING ──
+// KPI TRACKING
 function cr(a,n){const v=parseFloat(String(a).replace(/[^0-9.]/g,''));if(isNaN(v)||!n)return null;return Math.round((v/n)*100);}
 function rc(r){return r>=100?'#3B6D11':r>=80?'var(--amber)':'var(--red)';}
 function rl(r){return r>=100?'✅ 達標':r>=80?'⚠️ 接近':'❌ 未達';}
@@ -532,8 +547,7 @@ function updateKpiRate(i){
 function delKpi(i){if(!confirm('確定刪除？'))return;D.kpis.splice(i,1);renderKpis();saveAll();}
 function openAddKpi(){['k-item','k-metric','k-display'].forEach(id=>document.getElementById(id).value='');document.getElementById('k-target').value='';document.getElementById('modal-kpi').classList.add('show');}
 function confirmAddKpi(){
-  const item=document.getElementById('k-item').value.trim();
-  if(!item)return alert('請填寫執行項目名稱');
+  const item=document.getElementById('k-item').value.trim();if(!item)return alert('請填寫執行項目名稱');
   const n=parseFloat(document.getElementById('k-target').value)||0;
   D.kpis.push({item,metric:document.getElementById('k-metric').value||'—',display:document.getElementById('k-display').value||String(n),n,actual:''});
   renderKpis();saveAll();closeModal('modal-kpi');
@@ -544,8 +558,7 @@ document.querySelectorAll('.modal-bg').forEach(m=>m.addEventListener('click',e=>
 
 function resetAll(){
   if(!confirm('確定要重設所有資料回預設值嗎？'))return;
-  D=JSON.parse(JSON.stringify(DEFAULT_DATA));
-  localStorage.removeItem('mg26v4');
+  D=JSON.parse(JSON.stringify(DEFAULT_DATA));localStorage.removeItem('mg26v5');
   renderAll();document.getElementById('notes').value='';document.getElementById('lu').textContent='—';
 }
 
@@ -566,8 +579,7 @@ function exportClient(){
   });
   clone.querySelectorAll('select.ss').forEach(sel=>{
     const cm={'sw-wait':'background:#F1EFE8;color:#5F5E5A','sw-prog':'background:#FAEEDA;color:#854F0B','sw-talk':'background:#E1F5EE;color:#0F6E56','sw-pend':'background:#E6F1FB;color:#185FA5','sw-done':'background:#EAF3DE;color:#3B6D11'};
-    const span=document.createElement('span');
-    const cls=Array.from(sel.classList).find(c=>c.startsWith('sw-'))||'sw-wait';
+    const span=document.createElement('span');const cls=Array.from(sel.classList).find(c=>c.startsWith('sw-'))||'sw-wait';
     span.style.cssText=(cm[cls]||'')+';font-size:12px;padding:3px 10px;border-radius:20px;font-weight:500;display:inline-block';
     span.textContent=sel.value;sel.parentElement.replaceWith(span);
   });
