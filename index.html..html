@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>超級穀食 膳糧五紅五黑｜行銷執行進度報告</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#0F6E56;--teal-mid:#1D9E75;--teal-light:#E1F5EE;--teal-pale:#f4fbf8;--amber:#854F0B;--amber-light:#FAEEDA;--blue:#185FA5;--blue-light:#E6F1FB;--gray:#5F5E5A;--gray-light:#F1EFE8;--gray-border:#D3D1C7;--black:#2C2C2A;--red:#A32D2D;--green:#3B6D11;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC',sans-serif;background:#f7f6f2;color:var(--black);font-size:14px;line-height:1.7}
+.hero{background:var(--teal);padding:48px 60px 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-60px;top:-80px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,.04)}
+.hero-inner{max-width:920px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1}
+.hero-brand{font-family:'DM Serif Display',serif;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:10px}
+.hero-title{font-size:30px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:6px}
+.hero-sub{font-size:13px;color:rgba(255,255,255,.6);font-weight:300}
+.mlabel{font-size:10px;letter-spacing:1.5px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:3px}
+.mval{font-size:13px;color:rgba(255,255,255,.8);font-weight:500;margin-bottom:10px}
+.hero-concept{max-width:920px;margin:18px auto 0;background:rgba(255,255,255,.08);border-left:3px solid rgba(255,255,255,.3);padding:10px 16px;font-size:13px;color:rgba(255,255,255,.7);font-style:italic;position:relative;z-index:1}
+.toolbar{background:#fff;border-bottom:1px solid var(--gray-border);padding:10px 60px;position:sticky;top:0;z-index:100}
+.toolbar-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.toolbar-hint{font-size:12px;color:var(--gray)}
+.btn{padding:7px 16px;border-radius:8px;font-size:12px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;font-weight:500;border:none;transition:.15s}
+.btn-p{background:var(--teal);color:#fff}.btn-p:hover{background:#0a5040}
+.btn-o{background:#fff;color:var(--gray);border:1px solid var(--gray-border)}.btn-o:hover{background:var(--gray-light)}
+.btn-d{background:#fff;color:var(--red);border:1px solid #F7C1C1}.btn-d:hover{background:#FCEBEB}
+.save-ok{font-size:11px;color:var(--teal-mid);margin-left:auto;opacity:0;transition:.3s}
+.save-ok.show{opacity:1}
+.container{max-width:920px;margin:0 auto;padding:0 24px 60px}
+.sh{display:flex;align-items:center;gap:12px;margin:40px 0 18px}
+.sn{width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sh h2{font-size:15px;font-weight:700;color:var(--teal)}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
+.kc{background:#fff;border:1px solid var(--gray-border);border-radius:12px;padding:16px}
+.kc-label{font-size:11px;color:var(--gray);margin-bottom:5px;font-weight:500}
+.kc-val{font-size:22px;font-weight:700;color:var(--teal);line-height:1.1}
+.kc-hint{font-size:11px;color:#aaa;margin-top:3px}
+.pb{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
+.ph{border-radius:10px;padding:12px 14px;border-left:4px solid}
+.ph1{background:var(--teal-light);border-color:var(--teal-mid)}
+.ph2{background:var(--amber-light);border-color:var(--amber)}
+.ph3{background:var(--blue-light);border-color:var(--blue)}
+.phn{font-size:12px;font-weight:700;margin-bottom:2px}
+.ph1 .phn{color:var(--teal)}.ph2 .phn{color:var(--amber)}.ph3 .phn{color:var(--blue)}
+.pht{font-size:11px;color:var(--gray)}
+.et{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--gray-border);font-size:13px}
+.et thead tr{background:var(--teal);color:rgba(255,255,255,.85)}
+.et thead th{padding:10px 13px;text-align:left;font-size:11px;font-weight:500;letter-spacing:.4px}
+.et tbody tr{border-bottom:1px solid var(--gray-border)}
+.et tbody tr:last-child{border-bottom:none}
+.et tbody tr:hover{background:var(--teal-pale)}
+.et td{padding:10px 13px;vertical-align:middle}
+.tn{font-weight:500;color:var(--black)}
+.ts{font-size:11px;color:var(--gray);margin-top:2px}
+.pc{font-size:12px;color:var(--gray)}
+.sw{position:relative;display:inline-block;min-width:84px}
+.sw::after{content:'▾';font-size:9px;position:absolute;right:6px;top:50%;transform:translateY(-50%);pointer-events:none}
+.ss{border:none;font-family:'Noto Sans TC',sans-serif;font-size:12px;font-weight:500;cursor:pointer;padding:3px 22px 3px 10px;border-radius:20px;appearance:none;-webkit-appearance:none;outline:none;width:100%}
+.sw-wait{background:var(--gray-light);color:var(--gray)}
+.sw-prog{background:var(--amber-light);color:var(--amber)}
+.sw-talk{background:var(--teal-light);color:var(--teal)}
+.sw-pend{background:var(--blue-light);color:var(--blue)}
+.sw-done{background:#EAF3DE;color:var(--green)}
+input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
+.prw{display:flex;align-items:center;gap:8px}
+.prp{font-size:11px;font-weight:600;color:var(--teal);min-width:30px;text-align:right}
+.ei{border:none;background:transparent;font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--black);width:100%;outline:none;padding:2px 6px;border-radius:4px;transition:.15s}
+.ei:hover{background:var(--gray-light)}
+.ei:focus{background:var(--teal-light);box-shadow:0 0 0 1px var(--teal-mid)}
+.ei.ac{font-weight:600;color:var(--teal)}
+.ptag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500}
+.pt1{background:var(--teal-light);color:var(--teal)}.pt2{background:var(--amber-light);color:var(--amber)}.pt3{background:var(--blue-light);color:var(--blue)}
+.gw{background:#fff;border:1px solid var(--gray-border);border-radius:12px;overflow:hidden}
+.gs{overflow-x:auto}
+.gt{width:100%;border-collapse:collapse;font-size:11px;min-width:720px}
+.gt th{padding:8px 5px;text-align:center;background:var(--teal);color:rgba(255,255,255,.8);font-weight:500;font-size:10px}
+.gt th.ic{text-align:left;padding-left:14px;width:180px;font-size:11px}
+.gt th.pcc{text-align:left;padding-left:10px;width:72px}
+.gt th.mh{background:rgba(0,0,0,.15);font-size:11px;letter-spacing:1px}
+.gt td{padding:6px 5px;text-align:center;border-bottom:1px solid var(--gray-border);border-right:1px solid var(--gray-border)}
+.gt td.ic{text-align:left;padding-left:14px;font-size:12px;font-weight:500;border-right:2px solid var(--gray-border);white-space:nowrap}
+.gt td.pcc{text-align:left;padding-left:10px;color:var(--gray);font-size:11px;border-right:2px solid var(--gray-border)}
+.gt tbody tr:last-child td{border-bottom:none}
+.gt tbody tr:nth-child(even){background:#fbfaf7}
+.bar{width:100%;height:13px;border-radius:3px;background:var(--teal-mid);opacity:.82}
+.bar-a{background:var(--amber);opacity:.7}
+.bg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.bc{background:#fff;border:1px solid var(--gray-border);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.bcl{font-size:13px;color:var(--gray)}.bch{font-size:11px;color:#aaa}.bcv{font-size:20px;font-weight:700;color:var(--teal)}
+.nf{width:100%;border:1px solid var(--gray-border);border-radius:8px;padding:12px;font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--black);resize:vertical;min-height:80px;background:#fff;outline:none;transition:.15s}
+.nf:focus{border-color:var(--teal-mid);box-shadow:0 0 0 2px rgba(29,158,117,.15)}
+.footer{background:var(--teal);padding:22px 60px;text-align:center}
+.footer p{font-size:12px;color:rgba(255,255,255,.45)}
+@media(max-width:680px){.hero,.toolbar{padding-left:16px;padding-right:16px}.container{padding:0 12px 40px}.kpi-grid{grid-template-columns:repeat(2,1fr)}.pb,.bg{grid-template-columns:1fr}.hero-inner{flex-direction:column;align-items:flex-start;gap:14px}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-brand">Marketing Progress Report</div>
+      <div class="hero-title">超級穀食 膳糧五紅五黑<br>行銷執行進度報告</div>
+      <div class="hero-sub">2026年 4月 – 6月　波段宣傳執行總覽</div>
+    </div>
+    <div>
+      <div class="mlabel">執行方</div><div class="mval">Milla 行銷團隊</div>
+      <div class="mlabel">最後更新</div><div class="mval" id="lu">—</div>
+    </div>
+  </div>
+  <div class="hero-concept">宣傳概念：穀食界的「補氣早餐」，膳糧好穀氣，開啟早晨能量</div>
+</div>
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <span class="toolbar-hint">✏️ 點擊欄位直接編輯・自動存在瀏覽器</span>
+    <button class="btn btn-p" onclick="saveAll()">💾 儲存</button>
+    <button class="btn btn-o" onclick="exportClient()">📤 匯出客戶版</button>
+    <button class="btn btn-d" onclick="resetAll()">🗑 重設</button>
+    <span class="save-ok" id="sok">✓ 已儲存</span>
+  </div>
+</div>
+<div class="container">
+  <div class="sh"><div class="sn">1</div><h2>核心目標</h2></div>
+  <div class="kpi-grid">
+    <div class="kc"><div class="kc-label">總行銷預算</div><div class="kc-val">$230K</div><div class="kc-hint">廣告費另計</div></div>
+    <div class="kc"><div class="kc-label">目標 ROAS</div><div class="kc-val">≥ 4</div><div class="kc-hint">廣告投遞</div></div>
+    <div class="kc"><div class="kc-label">銷量目標</div><div class="kc-val">6,200包</div><div class="kc-hint">線上＋全聯</div></div>
+    <div class="kc"><div class="kc-label">KOL 觸及目標</div><div class="kc-val">100K+</div><div class="kc-hint">中醫師 Reels</div></div>
+  </div>
+  <div class="sh"><div class="sn">2</div><h2>波段規劃</h2></div>
+  <div class="pb">
+    <div class="ph ph1"><div class="phn">口碑醞釀期</div><div class="pht">4月　IP 預告・試吃招募・商品頁</div></div>
+    <div class="ph ph2"><div class="phn">母親節宣傳期</div><div class="pht">5月　KOL・全聯抽獎・廣告投遞</div></div>
+    <div class="ph ph3"><div class="phn">熱度維繫期</div><div class="pht">6月　618 市集・Threads・口碑延燒</div></div>
+  </div>
+  <div class="sh"><div class="sn">3</div><h2>執行項目明細</h2></div>
+  <table class="et"><thead><tr>
+    <th style="width:26%">執行項目</th><th style="width:9%">負責人</th><th style="width:9%">時間</th>
+    <th style="width:11%">波段</th><th style="width:19%">目標 KPI</th><th style="width:14%">完成率</th><th style="width:12%">狀態</th>
+  </tr></thead><tbody id="tb"></tbody></table>
+  <div class="sh"><div class="sn">4</div><h2>時程甘特圖（4–6月）</h2></div>
+  <div class="gw"><div class="gs"><table class="gt">
+    <thead>
+      <tr><th class="ic">執行項目</th><th class="pcc">負責人</th><th class="mh" colspan="5">4 月</th><th class="mh" colspan="4">5 月</th><th class="mh" colspan="4">6 月</th></tr>
+      <tr><th class="ic"></th><th class="pcc"></th><th>W1</th><th>W2</th><th>W3</th><th>W4</th><th>W5</th><th>W1</th><th>W2</th><th>W3</th><th>W4</th><th>W1</th><th>W2</th><th>W3</th><th>W4</th></tr>
+    </thead>
+    <tbody id="gb"></tbody>
+  </table></div></div>
+  <div class="sh"><div class="sn">5</div><h2>預算總覽</h2></div>
+  <div class="bg">
+    <div class="bc"><div><div class="bcl">已確認行銷預算</div><div class="bch">KOL + 抽獎 + 口碑文</div></div><div class="bcv">NT$270,000</div></div>
+    <div class="bc"><div><div class="bcl">廣告投遞預算</div><div class="bch">檔期預算另計</div></div><div class="bcv" style="color:var(--gray)">另計</div></div>
+  </div>
+  <table class="et"><thead><tr><th style="width:28%">項目</th><th style="width:32%">費用說明</th><th style="width:18%">金額 (NT$)</th><th style="width:12%">負責人</th><th style="width:10%">波段</th></tr></thead>
+  <tbody>
+    <tr><td>中醫師 KOL Reels</td><td>產品補氣介紹 Reels ×2–3 支</td><td style="font-weight:600;color:var(--teal)">$110,000</td><td>Milla</td><td><span class="ptag pt2">5–6月</span></td></tr>
+    <tr><td>全聯社團抽獎</td><td>好物老實說 獎品成本 ×10名</td><td style="font-weight:600;color:var(--teal)">$120,000</td><td>Milla+小編</td><td><span class="ptag pt2">5月</span></td></tr>
+    <tr><td>全聯社團口碑文</td><td>素人口碑文 ×3 篇</td><td style="font-weight:600;color:var(--teal)">$40,000</td><td>Milla</td><td><span class="ptag pt3">5–6月</span></td></tr>
+    <tr><td>中醫師廣告主投放</td><td>FB/IG 雙平台 1 個月</td><td style="color:var(--gray)">另計</td><td>Milla</td><td><span class="ptag pt2">5–6月</span></td></tr>
+    <tr><td>廣告投遞（新品+促銷）</td><td>新品上市 + KOL Reels 加投</td><td style="color:var(--gray)">另計</td><td>Paul</td><td><span class="ptag pt2">5–6月</span></td></tr>
+    <tr><td>母親節 + 618 檔期優惠</td><td>滿額贈隨手包成本</td><td style="color:var(--gray)">另計</td><td>柔彥</td><td><span class="ptag pt3">5–6月</span></td></tr>
+    <tr style="background:var(--teal-light)"><td colspan="2" style="font-weight:700;color:var(--teal)">已確認預算合計</td><td style="font-weight:700;color:var(--teal)">$270,000</td><td colspan="2"></td></tr>
+  </tbody></table>
+  <div class="sh"><div class="sn">6</div><h2>KPI 成效追蹤</h2></div>
+  <table class="et"><thead><tr>
+    <th style="width:24%">執行項目</th><th style="width:17%">KPI 指標</th><th style="width:14%">目標值</th>
+    <th style="width:17%">實際值（可填）</th><th style="width:14%">達成率</th><th style="width:14%">狀態</th>
+  </tr></thead><tbody id="kb"></tbody></table>
+  <div class="sh"><div class="sn">7</div><h2>備註 / 本期說明</h2></div>
+  <textarea class="nf" id="notes" placeholder="可記錄本期重要備註、客戶回饋、執行調整說明…"></textarea>
+</div>
+<div class="footer"><p>超級穀食 膳糧五紅五黑｜行銷執行進度報告　2026年 4–6月　© Milla 行銷團隊</p></div>
+<script>
+const T=[
+  {n:'IP 社群預告影片',p:'小編',t:'4月',ph:1,k:'觸及 ≥5,000｜互動率 ≥3%',g:[0,0,0,0,1,0,0,0,0,0,0,0,0]},
+  {n:'為父母研發故事影片',p:'小編',t:'5月',ph:2,k:'觀看 ≥10,000｜分享 ≥200',g:[0,0,0,0,0,1,0,0,0,0,0,0,0]},
+  {n:'全聯尋找膳糧 Reels',p:'小編',t:'5/8後',ph:2,k:'觸及 ≥20,000｜留言 ≥1,000',g:[0,0,0,0,0,1,1,1,1,0,0,0,0]},
+  {n:'能量補給計劃貼文',p:'小編',t:'5月',ph:2,k:'觸及 ≥10,000',g:[0,0,0,0,0,1,1,0,0,0,0,0,0]},
+  {n:'618 穀物市集貼文',p:'小編',t:'6月',ph:3,k:'觸及 ≥10,000',g:[0,0,0,0,0,0,0,0,0,1,1,1,0]},
+  {n:'中醫師 KOL 洽談',p:'Milla',t:'4月底',ph:2,k:'合約確認',g:[1,1,1,1,1,0,0,0,0,0,0,0,0],a:true},
+  {n:'中醫師 KOL Reels 發文',p:'Milla',t:'5/8後',ph:2,k:'每支觀看 ≥50,000',g:[0,0,0,0,0,0,1,0,0,1,0,0,0]},
+  {n:'中醫師廣告主投放',p:'Milla',t:'5–6月',ph:2,k:'月觸及 ≥50,000｜ROAS=2',g:[0,0,0,0,0,0,0,1,1,0,1,1,1]},
+  {n:'蕎拉社團試吃招募',p:'小編',t:'4月底',ph:1,k:'心得回收率 ≥80%',g:[0,0,1,1,1,0,1,1,0,0,0,0,0]},
+  {n:'全聯社團抽獎',p:'Milla+小編',t:'5/8後',ph:2,k:'留言 ≥3,000｜曝光 ≥50,000',g:[0,0,0,0,0,0,1,1,1,0,0,0,0]},
+  {n:'全聯社團口碑文 ×3',p:'Milla',t:'5/8後',ph:2,k:'互動 ≥50',g:[0,0,0,0,0,0,1,1,1,0,0,0,0]},
+  {n:'Dcard 文章',p:'Milla',t:'5–6月',ph:3,k:'互動 ≥30',g:[0,0,0,0,0,0,0,0,1,0,0,0,0]},
+  {n:'Threads 議題文 ×5',p:'Milla',t:'5–6月',ph:3,k:'每則觸及 ≥3,000',g:[0,0,0,0,0,0,0,1,1,1,1,1,1]},
+  {n:'KOC Seeding 寄送',p:'Milla',t:'5月',ph:2,k:'曝光率 ≥80%',g:[0,0,0,0,0,0,1,1,0,0,0,0,0]},
+  {n:'廣告投遞（新品+促銷）',p:'Paul',t:'5–6月',ph:2,k:'ROAS ≥4｜CPA ≤$150',g:[0,0,0,0,0,0,1,1,1,1,1,1,1]},
+  {n:'商品說明頁文案+設計',p:'Milla+阿和',t:'4月底',ph:1,k:'頁面完成上線',g:[1,1,1,1,1,0,0,0,0,0,0,0,0],a:true},
+  {n:'母親節+618 檔期優惠',p:'柔彥',t:'5–6月',ph:2,k:'母親節 ≥3,000包｜618 ≥4,200包',g:[0,0,0,0,0,1,1,1,1,1,1,1,1]},
+];
+const K=[
+  {i:'IP 社群預告影片',m:'觸及數',tg:'10,000',n:10000},
+  {i:'為父母研發故事影片',m:'觀看數',tg:'15,000',n:15000},
+  {i:'全聯尋找膳糧 Reels',m:'抽獎留言則數',tg:'1,000',n:1000},
+  {i:'中醫師 KOL Reels',m:'每支觀看數',tg:'50,000',n:50000},
+  {i:'全聯社團抽獎',m:'參與留言則數',tg:'3,000',n:3000},
+  {i:'全聯社團抽獎',m:'社團曝光數',tg:'50,000',n:50000},
+  {i:'Threads 議題文',m:'每則觸及',tg:'3,000',n:3000},
+  {i:'廣告投遞（整體）',m:'ROAS',tg:'≥ 4',n:4},
+  {i:'廣告投遞（整體）',m:'CPA (NT$)',tg:'≤ $150',n:150},
+  {i:'廣告投遞（整體）',m:'廣告觸及數',tg:'100,000',n:100000},
+  {i:'整體銷售目標',m:'總銷售包數',tg:'6,000–7,200包',n:6000},
+  {i:'整體銷售目標',m:'目標 ROAS',tg:'4',n:4},
+];
+const SV=['待執行','進行中','洽談中','Pending','已完成'];
+const SC={'待執行':'sw-wait','進行中':'sw-prog','洽談中':'sw-talk','Pending':'sw-pend','已完成':'sw-done'};
+const PL={1:'口碑醞釀',2:'母親節期',3:'熱度維繫'};
+const PT={1:'pt1',2:'pt2',3:'pt3'};
+let D={tasks:{},kpis:{},notes:''};
+
+function load(){
+  try{const s=localStorage.getItem('mg26');if(s)D=JSON.parse(s);}catch(e){}
+  document.getElementById('notes').value=D.notes||'';
+  if(D.ls)document.getElementById('lu').textContent=D.ls;
+}
+function saveAll(){
+  D.notes=document.getElementById('notes').value;
+  D.ls=new Date().toLocaleString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+  localStorage.setItem('mg26',JSON.stringify(D));
+  document.getElementById('lu').textContent=D.ls;
+  const e=document.getElementById('sok');e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2200);
+}
+function gtd(i){return D.tasks[i]||{status:'待執行',progress:0};}
+function gkd(i){return D.kpis[i]||{actual:''};}
+function setSt(i,sel){if(!D.tasks[i])D.tasks[i]={status:'待執行',progress:0};D.tasks[i].status=sel.value;sel.className=(SC[sel.value]||'sw-wait')+' ss';saveAll();}
+function setPr(i,el){if(!D.tasks[i])D.tasks[i]={status:'待執行',progress:0};D.tasks[i].progress=+el.value;const pp=document.getElementById('pp'+i);if(pp)pp.textContent=el.value+'%';}
+function cr(a,n){const v=parseFloat(String(a).replace(/[^0-9.]/g,''));if(isNaN(v)||!n)return null;return Math.round((v/n)*100);}
+function rc(r){return r>=100?'#3B6D11':r>=80?'var(--amber)':'var(--red)';}
+function rl(r){return r>=100?'✅ 達標':r>=80?'⚠️ 接近':'❌ 未達';}
+function setKpi(i,el){
+  if(!D.kpis[i])D.kpis[i]={actual:''};D.kpis[i].actual=el.value;
+  const r=cr(el.value,K[i].n);const c=r!==null?rc(r):'var(--gray)';
+  const re=document.getElementById('kr'+i);const le=document.getElementById('kl'+i);
+  if(re){re.textContent=r!==null?r+'%':'—';re.style.color=c;}
+  if(le){le.textContent=r!==null?rl(r):'待填入';le.style.color=c;}
+}
+function renderT(){
+  document.getElementById('tb').innerHTML=T.map((t,i)=>{
+    const s=gtd(i);const pr=s.progress||0;const sc=SC[s.status]||'sw-wait';
+    return`<tr>
+      <td><div class="tn">${t.n}</div></td>
+      <td class="pc">${t.p}</td><td class="pc">${t.t}</td>
+      <td><span class="ptag ${PT[t.ph]}">${PL[t.ph]}</span></td>
+      <td class="ts">${t.k}</td>
+      <td><div class="prw"><input type="range" min="0" max="100" step="5" value="${pr}" oninput="setPr(${i},this)" onchange="saveAll()"><span class="prp" id="pp${i}">${pr}%</span></div></td>
+      <td><div class="sw"><select class="${sc} ss" onchange="setSt(${i},this)">${SV.map(sv=>`<option${sv===s.status?' selected':''}>${sv}</option>`).join('')}</select></div></td>
+    </tr>`;
+  }).join('');
+}
+function renderG(){
+  document.getElementById('gb').innerHTML=T.map(t=>`<tr><td class="ic">${t.n}</td><td class="pcc">${t.p}</td>${t.g.map(v=>`<td>${v?`<div class="bar${t.a?' bar-a':''}"></div>`:''}</td>`).join('')}</tr>`).join('');
+}
+function renderK(){
+  document.getElementById('kb').innerHTML=K.map((k,i)=>{
+    const a=gkd(i).actual||'';const r=cr(a,k.n);const c=r!==null?rc(r):'var(--gray)';
+    return`<tr><td>${k.i}</td><td>${k.m}</td><td style="font-weight:600;color:var(--teal)">${k.tg}</td>
+      <td><input class="ei ac" value="${a}" placeholder="填入實際值" oninput="setKpi(${i},this)" onblur="saveAll()"></td>
+      <td><span id="kr${i}" style="font-weight:600;color:${c}">${r!==null?r+'%':'—'}</span></td>
+      <td><span id="kl${i}" style="font-size:12px;color:${c}">${r!==null?rl(r):'待填入'}</span></td>
+    </tr>`;
+  }).join('');
+}
+function resetAll(){
+  if(!confirm('確定要重設所有進度嗎？此操作無法復原。'))return;
+  D={tasks:{},kpis:{},notes:''};localStorage.removeItem('mg26');
+  renderT();renderK();document.getElementById('notes').value='';
+}
+function exportClient(){
+  const now=new Date().toLocaleDateString('zh-TW');
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelector('.toolbar').remove();
+  clone.querySelectorAll('input[type=range]').forEach((r,i)=>{
+    const pp=document.getElementById('pp'+i);
+    const span=document.createElement('span');
+    span.style.cssText='font-size:12px;font-weight:600;color:#0F6E56';
+    span.textContent=pp?pp.textContent:r.value+'%';
+    r.parentElement.replaceWith(span);
+  });
+  clone.querySelectorAll('select.ss').forEach(sel=>{
+    const cm={'sw-wait':'background:#F1EFE8;color:#5F5E5A','sw-prog':'background:#FAEEDA;color:#854F0B','sw-talk':'background:#E1F5EE;color:#0F6E56','sw-pend':'background:#E6F1FB;color:#185FA5','sw-done':'background:#EAF3DE;color:#3B6D11'};
+    const span=document.createElement('span');
+    const cls=Array.from(sel.classList).find(c=>c.startsWith('sw-'))||'sw-wait';
+    span.style.cssText=(cm[cls]||'')+';font-size:12px;padding:3px 10px;border-radius:20px;font-weight:500;display:inline-block';
+    span.textContent=sel.value;sel.parentElement.replaceWith(span);
+  });
+  clone.querySelectorAll('input.ac').forEach((inp,i)=>{
+    const span=document.createElement('span');span.style.cssText='font-size:13px;font-weight:600;color:#0F6E56';span.textContent=inp.value||'—';inp.replaceWith(span);
+  });
+  const ta=clone.querySelector('#notes');
+  if(ta){const d=document.createElement('div');d.style.cssText='padding:12px;border:1px solid #D3D1C7;border-radius:8px;font-size:13px;white-space:pre-wrap;background:#fff;min-height:50px';d.textContent=ta.value;ta.replaceWith(d);}
+  clone.querySelectorAll('script').forEach(s=>s.remove());
+  const lu=clone.querySelector('#lu');if(lu)lu.textContent=now;
+  const blob=new Blob(['<!DOCTYPE html>\n'+clone.outerHTML],{type:'text/html;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download=`超級穀食膳糧_客戶進度報告_${now.replace(/\//g,'')}.html`;a.click();
+}
+load();renderT();renderG();renderK();
+document.getElementById('notes').addEventListener('blur',saveAll);
+</script>
+</body>
+</html>
