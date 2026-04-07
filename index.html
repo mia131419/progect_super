@@ -65,6 +65,11 @@ input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
 .prp{font-size:11px;font-weight:600;color:var(--teal);min-width:30px;text-align:right}
 .del-row{background:none;border:none;cursor:pointer;color:#ccc;font-size:15px;padding:2px 4px;border-radius:4px;transition:.15s;line-height:1}
 .del-row:hover{color:var(--red);background:#FCEBEB}
+.drag-handle{cursor:grab;color:#ccc;font-size:16px;padding:2px 6px;user-select:none;display:block;text-align:center;transition:.15s}
+.drag-handle:hover{color:var(--teal)}
+.drag-handle:active{cursor:grabbing}
+tr.dragging{opacity:.4;background:var(--teal-light)!important}
+tr.drag-over{border-top:2px solid var(--teal-mid)}
 .ptag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500}
 .pt1{background:var(--teal-light);color:var(--teal)}.pt2{background:var(--amber-light);color:var(--amber)}.pt3{background:var(--blue-light);color:var(--blue)}
 .ph-sel{border:1px solid var(--gray-border);font-family:'Noto Sans TC',sans-serif;font-size:11px;border-radius:20px;padding:2px 8px;cursor:pointer;background:#fff;outline:none}
@@ -166,12 +171,13 @@ input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
   </div>
   <table class="et">
     <thead><tr>
-      <th style="width:20%">執行項目</th>
+      <th style="width:3%"></th>
+      <th style="width:19%">執行項目</th>
       <th style="width:8%">負責人</th>
       <th style="width:9%">執行日期<br><span style="font-weight:400;opacity:.7;font-size:10px">填 4/20 或 4/20–5/8</span></th>
       <th style="width:9%">波段</th>
-      <th style="width:16%">目標 KPI</th>
-      <th style="width:12%">完成率</th>
+      <th style="width:15%">目標 KPI</th>
+      <th style="width:11%">完成率</th>
       <th style="width:10%">狀態</th>
       <th style="width:11%">成果連結</th>
       <th style="width:5%"></th>
@@ -462,11 +468,14 @@ function addKpiCard(){D.kpiCards.push({label:'新指標',val:'—',hint:'說明'
 function delKpiCard(i){if(!confirm('確定刪除？'))return;D.kpiCards.splice(i,1);renderKpiCards();saveAll();}
 
 // TASKS
+let dragSrcIdx=null;
 function renderTasks(){
-  document.getElementById('task-body').innerHTML=D.tasks.map((t,i)=>{
+  const tbody=document.getElementById('task-body');
+  tbody.innerHTML=D.tasks.map((t,i)=>{
     const sc=SC[t.status]||'sw-wait';
     const urlHtml=t.url?`<a href="${t.url}" target="_blank" class="url-link">🔗 查看</a>`:`<input class="url-input" value="" placeholder="貼上連結" onblur="updateUrl(${i},this.value)">`;
-    return`<tr>
+    return`<tr draggable="true" data-idx="${i}">
+      <td style="text-align:center;width:32px"><span class="drag-handle" title="拖拉排序">⠿</span></td>
       <td><span class="ec" contenteditable="true" style="font-weight:500" onblur="D.tasks[${i}].name=this.textContent;saveAll();renderGantt()">${t.name}</span></td>
       <td><span class="ec" contenteditable="true" style="font-size:12px;color:var(--gray)" onblur="D.tasks[${i}].person=this.textContent;saveAll();renderGantt()">${t.person}</span></td>
       <td><span class="ec" contenteditable="true" style="font-size:12px;color:var(--teal);font-weight:500" onblur="D.tasks[${i}].time=this.textContent;saveAll();renderGantt()" title="填 4/20 或 4/20–5/8">${t.time}</span></td>
@@ -484,6 +493,31 @@ function renderTasks(){
       <td><button class="del-row" onclick="delTask(${i})">🗑</button></td>
     </tr>`;
   }).join('');
+  // attach drag events
+  tbody.querySelectorAll('tr[draggable]').forEach(row=>{
+    row.addEventListener('dragstart',e=>{
+      dragSrcIdx=+row.dataset.idx;
+      row.classList.add('dragging');
+      e.dataTransfer.effectAllowed='move';
+    });
+    row.addEventListener('dragend',()=>{
+      tbody.querySelectorAll('tr').forEach(r=>r.classList.remove('dragging','drag-over'));
+    });
+    row.addEventListener('dragover',e=>{
+      e.preventDefault();
+      tbody.querySelectorAll('tr').forEach(r=>r.classList.remove('drag-over'));
+      row.classList.add('drag-over');
+    });
+    row.addEventListener('drop',e=>{
+      e.preventDefault();
+      const targetIdx=+row.dataset.idx;
+      if(dragSrcIdx===null||dragSrcIdx===targetIdx)return;
+      const moved=D.tasks.splice(dragSrcIdx,1)[0];
+      D.tasks.splice(targetIdx,0,moved);
+      dragSrcIdx=null;
+      renderTasks();renderGantt();saveAll();
+    });
+  });
 }
 function updateUrl(i,val){D.tasks[i].url=val.trim();saveAll();renderTasks();}
 function delTask(i){if(!confirm('確定刪除此項目？'))return;D.tasks.splice(i,1);renderTasks();renderGantt();saveAll();}
