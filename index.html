@@ -1,645 +1,1252 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>超級穀食 膳糧五紅五黑｜行銷執行進度報告</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto Sans+TC:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--teal:#0F6E56;--teal-mid:#1D9E75;--teal-light:#E1F5EE;--teal-pale:#f4fbf8;--amber:#854F0B;--amber-light:#FAEEDA;--blue:#185FA5;--blue-light:#E6F1FB;--gray:#5F5E5A;--gray-light:#F1EFE8;--gray-border:#D3D1C7;--black:#2C2C2A;--red:#A32D2D;--green:#3B6D11;}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans TC',sans-serif;background:#f7f6f2;color:var(--black);font-size:14px;line-height:1.7}
-.hero{background:var(--teal);padding:44px 60px 36px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;right:-60px;top:-80px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,.04)}
-.hero-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1}
-.hero-brand{font-family:'DM Serif Display',serif;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:10px}
-.hero-title{font-size:28px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:6px}
-.hero-sub{font-size:13px;color:rgba(255,255,255,.6);font-weight:300}
-.mlabel{font-size:10px;letter-spacing:1.5px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:3px}
-.mval{font-size:13px;color:rgba(255,255,255,.8);font-weight:500;margin-bottom:8px}
-.hero-concept{max-width:960px;margin:16px auto 0;background:rgba(255,255,255,.08);border-left:3px solid rgba(255,255,255,.3);padding:10px 16px;font-size:13px;color:rgba(255,255,255,.7);font-style:italic;position:relative;z-index:1}
-.toolbar{background:#fff;border-bottom:1px solid var(--gray-border);padding:10px 60px;position:sticky;top:0;z-index:100}
-.toolbar-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.toolbar-hint{font-size:12px;color:var(--gray)}
-.btn{padding:7px 14px;border-radius:8px;font-size:12px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;font-weight:500;border:none;transition:.15s;white-space:nowrap}
-.btn-p{background:var(--teal);color:#fff}.btn-p:hover{background:#0a5040}
-.btn-o{background:#fff;color:var(--gray);border:1px solid var(--gray-border)}.btn-o:hover{background:var(--gray-light)}
-.btn-d{background:#fff;color:var(--red);border:1px solid #F7C1C1}.btn-d:hover{background:#FCEBEB}
-.btn-add{background:var(--teal-light);color:var(--teal);border:1px dashed var(--teal-mid)}.btn-add:hover{background:#c5eedd}
-.save-ok{font-size:11px;color:var(--teal-mid);margin-left:auto;opacity:0;transition:.3s}
-.save-ok.show{opacity:1}
-.container{max-width:960px;margin:0 auto;padding:0 24px 60px}
-.sh{display:flex;align-items:center;justify-content:space-between;margin:36px 0 16px}
-.sh-left{display:flex;align-items:center;gap:12px}
-.sn{width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sh h2{font-size:15px;font-weight:700;color:var(--teal)}
-.ec{outline:none;border-radius:4px;padding:2px 4px;transition:.15s;min-width:20px;display:inline-block}
-.ec:hover{background:var(--gray-light)}
-.ec:focus{background:var(--teal-light);box-shadow:0 0 0 1px var(--teal-mid)}
-.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
-.kc{background:#fff;border:1px solid var(--gray-border);border-radius:12px;padding:16px;position:relative}
-.kc-del{position:absolute;top:8px;right:8px;background:none;border:none;cursor:pointer;color:#ccc;font-size:14px;opacity:0;transition:.15s}
-.kc:hover .kc-del{opacity:1}.kc-del:hover{color:var(--red)}
-.kc-label{font-size:11px;color:var(--gray);margin-bottom:5px;font-weight:500}
-.kc-val{font-size:22px;font-weight:700;color:var(--teal);line-height:1.1}
-.kc-hint{font-size:11px;color:#aaa;margin-top:3px}
-.pb{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
-.ph{border-radius:10px;padding:12px 14px;border-left:4px solid}
-.ph1{background:var(--teal-light);border-color:var(--teal-mid)}.ph2{background:var(--amber-light);border-color:var(--amber)}.ph3{background:var(--blue-light);border-color:var(--blue)}
-.phn{font-size:12px;font-weight:700;margin-bottom:2px}
-.ph1 .phn{color:var(--teal)}.ph2 .phn{color:var(--amber)}.ph3 .phn{color:var(--blue)}
-.pht{font-size:11px;color:var(--gray)}
-.et{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--gray-border);font-size:13px}
-.et thead tr{background:var(--teal);color:rgba(255,255,255,.85)}
-.et thead th{padding:10px 12px;text-align:left;font-size:11px;font-weight:500;letter-spacing:.4px}
-.et tbody tr{border-bottom:1px solid var(--gray-border)}
-.et tbody tr:last-child{border-bottom:none}
-.et tbody tr:hover{background:var(--teal-pale)}
-.et td{padding:9px 12px;vertical-align:middle}
-.sw{position:relative;display:inline-block;min-width:84px}
-.sw::after{content:'▾';font-size:9px;position:absolute;right:6px;top:50%;transform:translateY(-50%);pointer-events:none}
-.ss{border:none;font-family:'Noto Sans TC',sans-serif;font-size:12px;font-weight:500;cursor:pointer;padding:3px 22px 3px 10px;border-radius:20px;appearance:none;-webkit-appearance:none;outline:none;width:100%}
-.sw-wait{background:var(--gray-light);color:var(--gray)}.sw-prog{background:var(--amber-light);color:var(--amber)}.sw-talk{background:var(--teal-light);color:var(--teal)}.sw-pend{background:var(--blue-light);color:var(--blue)}.sw-done{background:#EAF3DE;color:var(--green)}
-input[type=range]{flex:1;accent-color:var(--teal);cursor:pointer;width:100%}
-.prw{display:flex;align-items:center;gap:6px}
-.prp{font-size:11px;font-weight:600;color:var(--teal);min-width:30px;text-align:right}
-.del-row{background:none;border:none;cursor:pointer;color:#ccc;font-size:15px;padding:2px 4px;border-radius:4px;transition:.15s;line-height:1}
-.del-row:hover{color:var(--red);background:#FCEBEB}
-.drag-handle{cursor:grab;color:#ccc;font-size:16px;padding:2px 6px;user-select:none;display:block;text-align:center;transition:.15s}
-.drag-handle:hover{color:var(--teal)}
-.drag-handle:active{cursor:grabbing}
-tr.dragging{opacity:.4;background:var(--teal-light)!important}
-tr.drag-over{border-top:2px solid var(--teal-mid)}
-.ptag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500}
-.pt1{background:var(--teal-light);color:var(--teal)}.pt2{background:var(--amber-light);color:var(--amber)}.pt3{background:var(--blue-light);color:var(--blue)}
-.ph-sel{border:1px solid var(--gray-border);font-family:'Noto Sans TC',sans-serif;font-size:11px;border-radius:20px;padding:2px 8px;cursor:pointer;background:#fff;outline:none}
-.url-input{border:none;background:transparent;font-family:'Noto Sans TC',sans-serif;font-size:12px;color:var(--blue);width:100%;outline:none;padding:2px 4px;border-radius:4px;transition:.15s}
-.url-input:hover{background:var(--blue-light)}.url-input:focus{background:var(--blue-light);box-shadow:0 0 0 1px var(--blue)}
-.url-input::placeholder{color:#bbb;font-style:italic}
-.url-link{font-size:12px;color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+  :root{
+    --bg:#fbf7f3;
+    --bg-soft:#f5ecdf;
+    --paper:#ffffff;
+    --ink:#1d1a17;
+    --ink-soft:#5c524a;
+    --muted:#8a7f74;
+    --line:#e6d9c7;
+    --line-soft:#efe4d2;
+    --pink:#f4d8d3;
+    --pink-2:#ead3cd;
+    --rose:#c94a4a;
+    --rose-deep:#8e2a2a;
+    --berry:#6a1e2a;
+    --gold:#b8864b;
+    --ok:#2f7d5b;
+    --warn:#c07a1d;
+    --danger:#b5361f;
+    --r:14px;
+    --shadow: 0 1px 2px rgba(29,26,23,.04), 0 8px 24px rgba(29,26,23,.06);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    font-weight:400;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #f7e4de 0%, transparent 55%),
+      radial-gradient(900px 500px at 100% 10%, #f3e9db 0%, transparent 50%),
+      var(--bg);
+    min-height:100vh;
+    line-height:1.6;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      radial-gradient(rgba(106,30,42,.035) 1px, transparent 1px),
+      radial-gradient(rgba(106,30,42,.02) 1px, transparent 1px);
+    background-size: 26px 26px, 13px 13px;
+    background-position: 0 0, 8px 8px;
+    mix-blend-mode:multiply;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 22px 80px;position:relative;z-index:1}
 
-/* GANTT */
-.gantt-hint{font-size:11px;color:var(--gray);margin-bottom:10px;display:flex;align-items:center;gap:16px}
-.gantt-hint span{display:flex;align-items:center;gap:4px}
-.gw{background:#fff;border:1px solid var(--gray-border);border-radius:12px;overflow:hidden}
-.gs{overflow-x:auto}
-.gt{width:100%;border-collapse:collapse;font-size:11px;min-width:780px}
-.gt th{padding:7px 4px;text-align:center;background:var(--teal);color:rgba(255,255,255,.85);font-weight:500;font-size:10px}
-.gt th.ic{text-align:left;padding-left:14px;width:185px;font-size:11px}
-.gt th.pcc{text-align:left;padding-left:8px;width:48px;font-size:10px}
-.gt th.mh{background:rgba(0,0,0,.18);font-size:11px;letter-spacing:.5px}
-.gt th.wk{font-size:9px;color:rgba(255,255,255,.7);padding:4px 2px}
-.gt th.dt{font-size:9px;color:rgba(255,255,255,.5);padding:2px;font-weight:400}
-.gt td{padding:5px 3px;text-align:center;border-bottom:1px solid var(--gray-border);border-right:1px solid #ece9e2;min-width:36px}
-.gt td.ic{text-align:left;padding-left:14px;font-size:12px;font-weight:500;border-right:2px solid var(--gray-border);white-space:nowrap;min-width:185px}
-.gt td.pcc{text-align:left;padding-left:8px;color:var(--gray);font-size:10px;border-right:1px solid var(--gray-border);min-width:48px}
-.gt tbody tr:last-child td{border-bottom:none}
-.gt tbody tr:nth-child(even){background:#fbfaf7}
-.gt tbody tr:hover{background:var(--teal-pale)}
+  /* ========== Top bar ========== */
+  .topbar{
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+    background:var(--paper);border:1px solid var(--line);border-radius:12px;
+    padding:10px 14px;box-shadow:var(--shadow);margin-bottom:20px;
+    position:sticky;top:10px;z-index:50;backdrop-filter:blur(6px);
+  }
+  .topbar .left{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .status-dot{width:9px;height:9px;border-radius:50%;background:#c9c2ba;box-shadow:0 0 0 3px rgba(201,194,186,.2)}
+  .status-dot.online{background:#2f7d5b;box-shadow:0 0 0 3px rgba(47,125,91,.2)}
+  .status-dot.saving{background:#b8864b;box-shadow:0 0 0 3px rgba(184,134,75,.2);animation:pulse 1s infinite}
+  .status-dot.offline{background:#b5361f;box-shadow:0 0 0 3px rgba(181,54,31,.2)}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .status-text{font-size:12px;color:var(--ink-soft);letter-spacing:.02em}
+  .editor-input{
+    border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:6px 10px;
+    font-family:inherit;font-size:13px;color:var(--ink);width:130px;
+  }
+  .editor-input:focus{outline:2px solid var(--pink);border-color:var(--rose)}
+  .btn{
+    border:1px solid var(--line);background:var(--paper);border-radius:8px;
+    padding:6px 12px;font-family:inherit;font-size:13px;cursor:pointer;
+    color:var(--ink);display:inline-flex;align-items:center;gap:5px;
+    transition:all .15s ease;
+  }
+  .btn:hover{border-color:var(--rose);color:var(--rose-deep);transform:translateY(-1px)}
+  .btn.primary{background:var(--rose-deep);color:#fff;border-color:var(--rose-deep)}
+  .btn.primary:hover{background:var(--berry);color:#fff}
+  .btn.ghost{background:transparent}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
 
-/* gantt cell content */
-.g-bar{width:28px;height:10px;border-radius:3px;background:var(--teal-mid);opacity:.8;margin:0 auto}
-.g-bar-a{background:var(--amber);opacity:.7}
-.g-diamond{width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:11px solid var(--teal-mid);position:relative;margin:0 auto}
-.g-diamond::after{content:'';width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:11px solid var(--teal-mid);position:absolute;top:3px;left:-7px}
-.g-diamond-a{border-bottom-color:var(--amber)}.g-diamond-a::after{border-top-color:var(--amber)}
-.g-date{font-size:9px;color:var(--teal);font-weight:600;white-space:nowrap;display:block;margin-top:1px}
+  /* ========== Hero ========== */
+  .hero{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+    padding:42px 38px 34px;box-shadow:var(--shadow);margin-bottom:24px;
+    position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;right:-80px;top:-60px;width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, var(--pink), transparent 70%);
+    opacity:.6;
+  }
+  .hero::after{
+    content:"";position:absolute;left:-40px;bottom:-90px;width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(circle at 70% 70%, var(--pink-2), transparent 70%);
+    opacity:.5;
+  }
+  .hero-kicker{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;
+    color:var(--rose-deep);letter-spacing:.08em;margin-bottom:6px;position:relative;
+  }
+  .hero h1{
+    font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(28px,4vw,44px);
+    margin:0 0 4px;letter-spacing:.01em;line-height:1.15;position:relative;
+  }
+  .hero h2{
+    font-family:'Noto Serif TC',serif;font-weight:500;font-size:clamp(18px,2.3vw,24px);
+    margin:0;color:var(--ink-soft);letter-spacing:.04em;position:relative;
+  }
+  .hero .divider{height:1px;background:var(--line);margin:22px 0 18px;position:relative}
+  .hero .divider::before{
+    content:"";position:absolute;left:0;top:0;width:60px;height:2px;background:var(--rose-deep);
+  }
+  .hero-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;position:relative}
+  .hero-meta .cell .label{font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .hero-meta .cell .value{font-family:'Noto Serif TC',serif;font-weight:500;font-size:15px;color:var(--ink)}
+  .concept-box{
+    margin-top:18px;padding:14px 18px;background:linear-gradient(135deg, var(--pink) 0%, var(--pink-2) 100%);
+    border-radius:10px;font-family:'Noto Serif TC',serif;font-style:italic;color:var(--berry);
+    font-size:15px;position:relative;border:1px solid rgba(106,30,42,.08);
+  }
+  .concept-box::before{
+    content:"「";font-size:40px;position:absolute;left:-4px;top:-8px;color:var(--rose-deep);opacity:.3;font-family:serif;
+  }
 
-.nf{width:100%;border:1px solid var(--gray-border);border-radius:8px;padding:12px;font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--black);resize:vertical;min-height:80px;background:#fff;outline:none;transition:.15s}
-.nf:focus{border-color:var(--teal-mid);box-shadow:0 0 0 2px rgba(29,158,117,.15)}
-.bg-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
-.bc{background:#fff;border:1px solid var(--gray-border);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
-.bcl{font-size:13px;color:var(--gray)}.bch{font-size:11px;color:#aaa}.bcv{font-size:20px;font-weight:700;color:var(--teal)}
-.footer{background:var(--teal);padding:22px 60px;text-align:center}
-.footer p{font-size:12px;color:rgba(255,255,255,.45)}
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:center;justify-content:center}
-.modal-bg.show{display:flex}
-.modal{background:#fff;border-radius:16px;padding:28px;width:500px;max-width:95vw;max-height:90vh;overflow-y:auto}
-.modal h3{font-size:15px;font-weight:700;color:var(--teal);margin-bottom:20px}
-.form-row{margin-bottom:14px}
-.form-row label{display:block;font-size:12px;color:var(--gray);margin-bottom:4px;font-weight:500}
-.form-row input,.form-row select{width:100%;border:1px solid var(--gray-border);border-radius:8px;padding:8px 12px;font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--black);outline:none;transition:.15s}
-.form-row input:focus,.form-row select:focus{border-color:var(--teal-mid);box-shadow:0 0 0 2px rgba(29,158,117,.15)}
-.modal-btns{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
-@media(max-width:680px){.hero,.toolbar{padding-left:16px;padding-right:16px}.container{padding:0 12px 40px}.kpi-grid{grid-template-columns:repeat(2,1fr)}.pb,.bg-grid{grid-template-columns:1fr}.hero-inner{flex-direction:column;align-items:flex-start;gap:14px}}
+  /* ========== Sections ========== */
+  section.card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+    padding:28px 30px;box-shadow:var(--shadow);margin-bottom:22px;position:relative;
+  }
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+  .sec-num{
+    font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:400;font-style:italic;
+    color:var(--rose-deep);line-height:1;letter-spacing:.02em;
+  }
+  .sec-title{
+    font-family:'Noto Serif TC',serif;font-weight:700;font-size:22px;letter-spacing:.02em;
+    margin:0;flex:1;
+  }
+  .sec-action{margin-left:auto}
+
+  /* ========== KPI Cards (核心目標) ========== */
+  .kpi-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+  .kpi-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+    position:relative;transition:all .15s;box-shadow:0 1px 2px rgba(29,26,23,.03);
+  }
+  .kpi-card:hover{border-color:var(--rose-deep);transform:translateY(-1px);box-shadow:0 4px 12px rgba(29,26,23,.08)}
+  .kpi-card .kc-label{font-size:11px;color:var(--ink-soft);margin-bottom:6px;font-weight:500;letter-spacing:.05em}
+  .kpi-card .kc-val{
+    font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--rose-deep);
+    line-height:1.1;letter-spacing:.01em;
+  }
+  .kpi-card .kc-hint{font-size:11px;color:var(--muted);margin-top:4px}
+  .kpi-card .del{
+    position:absolute;top:8px;right:8px;border:none;background:transparent;color:var(--muted);
+    cursor:pointer;font-size:14px;opacity:0;transition:opacity .15s;
+  }
+  .kpi-card:hover .del{opacity:1}
+  .kpi-card .del:hover{color:var(--danger)}
+
+  /* ========== Goals (legacy) ========== */
+  .goals{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .goal{
+    background:var(--bg-soft);border-left:3px solid var(--rose-deep);border-radius:8px;
+    padding:14px 16px;position:relative;transition:all .15s;
+  }
+  .goal:hover{background:#f0e4d1}
+  .goal .g-title{font-family:'Noto Serif TC',serif;font-weight:700;font-size:15px;color:var(--berry);margin-bottom:4px}
+  .goal .g-body{font-size:14px;color:var(--ink-soft);line-height:1.6}
+  .goal .del{
+    position:absolute;top:8px;right:8px;border:none;background:transparent;color:var(--muted);
+    cursor:pointer;font-size:14px;opacity:0;transition:opacity .15s;
+  }
+  .goal:hover .del{opacity:1}
+  .goal .del:hover{color:var(--danger)}
+  [contenteditable="true"]{outline:none}
+  [contenteditable="true"]:hover{background:rgba(106,30,42,.04);border-radius:4px}
+  [contenteditable="true"]:focus{background:rgba(106,30,42,.06);border-radius:4px;box-shadow:0 0 0 2px var(--pink)}
+
+  /* ========== Phases ========== */
+  .phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .phase{
+    background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);
+    border:1px solid var(--line);border-radius:10px;padding:18px 18px;position:relative;overflow:hidden;
+  }
+  .phase::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--rose),var(--rose-deep));
+  }
+  .phase .p-period{
+    display:inline-block;font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;
+    color:var(--rose-deep);background:var(--pink);padding:2px 10px;border-radius:20px;margin-bottom:8px;
+  }
+  .phase .p-name{font-family:'Noto Serif TC',serif;font-weight:700;font-size:18px;margin-bottom:6px}
+  .phase .p-desc{font-size:13px;color:var(--ink-soft)}
+  .phase .p-count{
+    position:absolute;bottom:12px;right:16px;font-family:'Cormorant Garamond',serif;
+    font-size:28px;font-style:italic;color:var(--rose-deep);opacity:.6;
+  }
+
+  /* ========== Tables ========== */
+  .tbl-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--line)}
+  table{width:100%;border-collapse:collapse;font-size:14px;min-width:900px}
+  th{
+    background:var(--bg-soft);text-align:left;padding:10px 12px;font-weight:500;
+    color:var(--ink-soft);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    border-bottom:1px solid var(--line);
+  }
+  td{padding:10px 12px;border-bottom:1px solid var(--line-soft);vertical-align:middle}
+  tbody tr:hover{background:var(--bg-soft)}
+  tbody tr:last-child td{border-bottom:none}
+  td input,td select,td textarea{
+    background:transparent;border:none;font-family:inherit;font-size:14px;color:var(--ink);
+    width:100%;padding:4px 6px;border-radius:4px;
+  }
+  td input:hover,td select:hover,td textarea:hover{background:rgba(106,30,42,.04)}
+  td input:focus,td select:focus,td textarea:focus{outline:none;background:var(--bg);box-shadow:0 0 0 2px var(--pink)}
+  td .del-row{
+    border:none;background:transparent;color:var(--muted);cursor:pointer;font-size:14px;padding:2px 6px;
+    border-radius:4px;
+  }
+  td .del-row:hover{color:var(--danger);background:#fde8e4}
+
+  /* Status chips */
+  .status-sel{
+    border:1px solid var(--line);border-radius:20px;padding:3px 8px;font-size:12px;cursor:pointer;
+    width:auto;min-width:80px;appearance:none;-webkit-appearance:none;background-position:right 6px center;
+  }
+  .status-sel.s-wait{background:#f1efe8;color:#5f5e5a;border-color:#d3d1c7}
+  .status-sel.s-prog{background:#faeeda;color:#854f0b;border-color:#e9d3a3}
+  .status-sel.s-talk{background:#e1f5ee;color:#0f6e56;border-color:#b8dccb}
+  .status-sel.s-pend{background:#e6f1fb;color:#185fa5;border-color:#b4cfe8}
+  .status-sel.s-done{background:#eaf3de;color:#3b6d11;border-color:#c4d8a8}
+  .status-sel.s-delay{background:#f7d9d4;color:#a32d2d;border-color:#ebb5ac}
+
+  /* Progress bar */
+  .prog-cell{display:flex;align-items:center;gap:8px;min-width:120px}
+  .prog-bar{flex:1;height:6px;background:var(--line-soft);border-radius:99px;overflow:hidden;position:relative}
+  .prog-fill{height:100%;background:linear-gradient(90deg,var(--rose),var(--rose-deep));border-radius:99px;transition:width .3s}
+  .prog-num{font-size:12px;font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--rose-deep);min-width:30px;text-align:right}
+  .prog-num-input{
+    width:36px;border:none;background:transparent;font-size:12px;font-family:'Cormorant Garamond',serif;
+    font-weight:600;color:var(--rose-deep);text-align:right;padding:0;
+  }
+
+  /* Phase chip in cell */
+  .phase-chip{
+    display:inline-block;font-size:12px;padding:2px 8px;border-radius:20px;border:1px solid;
+  }
+  .ph-p1{background:#fdf4e7;color:#8b6514;border-color:#e9d3a3}
+  .ph-p2{background:#f9dfd9;color:#8e2a2a;border-color:#ebb6ac}
+  .ph-p3{background:#e4ecd9;color:#4c6b26;border-color:#c4d1a5}
+
+  /* ========== Gantt (weekly grid) ========== */
+  .gantt{
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper);
+    box-shadow:0 1px 2px rgba(29,26,23,.03);
+  }
+  .gantt-scroll{overflow-x:auto}
+  .gantt-inner{min-width:980px}
+  .g-head{display:flex;background:var(--rose-deep);color:#fff}
+  .g-head-left{
+    min-width:260px;width:260px;display:flex;align-items:center;gap:24px;
+    padding:0 16px;border-right:1px solid rgba(255,255,255,.18);
+    font-size:12px;font-weight:500;letter-spacing:.05em;
+  }
+  .g-head-left > div:first-child{flex:1}
+  .g-head-right{flex:1;display:flex;flex-direction:column}
+  .g-months{display:flex;background:rgba(0,0,0,.16)}
+  .g-months div{
+    text-align:center;padding:7px 0;font-size:12px;letter-spacing:.08em;font-weight:500;
+    border-right:1px solid rgba(255,255,255,.1);
+  }
+  .g-months div:last-child{border-right:none}
+  .g-weeks,.g-dates{display:grid;grid-template-columns:repeat(12,1fr)}
+  .g-weeks div{
+    text-align:center;padding:4px 0 3px;font-size:10px;font-weight:500;
+    color:rgba(255,255,255,.82);border-right:1px solid rgba(255,255,255,.1);
+  }
+  .g-weeks div:last-child{border-right:none}
+  .g-dates div{
+    text-align:center;padding:2px 0 6px;font-size:9px;font-weight:400;
+    color:rgba(255,255,255,.58);border-right:1px solid rgba(255,255,255,.08);
+  }
+  .g-dates div:last-child{border-right:none}
+
+  .g-body{font-size:12px}
+  .g-row{
+    display:flex;align-items:stretch;
+    border-bottom:1px solid var(--line-soft);min-height:42px;
+  }
+  .g-row:last-child{border-bottom:none}
+  .g-row:nth-child(even){background:#fbf9f4}
+  .g-row:hover{background:var(--bg-soft)}
+  .g-row-left{
+    min-width:260px;width:260px;display:flex;align-items:center;gap:14px;
+    padding:7px 16px;border-right:2px solid var(--line);
+  }
+  .g-task-name{
+    flex:1;font-weight:500;font-size:12px;line-height:1.35;
+    color:var(--ink);word-break:break-word;
+  }
+  .g-task-owner{
+    color:var(--ink-soft);font-size:11px;min-width:60px;text-align:right;
+    white-space:nowrap;
+  }
+  .g-row-right{
+    flex:1;position:relative;
+    display:grid;grid-template-columns:repeat(12,1fr);
+  }
+  .g-col{border-right:1px solid #ede8dc}
+  .g-col:last-child{border-right:none}
+  .g-col.g-month-end{border-right:1.5px solid var(--line)}
+
+  .g-bar{
+    position:absolute;top:50%;transform:translateY(-50%);
+    height:12px;border-radius:6px;
+    background:var(--rose-deep);opacity:.88;
+    box-shadow:0 1px 2px rgba(106,30,42,.2);
+    transition:opacity .15s;
+  }
+  .g-row:hover .g-bar{opacity:1}
+  .g-bar.prep{background:#b8864b}
+  .g-bar.done{background:#3b6d11}
+  .g-bar.delay{background:#a32d2d}
+
+  .g-star{
+    position:absolute;top:50%;transform:translate(-50%,-50%);
+    display:flex;flex-direction:column;align-items:center;gap:1px;line-height:1;
+    color:var(--rose-deep);
+  }
+  .g-star .g-icon{font-size:15px}
+  .g-star .g-dt-lbl{
+    font-size:9px;color:var(--ink-soft);font-weight:500;
+    white-space:nowrap;margin-top:1px;
+  }
+  .g-star.prep{color:#b8864b}
+  .g-star.done{color:#3b6d11}
+  .g-star.delay{color:#a32d2d}
+
+  .g-empty{padding:30px;text-align:center;color:var(--muted);font-size:13px}
+
+  .gantt-legend{display:flex;gap:16px;margin-top:12px;font-size:12px;color:var(--ink-soft);flex-wrap:wrap;align-items:center}
+  .gantt-legend .sw{display:inline-block;width:18px;height:10px;border-radius:5px;vertical-align:middle;margin-right:4px}
+  .gantt-legend .sw-star{display:inline-block;color:var(--rose-deep);font-size:14px;margin-right:2px}
+
+  /* ========== Budget / KPI totals ========== */
+  .total-bar{
+    display:flex;justify-content:flex-end;gap:10px;align-items:baseline;padding:14px 18px;
+    background:var(--bg-soft);border-radius:10px;margin-top:14px;
+  }
+  .total-bar .t-label{color:var(--ink-soft);font-size:13px}
+  .total-bar .t-val{
+    font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;color:var(--berry);
+  }
+  .total-bar .t-val::before{content:"NT$ ";font-size:14px;color:var(--muted);margin-right:4px}
+
+  /* ========== Notes ========== */
+  .notes-box{
+    width:100%;min-height:120px;border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;font-family:inherit;font-size:14px;line-height:1.8;background:var(--bg);
+    resize:vertical;
+  }
+  .notes-box:focus{outline:2px solid var(--pink);border-color:var(--rose)}
+
+  /* ========== Footer ========== */
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 10px;font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:.04em}
+
+  /* ========== Modal ========== */
+  .modal-back{
+    position:fixed;inset:0;background:rgba(29,26,23,.4);display:none;align-items:center;justify-content:center;
+    z-index:100;backdrop-filter:blur(4px);
+  }
+  .modal-back.open{display:flex}
+  .modal{
+    background:var(--paper);border-radius:14px;padding:24px 26px;max-width:420px;width:92%;
+    box-shadow:0 20px 60px rgba(29,26,23,.2);
+  }
+  .modal h3{font-family:'Noto Serif TC',serif;margin:0 0 14px;font-size:20px}
+  .modal .field{margin-bottom:12px}
+  .modal label{font-size:12px;color:var(--ink-soft);display:block;margin-bottom:4px;letter-spacing:.1em}
+  .modal input,.modal select,.modal textarea{
+    width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;
+    font-family:inherit;font-size:14px;background:var(--bg);
+  }
+  .modal input:focus,.modal select:focus,.modal textarea:focus{outline:2px solid var(--pink);border-color:var(--rose)}
+  .modal .actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}
+
+  /* ========== Toast ========== */
+  .toast{
+    position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);
+    background:var(--ink);color:#fff;padding:10px 18px;border-radius:24px;font-size:13px;
+    box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:200;opacity:0;transition:all .3s;
+  }
+  .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+  /* ========== Mobile ========== */
+  @media (max-width:720px){
+    .wrap{padding:14px 12px 60px}
+    .hero{padding:28px 20px 22px}
+    section.card{padding:20px 18px}
+    .sec-head{gap:8px}
+    .sec-num{font-size:28px}
+    .sec-title{font-size:18px}
+    .topbar{position:static;padding:10px}
+    .editor-input{flex:1;width:auto}
+    table{font-size:13px;min-width:760px}
+    th,td{padding:8px 10px}
+  }
+
+  /* Print */
+  @media print{
+    body{background:#fff}
+    .topbar,.btn,.del,.del-row,.sec-action{display:none !important}
+    section.card{box-shadow:none;border:1px solid #ddd;break-inside:avoid}
+    body::before{display:none}
+  }
 </style>
 </head>
 <body>
-<div class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-brand">Marketing Progress Report</div>
-      <div class="hero-title">超級穀食 膳糧五紅五黑<br>行銷執行進度報告</div>
-      <div class="hero-sub">2026年 4月 – 6月　波段宣傳執行總覽</div>
+
+<div class="wrap">
+
+  <!-- ===== Top bar ===== -->
+  <div class="topbar">
+    <div class="left">
+      <span class="status-dot" id="statusDot" title="連線狀態"></span>
+      <span class="status-text" id="statusText">尚未連線</span>
+      <input type="text" class="editor-input" id="editorName" placeholder="輸入你的名字" />
     </div>
-    <div>
-      <div class="mlabel">執行方</div><div class="mval">Milla 行銷團隊</div>
-      <div class="mlabel">最後更新</div><div class="mval" id="lu">—</div>
-    </div>
-  </div>
-  <div class="hero-concept">宣傳概念：穀食界的「補氣早餐」，膳糧好穀氣，開啟早晨能量</div>
-</div>
-
-<div class="toolbar">
-  <div class="toolbar-inner">
-    <span class="toolbar-hint">✏️ 點擊文字直接編輯・時間欄填日期後甘特圖自動更新</span>
-    <button class="btn btn-p" onclick="saveAll()">💾 儲存</button>
-    <button class="btn btn-o" onclick="exportClient()">📤 匯出客戶版</button>
-    <button class="btn btn-d" onclick="resetAll()">🗑 重設</button>
-    <span class="save-ok" id="sok">✓ 已儲存</span>
-  </div>
-</div>
-
-<div class="container">
-
-  <div class="sh">
-    <div class="sh-left"><div class="sn">1</div><h2>核心目標</h2></div>
-    <button class="btn btn-add" onclick="addKpiCard()">＋ 新增指標</button>
-  </div>
-  <div class="kpi-grid" id="kpi-cards"></div>
-
-  <div class="sh"><div class="sh-left"><div class="sn">2</div><h2>波段規劃</h2></div></div>
-  <div class="pb">
-    <div class="ph ph1"><div class="phn">口碑醞釀期</div><div class="pht">4月　IP 預告・試吃招募・商品頁</div></div>
-    <div class="ph ph2"><div class="phn">母親節宣傳期</div><div class="pht">5月　KOL・全聯抽獎・廣告投遞</div></div>
-    <div class="ph ph3"><div class="phn">熱度維繫期</div><div class="pht">6月　618 市集・Threads・口碑延燒</div></div>
-  </div>
-
-  <div class="sh">
-    <div class="sh-left"><div class="sn">3</div><h2>執行項目明細</h2></div>
-    <button class="btn btn-add" onclick="openAddTask()">＋ 新增項目</button>
-  </div>
-  <table class="et">
-    <thead><tr>
-      <th style="width:3%"></th>
-      <th style="width:19%">執行項目</th>
-      <th style="width:8%">負責人</th>
-      <th style="width:9%">執行日期<br><span style="font-weight:400;opacity:.7;font-size:10px">填 4/20 或 4/20–5/8</span></th>
-      <th style="width:9%">波段</th>
-      <th style="width:15%">目標 KPI</th>
-      <th style="width:11%">完成率</th>
-      <th style="width:10%">狀態</th>
-      <th style="width:11%">成果連結</th>
-      <th style="width:5%"></th>
-    </tr></thead>
-    <tbody id="task-body"></tbody>
-  </table>
-
-  <div class="sh"><div class="sh-left"><div class="sn">4</div><h2>時程甘特圖（4–6月）</h2></div></div>
-  <div class="gantt-hint">
-    <span><span style="display:inline-block;width:16px;height:8px;border-radius:2px;background:var(--teal-mid);opacity:.8"></span> 執行期間</span>
-    <span style="font-size:14px;color:var(--teal-mid)">◆</span><span> 確定日期</span>
-    <span style="font-size:14px;color:var(--amber)">◆</span><span> 準備/設計類</span>
-    <span style="color:#aaa">時間欄填入日期後自動連動</span>
-  </div>
-  <div class="gw"><div class="gs">
-    <table class="gt">
-      <thead id="gantt-head"></thead>
-      <tbody id="gantt-body"></tbody>
-    </table>
-  </div></div>
-
-  <div class="sh">
-    <div class="sh-left"><div class="sn">5</div><h2>預算總覽</h2></div>
-    <button class="btn btn-add" onclick="openAddBudget()">＋ 新增預算項目</button>
-  </div>
-  <table class="et">
-    <thead><tr>
-      <th style="width:24%">項目</th><th style="width:28%">費用說明</th>
-      <th style="width:18%">金額 (NT$)</th><th style="width:12%">負責人</th>
-      <th style="width:10%">波段</th><th style="width:8%"></th>
-    </tr></thead>
-    <tbody id="budget-body"></tbody>
-  </table>
-  <div style="margin-top:12px;padding:12px 16px;background:var(--teal-light);border-radius:10px;display:flex;justify-content:space-between;align-items:center">
-    <span style="font-weight:700;color:var(--teal)">已確認預算合計</span>
-    <span style="font-weight:700;color:var(--teal);font-size:16px" id="budget-total">—</span>
-  </div>
-
-  <div class="sh">
-    <div class="sh-left"><div class="sn">6</div><h2>KPI 成效追蹤</h2></div>
-    <button class="btn btn-add" onclick="openAddKpi()">＋ 新增 KPI</button>
-  </div>
-  <table class="et">
-    <thead><tr>
-      <th style="width:22%">執行項目</th><th style="width:16%">KPI 指標</th><th style="width:13%">目標值</th>
-      <th style="width:15%">實際值</th><th style="width:13%">達成率</th><th style="width:13%">狀態</th><th style="width:8%"></th>
-    </tr></thead>
-    <tbody id="kpi-body"></tbody>
-  </table>
-
-  <div class="sh"><div class="sh-left"><div class="sn">7</div><h2>備註 / 本期說明</h2></div></div>
-  <textarea class="nf" id="notes" placeholder="可記錄本期重要備註、客戶回饋、執行調整說明…"></textarea>
-</div>
-
-<div class="footer"><p>超級穀食 膳糧五紅五黑｜行銷執行進度報告　2026年 4–6月　© Milla 行銷團隊</p></div>
-
-<!-- MODALS -->
-<div class="modal-bg" id="modal-task">
-  <div class="modal">
-    <h3>＋ 新增執行項目</h3>
-    <div class="form-row"><label>執行項目名稱</label><input id="m-name" placeholder="例：中醫師 KOL Reels"></div>
-    <div class="form-row"><label>負責人</label><input id="m-person" placeholder="例：Milla"></div>
-    <div class="form-row"><label>執行日期　填單一日期如 4/20，或範圍如 4/20–5/8</label><input id="m-time" placeholder="例：4/20 或 4/20–5/8"></div>
-    <div class="form-row"><label>波段</label>
-      <select id="m-phase"><option value="1">口碑醞釀期</option><option value="2">母親節宣傳期</option><option value="3">熱度維繫期</option></select>
-    </div>
-    <div class="form-row"><label>目標 KPI</label><input id="m-kpi" placeholder="例：觸及 ≥10,000"></div>
-    <div class="form-row"><label>成果連結（選填）</label><input id="m-url" placeholder="https://..."></div>
-    <div class="modal-btns">
-      <button class="btn btn-o" onclick="closeModal('modal-task')">取消</button>
-      <button class="btn btn-p" onclick="confirmAddTask()">新增</button>
+    <div class="right" style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn ghost" id="btnRefresh" title="重新載入最新資料">↻ 重新整理</button>
+      <button class="btn primary" id="btnSave">💾 立即儲存</button>
+      <button class="btn ghost" id="btnPrint">🖨️ 列印</button>
     </div>
   </div>
-</div>
-<div class="modal-bg" id="modal-budget">
-  <div class="modal">
-    <h3>＋ 新增預算項目</h3>
-    <div class="form-row"><label>項目名稱</label><input id="b-name" placeholder="例：KOC Seeding"></div>
-    <div class="form-row"><label>費用說明</label><input id="b-desc" placeholder="例：產品寄送 ×10位"></div>
-    <div class="form-row"><label>金額 (NT$)　留空填「另計」</label><input id="b-amount" type="number" placeholder="例：30000"></div>
-    <div class="form-row"><label>負責人</label><input id="b-person" placeholder="例：Milla"></div>
-    <div class="form-row"><label>波段</label><input id="b-wave" placeholder="例：5月"></div>
-    <div class="modal-btns">
-      <button class="btn btn-o" onclick="closeModal('modal-budget')">取消</button>
-      <button class="btn btn-p" onclick="confirmAddBudget()">新增</button>
+
+  <!-- ===== Hero ===== -->
+  <div class="hero">
+    <div class="hero-kicker">Marketing Progress Report · 2026 Q2</div>
+    <h1 contenteditable="true" data-path="meta.title">超級穀食 膳糧五紅五黑</h1>
+    <h2 contenteditable="true" data-path="meta.subtitle">行銷執行進度報告</h2>
+    <div class="divider"></div>
+    <div class="hero-meta">
+      <div class="cell">
+        <div class="label">執行期間</div>
+        <div class="value" contenteditable="true" data-path="meta.period">2026年 4月 – 6月　波段宣傳執行總覽</div>
+      </div>
+      <div class="cell">
+        <div class="label">執行方</div>
+        <div class="value" contenteditable="true" data-path="meta.team">Milla 行銷團隊</div>
+      </div>
+      <div class="cell">
+        <div class="label">最後更新</div>
+        <div class="value" id="lastEditBox" style="font-family:'Cormorant Garamond',serif;font-style:italic">—</div>
+      </div>
     </div>
+    <div class="concept-box" contenteditable="true" data-path="meta.concept">宣傳概念：穀食界的「補氣早餐」，膳糧好穀氣，開啟早晨能量</div>
   </div>
-</div>
-<div class="modal-bg" id="modal-kpi">
-  <div class="modal">
-    <h3>＋ 新增 KPI 追蹤項目</h3>
-    <div class="form-row"><label>執行項目</label><input id="k-item" placeholder="例：中醫師 KOL Reels"></div>
-    <div class="form-row"><label>KPI 指標</label><input id="k-metric" placeholder="例：每支觀看數"></div>
-    <div class="form-row"><label>目標值（數字，用於計算達成率）</label><input id="k-target" type="number" placeholder="例：50000"></div>
-    <div class="form-row"><label>目標值（顯示文字）</label><input id="k-display" placeholder="例：50,000"></div>
-    <div class="modal-btns">
-      <button class="btn btn-o" onclick="closeModal('modal-kpi')">取消</button>
-      <button class="btn btn-p" onclick="confirmAddKpi()">新增</button>
+
+  <!-- ===== 1. 核心目標 ===== -->
+  <section class="card">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">核心目標</h2>
+      <button class="btn sec-action" id="btnAddKpiCard">＋ 新增指標</button>
     </div>
-  </div>
+    <div class="kpi-cards" id="kpiCardsBox"></div>
+  </section>
+
+  <!-- ===== 2. 波段規劃 ===== -->
+  <section class="card">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">波段規劃</h2>
+    </div>
+    <div class="phases" id="phasesBox"></div>
+  </section>
+
+  <!-- ===== 3. 執行項目 ===== -->
+  <section class="card">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">執行項目明細</h2>
+      <button class="btn sec-action" id="btnAddItem">＋ 新增項目</button>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:34px"></th>
+            <th>執行項目</th>
+            <th>負責人</th>
+            <th style="width:150px">執行日期</th>
+            <th style="width:110px">波段</th>
+            <th>目標 KPI</th>
+            <th style="width:140px">完成率</th>
+            <th style="width:100px">狀態</th>
+            <th>成果連結</th>
+          </tr>
+        </thead>
+        <tbody id="itemsBody"></tbody>
+      </table>
+    </div>
+    <div style="margin-top:10px;font-size:12px;color:var(--muted)">
+      ✏️ 點擊任一欄位直接編輯・日期格式：<code style="background:var(--bg-soft);padding:1px 6px;border-radius:4px">4/20</code> 或 <code style="background:var(--bg-soft);padding:1px 6px;border-radius:4px">4/20-5/8</code>
+    </div>
+  </section>
+
+  <!-- ===== 4. Gantt ===== -->
+  <section class="card">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">時程甘特圖（4–6月）</h2>
+    </div>
+    <div class="gantt">
+      <div class="gantt-scroll">
+        <div class="gantt-inner">
+          <div class="g-head">
+            <div class="g-head-left">
+              <div>執行項目</div>
+              <div>負責人</div>
+            </div>
+            <div class="g-head-right" id="ganttHead"></div>
+          </div>
+          <div class="g-body" id="ganttBody"></div>
+        </div>
+      </div>
+    </div>
+    <div class="gantt-legend">
+      <span><span class="sw" style="background:var(--rose-deep)"></span>執行期間</span>
+      <span><span class="sw" style="background:#b8864b"></span>準備/設計類</span>
+      <span><span class="sw-star">★</span>確定日期</span>
+      <span><span class="sw" style="background:#3b6d11"></span>已完成</span>
+      <span style="color:var(--muted);font-size:11px">・日期欄填 4/21 或 4/21-5/8 自動連動</span>
+    </div>
+  </section>
+
+  <!-- ===== 5. 預算 ===== -->
+  <section class="card">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">預算總覽</h2>
+      <button class="btn sec-action" id="btnAddBudget">＋ 新增預算</button>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:34px"></th>
+            <th>項目</th>
+            <th>費用說明</th>
+            <th style="width:120px">金額 (NT$)</th>
+            <th style="width:120px">負責人</th>
+            <th style="width:110px">波段</th>
+          </tr>
+        </thead>
+        <tbody id="budgetBody"></tbody>
+      </table>
+    </div>
+    <div class="total-bar">
+      <div class="t-label">已確認預算合計</div>
+      <div class="t-val" id="budgetTotal">0</div>
+    </div>
+  </section>
+
+  <!-- ===== 6. KPI ===== -->
+  <section class="card">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">KPI 成效追蹤</h2>
+      <button class="btn sec-action" id="btnAddKpi">＋ 新增 KPI</button>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:34px"></th>
+            <th>執行項目</th>
+            <th>KPI 指標</th>
+            <th style="width:110px">目標值</th>
+            <th style="width:110px">實際值</th>
+            <th style="width:110px">達成率</th>
+            <th style="width:100px">狀態</th>
+          </tr>
+        </thead>
+        <tbody id="kpiBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== 7. Notes ===== -->
+  <section class="card">
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <h2 class="sec-title">備註 / 本期說明</h2>
+    </div>
+    <textarea class="notes-box" id="notesBox" data-path="notes" placeholder="填寫本期執行注意事項、風險、待決議、下次月會討論重點..."></textarea>
+  </section>
+
+  <footer>
+    超級穀食 膳糧五紅五黑｜行銷執行進度報告　© 村露國際 Milla 行銷團隊
+  </footer>
 </div>
+
+<!-- ===== Modals ===== -->
+<div class="modal-back" id="modalBack">
+  <div class="modal" id="modalBox"></div>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <script>
-// ── GANTT TIME UTILS ──
-// Weeks: 13 columns covering 4/1–6/30 2026
-const WEEKS = [
-  {label:'W1',date:'4/1',start:new Date(2026,3,1),end:new Date(2026,3,6)},
-  {label:'W2',date:'4/7',start:new Date(2026,3,7),end:new Date(2026,3,13)},
-  {label:'W3',date:'4/14',start:new Date(2026,3,14),end:new Date(2026,3,20)},
-  {label:'W4',date:'4/21',start:new Date(2026,3,21),end:new Date(2026,3,27)},
-  {label:'W5',date:'4/28',start:new Date(2026,3,28),end:new Date(2026,4,4)},
-  {label:'W1',date:'5/5',start:new Date(2026,4,5),end:new Date(2026,4,11)},
-  {label:'W2',date:'5/12',start:new Date(2026,4,12),end:new Date(2026,4,18)},
-  {label:'W3',date:'5/19',start:new Date(2026,4,19),end:new Date(2026,4,25)},
-  {label:'W4',date:'5/26',start:new Date(2026,4,26),end:new Date(2026,5,1)},
-  {label:'W1',date:'6/2',start:new Date(2026,5,2),end:new Date(2026,5,8)},
-  {label:'W2',date:'6/9',start:new Date(2026,5,9),end:new Date(2026,5,15)},
-  {label:'W3',date:'6/16',start:new Date(2026,5,16),end:new Date(2026,5,22)},
-  {label:'W4',date:'6/23',start:new Date(2026,5,23),end:new Date(2026,5,30)},
-];
+/* =========================================================================
+   CONFIG — 設定 Google Apps Script 端點
+   部署好 Apps Script 後，把 URL 貼到下面這一行。
+   留空 ('') 會自動改用 localStorage 本機模式。
+   ========================================================================= */
+const API_URL = 'https://script.google.com/macros/s/AKfycbwJZrfrjc9x3O5ISo4GiYrhhZGahe6KZdtsytg58mWhsRzmUiYZHboHR-h_giofpplohg/exec';
 
-function parseDate(str){
-  // accepts "4/20", "5/8" etc in 2026
-  if(!str)return null;
-  const m=str.trim().match(/^(\d{1,2})\/(\d{1,2})$/);
-  if(!m)return null;
-  return new Date(2026,+m[1]-1,+m[2]);
+const AUTO_REFRESH_SEC = 20;      // 多少秒自動拉一次最新資料
+const DOC_ID = 'super_q2_2026';   // 一份報告的識別碼；要做多份就改這個名字
+const STORAGE_KEY = 'cunlu_report_v2_' + DOC_ID;
+
+/* ========== 預設資料（已匯入 2026/4/20 客戶進度版） ========== */
+const DEFAULT_DATA = {
+  meta: {
+    title: '超級穀食 膳糧五紅五黑',
+    subtitle: '行銷執行進度報告',
+    period: '2026年 4月 – 6月　波段宣傳執行總覽',
+    team: 'Milla 行銷團隊',
+    concept: '宣傳概念：穀食界的「補氣早餐」，膳糧好穀氣，開啟早晨能量'
+  },
+  kpiCards: [
+    { id: 'kc1', label: '總行銷預算', val: '$230K',          hint: '廣告費另計' },
+    { id: 'kc2', label: '目標 ROAS',  val: '≥ 4',            hint: '廣告投遞' },
+    { id: 'kc3', label: '銷量目標',   val: '75萬 / 4000包',  hint: '全聯' },
+    { id: 'kc4', label: 'KOL 觸及目標', val: '100K+',        hint: '中醫師 Reels' },
+    { id: 'kc5', label: '線上通路-官網', val: '28萬 / 2200包', hint: '母親節' }
+  ],
+  phases: [
+    { id: 'p1', name: '口碑醞釀期', period: '4月', desc: 'IP 預告・試吃招募・商品頁' },
+    { id: 'p2', name: '母親節宣傳期', period: '5月', desc: 'KOL・全聯抽獎・廣告投遞' },
+    { id: 'p3', name: '熱度維繫期', period: '6月', desc: '618 市集・Threads・口碑延燒' }
+  ],
+  items: [
+    { id:'i01', name:'商品說明頁文案+設計', owner:'Milla+阿和',   dateRange:'4/21',       phase:'p1', kpi:'頁面完成上線',                progress:25, status:'prog', link:'' },
+    { id:'i02', name:'KOC Seeding 寄送 10位', owner:'Milla',       dateRange:'4/30-5/8',   phase:'p2', kpi:'曝光率 ≥80%',                  progress:0,  status:'talk', link:'' },
+    { id:'i03', name:'KOL Reels 榆兒の美食日記', owner:'Milla',    dateRange:'4/30',       phase:'p2', kpi:'每支觀看 ≥200,000',            progress:5,  status:'prog', link:'https://www.instagram.com/foodiee_diaryy/' },
+    { id:'i04', name:'KOL Reels 郭春桃',     owner:'Milla',         dateRange:'5/19-6/30',  phase:'p2', kpi:'每支觀看 ≥500,000',            progress:0,  status:'talk', link:'https://www.instagram.com/kuo_chuntao/' },
+    { id:'i05', name:'全聯社團口碑文 ×3',    owner:'Milla',         dateRange:'5/8-5/25',   phase:'p2', kpi:'互動 ≥50',                     progress:0,  status:'pend', link:'' },
+    { id:'i06', name:'Dcard 文章',            owner:'Milla',         dateRange:'5/26',       phase:'p3', kpi:'互動 ≥30',                     progress:0,  status:'pend', link:'' },
+    { id:'i07', name:'蕎拉社團試吃招募',     owner:'多莉',          dateRange:'4/9-4/30',   phase:'p1', kpi:'心得回收率 ≥80%',              progress:0,  status:'prog', link:'' },
+    { id:'i08', name:'IP 社群預告+研發故事 reels', owner:'多莉',    dateRange:'4/26',       phase:'p1', kpi:'觸及 ≥5,000｜互動率 ≥3%',      progress:0,  status:'wait', link:'' },
+    { id:'i09', name:'小編開箱-新品上市',    owner:'多莉',          dateRange:'4/30',       phase:'p1', kpi:'觸及 >10,000',                 progress:0,  status:'wait', link:'' },
+    { id:'i10', name:'能量補給計劃貼文',     owner:'多莉',          dateRange:'4/30',       phase:'p2', kpi:'觸及 ≥10,000',                 progress:0,  status:'wait', link:'' },
+    { id:'i11', name:'全聯尋找膳糧 Reels',   owner:'多莉',          dateRange:'5/8',        phase:'p2', kpi:'觸及 ≥20,000｜留言 ≥1,000',    progress:0,  status:'wait', link:'' },
+    { id:'i12', name:'618 穀物市集貼文',     owner:'多莉',          dateRange:'6/2',        phase:'p3', kpi:'觸及 ≥10,000',                 progress:0,  status:'wait', link:'' },
+    { id:'i13', name:'母親節檔期',            owner:'柔彥',          dateRange:'4/30-5/10',  phase:'p2', kpi:'銷售每日100組',                progress:0,  status:'wait', link:'' },
+    { id:'i14', name:'廣告投遞（新品+促銷）', owner:'Paul',          dateRange:'5/12-6/30',  phase:'p2', kpi:'ROAS ≥4｜CPA ≤$150',           progress:0,  status:'wait', link:'' },
+    { id:'i15', name:'全聯社團抽獎',         owner:'Milla+小編',    dateRange:'6/10',       phase:'p2', kpi:'留言 ≥3,000｜曝光 ≥50,000',    progress:0,  status:'wait', link:'' },
+    { id:'i16', name:'Threads 議題文 ×5',     owner:'Milla',         dateRange:'5/19-6/30',  phase:'p3', kpi:'每則觸及 ≥3,000',              progress:0,  status:'pend', link:'' },
+    { id:'i17', name:'618 檔期優惠',          owner:'柔彥',          dateRange:'6/2-6/18',   phase:'p2', kpi:'母親節 ≥3,000包｜618 ≥4,200包', progress:0, status:'wait', link:'' }
+  ],
+  budget: [
+    { id:'b1', name:'KOL Reels-榆兒の美食日記', desc:'產品介紹 reels＋投廣 2 個月',     amount:20000,  owner:'Milla',      phase:'p2' },
+    { id:'b2', name:'全聯社團抽獎',              desc:'好物老實說 獎品成本 ×10 名',      amount:120000, owner:'Milla+小編', phase:'p2' },
+    { id:'b3', name:'全聯社團口碑文',            desc:'素人口碑文 ×3 篇＋Dcard ×1 篇',    amount:12000,  owner:'Milla',      phase:'p2' },
+    { id:'b4', name:'KOL Reels-郭春桃',          desc:'FB/IG 雙平台 3 個月',              amount:30000,  owner:'Milla',      phase:'p2' },
+    { id:'b5', name:'廣告投遞（新品+促銷）',    desc:'新品上市 + KOL Reels 加投（另計）', amount:0,     owner:'Paul',       phase:'p2' }
+  ],
+  kpi: [
+    { id:'k01', item:'IP 社群預告影片',   metric:'觸及數',         targetText:'10,000',        targetNum:10000,  actual:0, status:'wait' },
+    { id:'k02', item:'為父母研發故事影片', metric:'觀看數',         targetText:'15,000',        targetNum:15000,  actual:0, status:'wait' },
+    { id:'k03', item:'全聯尋找膳糧 Reels', metric:'抽獎留言則數',   targetText:'1,000',         targetNum:1000,   actual:0, status:'wait' },
+    { id:'k04', item:'KOL Reels',         metric:'每支觀看數',     targetText:'50,000',        targetNum:50000,  actual:0, status:'wait' },
+    { id:'k05', item:'全聯社團抽獎',       metric:'參與留言則數',   targetText:'3,000',         targetNum:3000,   actual:0, status:'wait' },
+    { id:'k06', item:'全聯社團抽獎',       metric:'社團曝光數',     targetText:'50,000',        targetNum:50000,  actual:0, status:'wait' },
+    { id:'k07', item:'Threads 議題文',     metric:'每則觸及',       targetText:'3,000',         targetNum:3000,   actual:0, status:'wait' },
+    { id:'k08', item:'廣告投遞（整體）',   metric:'ROAS',           targetText:'≥ 4',           targetNum:4,      actual:0, status:'wait' },
+    { id:'k09', item:'廣告投遞（整體）',   metric:'CPA (NT$)',      targetText:'≤ $150',        targetNum:150,    actual:0, status:'wait' },
+    { id:'k10', item:'廣告投遞（整體）',   metric:'廣告觸及數',     targetText:'100,000',       targetNum:100000, actual:0, status:'wait' },
+    { id:'k11', item:'整體銷售目標',       metric:'總銷售包數',     targetText:'6,000–7,200 包', targetNum:6000,   actual:0, status:'wait' },
+    { id:'k12', item:'整體銷售目標',       metric:'目標 ROAS',      targetText:'4',             targetNum:4,      actual:0, status:'wait' }
+  ],
+  notes: '',
+  lastEdit: { editor:'匯入初版', time:'2026-04-20T00:00:00+08:00' }
+};
+
+/* ========== 狀態 ========== */
+let state = JSON.parse(JSON.stringify(DEFAULT_DATA));
+let dirty = false;
+let saving = false;
+let lastPulledHash = '';
+
+/* ========== 工具 ========== */
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const uid = (p='x') => p + '_' + Math.random().toString(36).slice(2,9);
+const STATUS_LABELS = { wait:'待開始', prog:'進行中', talk:'洽談中', pend:'Pending', done:'已完成', delay:'延遲' };
+const PHASE_CLASS = { p1:'ph-p1', p2:'ph-p2', p3:'ph-p3' };
+const hash = s => { let h=0; for (let i=0;i<s.length;i++){ h=((h<<5)-h)+s.charCodeAt(i); h|=0;} return h; };
+
+function toast(msg, ms=2000){
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), ms);
 }
 
-function parseRange(str){
-  // "4/20–5/8" or "4/20-5/8" or "4月" (fuzzy month)
-  if(!str)return{start:null,end:null,single:null};
-  str=str.trim();
-  // range with dash
-  const rm=str.match(/^(\d{1,2}\/\d{1,2})\s*[–\-]\s*(\d{1,2}\/\d{1,2})$/);
-  if(rm)return{start:parseDate(rm[1]),end:parseDate(rm[2]),single:null};
-  // single date
-  const sd=parseDate(str);
-  if(sd)return{start:null,end:null,single:sd};
-  // fuzzy month like "4月", "5月", "5–6月"
-  const mm=str.match(/^(\d{1,2})[月]/);
-  if(mm){
-    const mo=+mm[1];
-    return{start:new Date(2026,mo-1,1),end:new Date(2026,mo-1,28),single:null};
-  }
-  const mm2=str.match(/^(\d{1,2})[–\-](\d{1,2})[月]/);
-  if(mm2){
-    return{start:new Date(2026,+mm2[1]-1,1),end:new Date(2026,+mm2[2]-1,28),single:null};
-  }
-  return{start:null,end:null,single:null};
+function setStatus(state, text){
+  const dot = $('#statusDot');
+  dot.className = 'status-dot ' + state;
+  $('#statusText').textContent = text;
 }
 
-function getGanttCells(timeStr, isAmber){
-  const {start,end,single}=parseRange(timeStr);
-  return WEEKS.map(w=>{
-    if(single){
-      // single date: show diamond in the week it falls in
-      if(single>=w.start && single<=w.end){
-        return{type:'diamond',date:timeStr,amber:isAmber};
-      }
-      return{type:'empty'};
-    }
-    if(start&&end){
-      // range: show bar across weeks that overlap
-      if(start<=w.end && end>=w.start){
-        return{type:'bar',amber:isAmber};
-      }
-      return{type:'empty'};
-    }
-    return{type:'empty'};
+function getEditor(){
+  const v = $('#editorName').value.trim();
+  if (v) localStorage.setItem('cunlu_editor', v);
+  return v || '匿名';
+}
+
+/* ========== 渲染：核心 KPI 卡片 ========== */
+function renderKpiCards(){
+  const box = $('#kpiCardsBox'); box.innerHTML = '';
+  state.kpiCards.forEach(c => {
+    const el = document.createElement('div');
+    el.className = 'kpi-card';
+    el.dataset.id = c.id;
+    el.innerHTML = `
+      <button class="del" title="刪除">✕</button>
+      <div class="kc-label" contenteditable="true" data-field="label">${escapeHtml(c.label)}</div>
+      <div class="kc-val"   contenteditable="true" data-field="val">${escapeHtml(c.val)}</div>
+      <div class="kc-hint"  contenteditable="true" data-field="hint">${escapeHtml(c.hint||'')}</div>
+    `;
+    el.querySelector('.del').onclick = () => {
+      if (confirm('確定刪除此指標卡？')) { state.kpiCards = state.kpiCards.filter(x=>x.id!==c.id); markDirty(); renderKpiCards(); }
+    };
+    el.querySelectorAll('[contenteditable]').forEach(n => {
+      n.addEventListener('blur', () => { c[n.dataset.field] = n.innerText.trim(); markDirty(); });
+    });
+    box.appendChild(el);
   });
 }
 
+/* ========== 渲染：波段 ========== */
+function renderPhases(){
+  const box = $('#phasesBox'); box.innerHTML = '';
+  state.phases.forEach(p => {
+    const count = state.items.filter(i => i.phase === p.id).length;
+    const el = document.createElement('div');
+    el.className = 'phase';
+    el.innerHTML = `
+      <div class="p-period" contenteditable="true">${escapeHtml(p.period)}</div>
+      <div class="p-name" contenteditable="true">${escapeHtml(p.name)}</div>
+      <div class="p-desc" contenteditable="true">${escapeHtml(p.desc)}</div>
+      <div class="p-count">${count}</div>
+    `;
+    const [periodEl, nameEl, descEl] = el.querySelectorAll('[contenteditable]');
+    periodEl.addEventListener('blur', () => { p.period = periodEl.innerText.trim(); markDirty(); });
+    nameEl.addEventListener('blur', () => { p.name = nameEl.innerText.trim(); markDirty(); });
+    descEl.addEventListener('blur', () => { p.desc = descEl.innerText.trim(); markDirty(); });
+    box.appendChild(el);
+  });
+}
+
+/* ========== 渲染：執行項目 ========== */
+function renderItems(){
+  const tbody = $('#itemsBody'); tbody.innerHTML = '';
+  if (state.items.length === 0){
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:20px">尚未新增任何執行項目，點右上角「＋ 新增項目」開始</td></tr>`;
+    return;
+  }
+  state.items.forEach(it => {
+    const tr = document.createElement('tr');
+    const phOpts = state.phases.map(p => `<option value="${p.id}" ${p.id===it.phase?'selected':''}>${escapeHtml(p.name)}</option>`).join('');
+    const stOpts = Object.entries(STATUS_LABELS).map(([k,v]) => `<option value="${k}" ${k===it.status?'selected':''}>${v}</option>`).join('');
+    tr.innerHTML = `
+      <td><button class="del-row" title="刪除">✕</button></td>
+      <td><input data-f="name" value="${escapeAttr(it.name)}" placeholder="項目名稱"/></td>
+      <td><input data-f="owner" value="${escapeAttr(it.owner)}" placeholder="負責人"/></td>
+      <td><input data-f="dateRange" value="${escapeAttr(it.dateRange)}" placeholder="4/20 或 4/20-5/8"/></td>
+      <td><select data-f="phase" class="status-sel">${phOpts}</select></td>
+      <td><input data-f="kpi" value="${escapeAttr(it.kpi)}" placeholder="目標 KPI"/></td>
+      <td>
+        <div class="prog-cell">
+          <div class="prog-bar"><div class="prog-fill" style="width:${it.progress||0}%"></div></div>
+          <input type="number" min="0" max="100" data-f="progress" value="${it.progress||0}" class="prog-num-input"/><span class="prog-num">%</span>
+        </div>
+      </td>
+      <td><select data-f="status" class="status-sel s-${it.status}">${stOpts}</select></td>
+      <td><input data-f="link" value="${escapeAttr(it.link)}" placeholder="https://..."/></td>
+    `;
+    tr.querySelector('.del-row').onclick = () => {
+      if (confirm('確定刪除此項目？')) { state.items = state.items.filter(x=>x.id!==it.id); markDirty(); renderItems(); renderGantt(); renderPhases(); }
+    };
+    tr.querySelectorAll('[data-f]').forEach(n => {
+      n.addEventListener('change', () => {
+        const f = n.dataset.f;
+        if (f === 'progress'){ it.progress = Math.max(0, Math.min(100, +n.value||0)); }
+        else { it[f] = n.value; }
+        markDirty();
+        if (f === 'status'){ n.className = 'status-sel s-' + it.status; }
+        if (f === 'progress'){ tr.querySelector('.prog-fill').style.width = it.progress + '%'; }
+        if (f === 'dateRange' || f === 'status'){ renderGantt(); }
+        if (f === 'phase'){ renderPhases(); }
+      });
+      if (n.tagName === 'INPUT'){ n.addEventListener('blur', () => n.dispatchEvent(new Event('change'))); }
+    });
+    tbody.appendChild(tr);
+  });
+}
+
+/* ========== 渲染：Gantt ========== */
+function parseMonthDay(s){
+  if (!s) return null;
+  const m = s.match(/(\d{1,2})\s*\/\s*(\d{1,2})/);
+  if (!m) return null;
+  return { mo: +m[1], d: +m[2] };
+}
+function parseRange(str){
+  if (!str) return null;
+  const parts = str.split(/[-–—~〜]/);
+  const start = parseMonthDay(parts[0]);
+  const end = parts[1] ? parseMonthDay(parts[1]) : start;
+  if (!start) return null;
+  return { start, end: end || start };
+}
+/* 4–6 月週區間：每週一格（W1 起每 7 天一格，5/5 與 6/2 都落在週一） */
+const GANTT_WEEKS = [
+  {m:4,d:1, wk:'W1', monthStart:true,  monthEnd:false},
+  {m:4,d:7, wk:'W2', monthStart:false, monthEnd:false},
+  {m:4,d:14,wk:'W3', monthStart:false, monthEnd:false},
+  {m:4,d:21,wk:'W4', monthStart:false, monthEnd:false},
+  {m:4,d:28,wk:'W5', monthStart:false, monthEnd:true},
+  {m:5,d:5, wk:'W1', monthStart:true,  monthEnd:false},
+  {m:5,d:12,wk:'W2', monthStart:false, monthEnd:false},
+  {m:5,d:19,wk:'W3', monthStart:false, monthEnd:false},
+  {m:5,d:26,wk:'W4', monthStart:false, monthEnd:true},
+  {m:6,d:2, wk:'W1', monthStart:true,  monthEnd:false},
+  {m:6,d:9, wk:'W2', monthStart:false, monthEnd:false},
+  {m:6,d:16,wk:'W3', monthStart:false, monthEnd:true}
+];
+const GANTT_MONTHS = [
+  {name:'4月', span:5},
+  {name:'5月', span:4},
+  {name:'6月', span:3}
+];
+const GANTT_TOTAL_COLS = 12;
+
+function mdOrd(mo, d){ return mo * 100 + d; }
+
+function weekIdxOf(mo, d){
+  const v = mdOrd(mo, d);
+  for (let i = GANTT_WEEKS.length - 1; i >= 0; i--){
+    const w = GANTT_WEEKS[i];
+    if (v >= mdOrd(w.m, w.d)) return i;
+  }
+  return 0; // 在 4/1 前的日期，放到第一格
+}
+
 function renderGanttHead(){
-  document.getElementById('gantt-head').innerHTML=`
-    <tr>
-      <th class="ic">執行項目</th>
-      <th class="pcc">負責人</th>
-      <th class="mh" colspan="5">4 月</th>
-      <th class="mh" colspan="4">5 月</th>
-      <th class="mh" colspan="4">6 月</th>
-    </tr>
-    <tr>
-      <th class="ic"></th><th class="pcc"></th>
-      ${WEEKS.map(w=>`<th class="wk">${w.label}<br><span class="dt">${w.date}</span></th>`).join('')}
-    </tr>`;
+  const head = $('#ganttHead');
+  if (head.dataset.done === '1') return;
+  const months = '<div class="g-months">' +
+    GANTT_MONTHS.map(m => `<div style="flex:${m.span}">${m.name}</div>`).join('') +
+    '</div>';
+  const weeks = '<div class="g-weeks">' +
+    GANTT_WEEKS.map(w => `<div>${w.wk}</div>`).join('') +
+    '</div>';
+  const dates = '<div class="g-dates">' +
+    GANTT_WEEKS.map(w => `<div>${w.m}/${w.d}</div>`).join('') +
+    '</div>';
+  head.innerHTML = months + weeks + dates;
+  head.dataset.done = '1';
 }
 
 function renderGantt(){
   renderGanttHead();
-  // Use amber for phase 1 (prep tasks)
-  document.getElementById('gantt-body').innerHTML=D.tasks.map(t=>{
-    const isAmber = t.phase===1;
-    const cells=getGanttCells(t.time,isAmber);
-    return`<tr>
-      <td class="ic">${t.name}</td>
-      <td class="pcc">${t.person}</td>
-      ${cells.map(c=>{
-        if(c.type==='bar') return`<td><div class="g-bar${c.amber?' g-bar-a':''}"></div></td>`;
-        if(c.type==='diamond') return`<td><div class="g-diamond${c.amber?' g-diamond-a':''}"></div><span class="g-date">${c.date}</span></td>`;
-        return`<td></td>`;
-      }).join('')}
-    </tr>`;
-  }).join('');
-}
+  const body = $('#ganttBody'); body.innerHTML = '';
 
-// ── DATA ──
-const STATUSES=['待執行','進行中','洽談中','Pending','已完成'];
-const SC={'待執行':'sw-wait','進行中':'sw-prog','洽談中':'sw-talk','Pending':'sw-pend','已完成':'sw-done'};
+  const tasks = state.items.filter(i => i.name && parseRange(i.dateRange));
+  if (tasks.length === 0){
+    body.innerHTML = '<div class="g-empty">尚無含日期的執行項目，在上方表格填入日期後會自動連動</div>';
+    return;
+  }
 
-const DEFAULT_DATA={
-  kpiCards:[
-    {label:'總行銷預算',val:'$230K',hint:'廣告費另計'},
-    {label:'目標 ROAS',val:'≥ 4',hint:'廣告投遞'},
-    {label:'銷量目標',val:'6,200包',hint:'線上＋全聯'},
-    {label:'KOL 觸及目標',val:'100K+',hint:'中醫師 Reels'},
-  ],
-  tasks:[
-    {name:'IP 社群預告影片',person:'小編',time:'4/28',phase:1,kpi:'觸及 ≥5,000｜互動率 ≥3%',status:'待執行',progress:0,url:''},
-    {name:'為父母研發故事影片',person:'小編',time:'5/5',phase:2,kpi:'觀看 ≥10,000｜分享 ≥200',status:'待執行',progress:0,url:''},
-    {name:'全聯尋找膳糧 Reels',person:'小編',time:'5/8',phase:2,kpi:'觸及 ≥20,000｜留言 ≥1,000',status:'待執行',progress:0,url:''},
-    {name:'能量補給計劃貼文',person:'小編',time:'5/8–5/19',phase:2,kpi:'觸及 ≥10,000',status:'待執行',progress:0,url:''},
-    {name:'618 穀物市集貼文',person:'小編',time:'6/2',phase:3,kpi:'觸及 ≥10,000',status:'待執行',progress:0,url:''},
-    {name:'中醫師 KOL Reels ×2–3',person:'Milla',time:'5/12–6/9',phase:2,kpi:'每支觀看 ≥50,000',status:'洽談中',progress:5,url:''},
-    {name:'中醫師廣告主投放',person:'Milla',time:'5/19–6/30',phase:2,kpi:'月觸及 ≥50,000｜ROAS=2',status:'待執行',progress:0,url:''},
-    {name:'蕎拉社團試吃招募',person:'小編',time:'4/20',phase:1,kpi:'心得回收率 ≥80%',status:'待執行',progress:0,url:''},
-    {name:'全聯社團抽獎',person:'Milla+小編',time:'5/8–5/25',phase:2,kpi:'留言 ≥3,000｜曝光 ≥50,000',status:'待執行',progress:0,url:''},
-    {name:'全聯社團口碑文 ×3',person:'Milla',time:'5/8–5/25',phase:2,kpi:'互動 ≥50',status:'Pending',progress:0,url:''},
-    {name:'Dcard 文章',person:'Milla',time:'5/26',phase:3,kpi:'互動 ≥30',status:'Pending',progress:0,url:''},
-    {name:'Threads 議題文 ×5',person:'Milla',time:'5/19–6/30',phase:3,kpi:'每則觸及 ≥3,000',status:'Pending',progress:0,url:''},
-    {name:'KOC Seeding 寄送',person:'Milla',time:'5/12–5/25',phase:2,kpi:'曝光率 ≥80%',status:'待執行',progress:0,url:''},
-    {name:'廣告投遞（新品+促銷）',person:'Paul',time:'5/12–6/30',phase:2,kpi:'ROAS ≥4｜CPA ≤$150',status:'待執行',progress:0,url:''},
-    {name:'商品說明頁文案+設計',person:'Milla+阿和',time:'4/1–4/30',phase:1,kpi:'頁面完成上線',status:'進行中',progress:25,url:''},
-    {name:'母親節+618 檔期優惠',person:'柔彥',time:'5/5–6/30',phase:2,kpi:'母親節 ≥3,000包｜618 ≥4,200包',status:'待執行',progress:0,url:''},
-  ],
-  budget:[
-    {name:'中醫師 KOL Reels',desc:'產品補氣介紹 Reels ×2–3 支',amount:110000,person:'Milla',wave:'5–6月'},
-    {name:'全聯社團抽獎',desc:'好物老實說 獎品成本 ×10名',amount:120000,person:'Milla+小編',wave:'5月'},
-    {name:'全聯社團口碑文',desc:'素人口碑文 ×3 篇',amount:40000,person:'Milla',wave:'5–6月'},
-    {name:'中醫師廣告主投放',desc:'FB/IG 雙平台 1 個月',amount:null,person:'Milla',wave:'5–6月'},
-    {name:'廣告投遞（新品+促銷）',desc:'新品上市 + KOL Reels 加投',amount:null,person:'Paul',wave:'5–6月'},
-    {name:'母親節 + 618 檔期優惠',desc:'滿額贈隨手包成本',amount:null,person:'柔彥',wave:'5–6月'},
-  ],
-  kpis:[
-    {item:'IP 社群預告影片',metric:'觸及數',display:'10,000',n:10000,actual:''},
-    {item:'為父母研發故事影片',metric:'觀看數',display:'15,000',n:15000,actual:''},
-    {item:'全聯尋找膳糧 Reels',metric:'抽獎留言則數',display:'1,000',n:1000,actual:''},
-    {item:'中醫師 KOL Reels',metric:'每支觀看數',display:'50,000',n:50000,actual:''},
-    {item:'全聯社團抽獎',metric:'參與留言則數',display:'3,000',n:3000,actual:''},
-    {item:'全聯社團抽獎',metric:'社團曝光數',display:'50,000',n:50000,actual:''},
-    {item:'Threads 議題文',metric:'每則觸及',display:'3,000',n:3000,actual:''},
-    {item:'廣告投遞（整體）',metric:'ROAS',display:'≥ 4',n:4,actual:''},
-    {item:'廣告投遞（整體）',metric:'CPA (NT$)',display:'≤ $150',n:150,actual:''},
-    {item:'廣告投遞（整體）',metric:'廣告觸及數',display:'100,000',n:100000,actual:''},
-    {item:'整體銷售目標',metric:'總銷售包數',display:'6,000–7,200包',n:6000,actual:''},
-    {item:'整體銷售目標',metric:'目標 ROAS',display:'4',n:4,actual:''},
-  ],
-  notes:''
-};
+  tasks.sort((a,b) => {
+    const ra = parseRange(a.dateRange), rb = parseRange(b.dateRange);
+    return mdOrd(ra.start.mo, ra.start.d) - mdOrd(rb.start.mo, rb.start.d);
+  });
 
-let D=JSON.parse(JSON.stringify(DEFAULT_DATA));
+  const colWidth = 100 / GANTT_TOTAL_COLS;
+  const gap = 0.6; // 每格兩側的小留白（百分比）
 
-function load(){
-  try{const s=localStorage.getItem('mg26v5');if(s)D=JSON.parse(s);}catch(e){}
-  document.getElementById('notes').value=D.notes||'';
-  if(D.ls)document.getElementById('lu').textContent=D.ls;
-}
+  tasks.forEach(t => {
+    const r = parseRange(t.dateRange);
+    const sIdx = Math.max(0, Math.min(GANTT_TOTAL_COLS-1, weekIdxOf(r.start.mo, r.start.d)));
+    const eIdx = Math.max(0, Math.min(GANTT_TOTAL_COLS-1, weekIdxOf(r.end.mo, r.end.d)));
+    const isSingle = r.start.mo === r.end.mo && r.start.d === r.end.d;
+    // 顏色規則：p1 口碑醞釀期 = 準備/設計（amber）；其他 = 執行（rose）；done = 綠；delay = 紅
+    let cls = 'exec';
+    if (t.status === 'done') cls = 'done';
+    else if (t.status === 'delay') cls = 'delay';
+    else if (t.phase === 'p1') cls = 'prep';
 
-function saveAll(){
-  D.notes=document.getElementById('notes').value;
-  D.ls=new Date().toLocaleString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
-  localStorage.setItem('mg26v5',JSON.stringify(D));
-  document.getElementById('lu').textContent=D.ls;
-  const e=document.getElementById('sok');e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2200);
-}
+    // 12 個格子（帶月末分隔線加粗）
+    const cols = GANTT_WEEKS.map(w =>
+      `<div class="g-col${w.monthEnd ? ' g-month-end' : ''}"></div>`
+    ).join('');
 
-// KPI CARDS
-function renderKpiCards(){
-  document.getElementById('kpi-cards').innerHTML=D.kpiCards.map((c,i)=>`
-    <div class="kc">
-      <button class="kc-del" onclick="delKpiCard(${i})">✕</button>
-      <div class="kc-label"><span class="ec" contenteditable="true" onblur="D.kpiCards[${i}].label=this.textContent;saveAll()">${c.label}</span></div>
-      <div class="kc-val"><span class="ec" contenteditable="true" onblur="D.kpiCards[${i}].val=this.textContent;saveAll()">${c.val}</span></div>
-      <div class="kc-hint"><span class="ec" contenteditable="true" onblur="D.kpiCards[${i}].hint=this.textContent;saveAll()">${c.hint}</span></div>
-    </div>`).join('');
-}
-function addKpiCard(){D.kpiCards.push({label:'新指標',val:'—',hint:'說明'});renderKpiCards();saveAll();}
-function delKpiCard(i){if(!confirm('確定刪除？'))return;D.kpiCards.splice(i,1);renderKpiCards();saveAll();}
+    let overlay = '';
+    if (isSingle){
+      const left = (sIdx + 0.5) * colWidth;
+      overlay = `<div class="g-star ${cls}" style="left:${left}%">
+        <span class="g-icon">★</span>
+        <span class="g-dt-lbl">${r.start.mo}/${r.start.d}</span>
+      </div>`;
+    } else {
+      const left = sIdx * colWidth + gap;
+      const width = (eIdx - sIdx + 1) * colWidth - gap * 2;
+      const label = `${r.start.mo}/${r.start.d}–${r.end.mo}/${r.end.d}`;
+      overlay = `<div class="g-bar ${cls}" style="left:${left}%;width:${width}%" title="${escapeAttr(label)}"></div>`;
+    }
 
-// TASKS
-let dragSrcIdx=null;
-function renderTasks(){
-  const tbody=document.getElementById('task-body');
-  tbody.innerHTML=D.tasks.map((t,i)=>{
-    const sc=SC[t.status]||'sw-wait';
-    const urlHtml=t.url?`<a href="${t.url}" target="_blank" class="url-link">🔗 查看</a>`:`<input class="url-input" value="" placeholder="貼上連結" onblur="updateUrl(${i},this.value)">`;
-    return`<tr draggable="true" data-idx="${i}">
-      <td style="text-align:center;width:32px"><span class="drag-handle" title="拖拉排序">⠿</span></td>
-      <td><span class="ec" contenteditable="true" style="font-weight:500" onblur="D.tasks[${i}].name=this.textContent;saveAll();renderGantt()">${t.name}</span></td>
-      <td><span class="ec" contenteditable="true" style="font-size:12px;color:var(--gray)" onblur="D.tasks[${i}].person=this.textContent;saveAll();renderGantt()">${t.person}</span></td>
-      <td><span class="ec" contenteditable="true" style="font-size:12px;color:var(--teal);font-weight:500" onblur="D.tasks[${i}].time=this.textContent;saveAll();renderGantt()" title="填 4/20 或 4/20–5/8">${t.time}</span></td>
-      <td>
-        <select class="ph-sel" onchange="D.tasks[${i}].phase=+this.value;saveAll();renderGantt()">
-          <option value="1"${t.phase==1?' selected':''}>口碑醞釀</option>
-          <option value="2"${t.phase==2?' selected':''}>母親節期</option>
-          <option value="3"${t.phase==3?' selected':''}>熱度維繫</option>
-        </select>
-      </td>
-      <td><span class="ec" contenteditable="true" style="font-size:11px;color:var(--gray)" onblur="D.tasks[${i}].kpi=this.textContent;saveAll()">${t.kpi}</span></td>
-      <td><div class="prw"><input type="range" min="0" max="100" step="5" value="${t.progress||0}" oninput="D.tasks[${i}].progress=+this.value;document.getElementById('pp${i}').textContent=this.value+'%'" onchange="saveAll()"><span id="pp${i}" class="prp">${t.progress||0}%</span></div></td>
-      <td><div class="sw"><select class="${sc} ss" onchange="D.tasks[${i}].status=this.value;this.className=(SC[this.value]||'sw-wait')+' ss';saveAll()">${STATUSES.map(s=>`<option${s===t.status?' selected':''}>${s}</option>`).join('')}</select></div></td>
-      <td>${urlHtml}</td>
-      <td><button class="del-row" onclick="delTask(${i})">🗑</button></td>
-    </tr>`;
-  }).join('');
-  // attach drag events
-  tbody.querySelectorAll('tr[draggable]').forEach(row=>{
-    row.addEventListener('dragstart',e=>{
-      dragSrcIdx=+row.dataset.idx;
-      row.classList.add('dragging');
-      e.dataTransfer.effectAllowed='move';
-    });
-    row.addEventListener('dragend',()=>{
-      tbody.querySelectorAll('tr').forEach(r=>r.classList.remove('dragging','drag-over'));
-    });
-    row.addEventListener('dragover',e=>{
-      e.preventDefault();
-      tbody.querySelectorAll('tr').forEach(r=>r.classList.remove('drag-over'));
-      row.classList.add('drag-over');
-    });
-    row.addEventListener('drop',e=>{
-      e.preventDefault();
-      const targetIdx=+row.dataset.idx;
-      if(dragSrcIdx===null||dragSrcIdx===targetIdx)return;
-      const moved=D.tasks.splice(dragSrcIdx,1)[0];
-      D.tasks.splice(targetIdx,0,moved);
-      dragSrcIdx=null;
-      renderTasks();renderGantt();saveAll();
-    });
+    const row = document.createElement('div');
+    row.className = 'g-row';
+    row.innerHTML = `
+      <div class="g-row-left">
+        <div class="g-task-name" title="${escapeAttr(t.name)}">${escapeHtml(t.name)}</div>
+        <div class="g-task-owner">${escapeHtml(t.owner || '')}</div>
+      </div>
+      <div class="g-row-right">
+        ${cols}
+        ${overlay}
+      </div>
+    `;
+    body.appendChild(row);
   });
 }
-function updateUrl(i,val){D.tasks[i].url=val.trim();saveAll();renderTasks();}
-function delTask(i){if(!confirm('確定刪除此項目？'))return;D.tasks.splice(i,1);renderTasks();renderGantt();saveAll();}
-function openAddTask(){['m-name','m-person','m-time','m-kpi','m-url'].forEach(id=>document.getElementById(id).value='');document.getElementById('modal-task').classList.add('show');}
-function confirmAddTask(){
-  const name=document.getElementById('m-name').value.trim();
-  if(!name)return alert('請填寫項目名稱');
-  D.tasks.push({name,person:document.getElementById('m-person').value||'—',time:document.getElementById('m-time').value||'',phase:+document.getElementById('m-phase').value,kpi:document.getElementById('m-kpi').value||'—',status:'待執行',progress:0,url:document.getElementById('m-url').value.trim()});
-  renderTasks();renderGantt();saveAll();closeModal('modal-task');
-}
 
-// BUDGET
+/* ========== 渲染：預算 ========== */
 function renderBudget(){
-  document.getElementById('budget-body').innerHTML=D.budget.map((b,i)=>`
-    <tr>
-      <td><span class="ec" contenteditable="true" style="font-weight:500" onblur="D.budget[${i}].name=this.textContent;saveAll()">${b.name}</span></td>
-      <td><span class="ec" contenteditable="true" style="font-size:12px;color:var(--gray)" onblur="D.budget[${i}].desc=this.textContent;saveAll()">${b.desc}</span></td>
-      <td><span class="ec" contenteditable="true" style="font-weight:600;color:${b.amount?'var(--teal)':'var(--gray)'}" onblur="updateBudgetAmt(${i},this.textContent)">${b.amount?'$'+b.amount.toLocaleString():'另計'}</span></td>
-      <td><span class="ec" contenteditable="true" style="font-size:12px;color:var(--gray)" onblur="D.budget[${i}].person=this.textContent;saveAll()">${b.person}</span></td>
-      <td><span class="ec" contenteditable="true" style="font-size:12px;color:var(--gray)" onblur="D.budget[${i}].wave=this.textContent;saveAll()">${b.wave}</span></td>
-      <td><button class="del-row" onclick="delBudget(${i})">🗑</button></td>
-    </tr>`).join('');
+  const tbody = $('#budgetBody'); tbody.innerHTML = '';
+  if (state.budget.length === 0){
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:20px">尚無預算項目</td></tr>`;
+  } else {
+    state.budget.forEach(b => {
+      const phOpts = state.phases.map(p => `<option value="${p.id}" ${p.id===b.phase?'selected':''}>${escapeHtml(p.name)}</option>`).join('');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><button class="del-row">✕</button></td>
+        <td><input data-f="name" value="${escapeAttr(b.name)}" placeholder="項目名稱"/></td>
+        <td><input data-f="desc" value="${escapeAttr(b.desc)}" placeholder="說明"/></td>
+        <td><input type="number" data-f="amount" value="${b.amount||0}" min="0"/></td>
+        <td><input data-f="owner" value="${escapeAttr(b.owner)}" placeholder="負責人"/></td>
+        <td><select data-f="phase" class="status-sel">${phOpts}</select></td>
+      `;
+      tr.querySelector('.del-row').onclick = () => {
+        if (confirm('確定刪除此預算？')) { state.budget = state.budget.filter(x=>x.id!==b.id); markDirty(); renderBudget(); }
+      };
+      tr.querySelectorAll('[data-f]').forEach(n => {
+        const h = () => {
+          const f = n.dataset.f;
+          if (f === 'amount'){ b.amount = Math.max(0, +n.value||0); updateBudgetTotal(); }
+          else { b[f] = n.value; }
+          markDirty();
+        };
+        n.addEventListener('change', h);
+        if (n.tagName === 'INPUT') n.addEventListener('blur', h);
+      });
+      tbody.appendChild(tr);
+    });
+  }
   updateBudgetTotal();
 }
-function updateBudgetAmt(i,val){const n=parseFloat(val.replace(/[^0-9.]/g,''));D.budget[i].amount=isNaN(n)?null:n;saveAll();updateBudgetTotal();}
-function updateBudgetTotal(){const t=D.budget.reduce((s,b)=>s+(b.amount||0),0);document.getElementById('budget-total').textContent=t>0?'NT$'+t.toLocaleString():'另計';}
-function delBudget(i){if(!confirm('確定刪除？'))return;D.budget.splice(i,1);renderBudget();saveAll();}
-function openAddBudget(){['b-name','b-desc','b-person','b-wave'].forEach(id=>document.getElementById(id).value='');document.getElementById('b-amount').value='';document.getElementById('modal-budget').classList.add('show');}
-function confirmAddBudget(){
-  const name=document.getElementById('b-name').value.trim();if(!name)return alert('請填寫項目名稱');
-  const amt=parseFloat(document.getElementById('b-amount').value);
-  D.budget.push({name,desc:document.getElementById('b-desc').value||'—',amount:isNaN(amt)?null:amt,person:document.getElementById('b-person').value||'—',wave:document.getElementById('b-wave').value||'—'});
-  renderBudget();saveAll();closeModal('modal-budget');
+function updateBudgetTotal(){
+  const t = state.budget.reduce((s,b) => s + (+b.amount||0), 0);
+  $('#budgetTotal').textContent = t.toLocaleString('en-US');
 }
 
-// KPI TRACKING
-function cr(a,n){const v=parseFloat(String(a).replace(/[^0-9.]/g,''));if(isNaN(v)||!n)return null;return Math.round((v/n)*100);}
-function rc(r){return r>=100?'#3B6D11':r>=80?'var(--amber)':'var(--red)';}
-function rl(r){return r>=100?'✅ 達標':r>=80?'⚠️ 接近':'❌ 未達';}
-function renderKpis(){
-  document.getElementById('kpi-body').innerHTML=D.kpis.map((k,i)=>{
-    const r=cr(k.actual,k.n);const c=r!==null?rc(r):'var(--gray)';
-    return`<tr>
-      <td><span class="ec" contenteditable="true" onblur="D.kpis[${i}].item=this.textContent;saveAll()">${k.item}</span></td>
-      <td><span class="ec" contenteditable="true" onblur="D.kpis[${i}].metric=this.textContent;saveAll()">${k.metric}</span></td>
-      <td><span class="ec" contenteditable="true" style="font-weight:600;color:var(--teal)" onblur="updateKpiTarget(${i},this.textContent)">${k.display}</span></td>
-      <td><input style="border:1px solid var(--gray-border);border-radius:6px;padding:4px 8px;font-size:12px;font-family:'Noto Sans TC',sans-serif;width:100%;outline:none;color:var(--teal);font-weight:600" value="${k.actual}" placeholder="填入實際值" oninput="D.kpis[${i}].actual=this.value;updateKpiRate(${i})" onblur="saveAll()"></td>
-      <td><span id="kr${i}" style="font-weight:600;color:${c}">${r!==null?r+'%':'—'}</span></td>
-      <td><span id="kl${i}" style="font-size:12px;color:${c}">${r!==null?rl(r):'待填入'}</span></td>
-      <td><button class="del-row" onclick="delKpi(${i})">🗑</button></td>
-    </tr>`;
-  }).join('');
-}
-function updateKpiTarget(i,val){D.kpis[i].display=val;const n=parseFloat(val.replace(/[^0-9.]/g,''));if(!isNaN(n))D.kpis[i].n=n;saveAll();}
-function updateKpiRate(i){
-  const r=cr(D.kpis[i].actual,D.kpis[i].n);const c=r!==null?rc(r):'var(--gray)';
-  const re=document.getElementById('kr'+i);const le=document.getElementById('kl'+i);
-  if(re){re.textContent=r!==null?r+'%':'—';re.style.color=c;}
-  if(le){le.textContent=r!==null?rl(r):'待填入';le.style.color=c;}
-}
-function delKpi(i){if(!confirm('確定刪除？'))return;D.kpis.splice(i,1);renderKpis();saveAll();}
-function openAddKpi(){['k-item','k-metric','k-display'].forEach(id=>document.getElementById(id).value='');document.getElementById('k-target').value='';document.getElementById('modal-kpi').classList.add('show');}
-function confirmAddKpi(){
-  const item=document.getElementById('k-item').value.trim();if(!item)return alert('請填寫執行項目名稱');
-  const n=parseFloat(document.getElementById('k-target').value)||0;
-  D.kpis.push({item,metric:document.getElementById('k-metric').value||'—',display:document.getElementById('k-display').value||String(n),n,actual:''});
-  renderKpis();saveAll();closeModal('modal-kpi');
-}
-
-function closeModal(id){document.getElementById(id).classList.remove('show');}
-document.querySelectorAll('.modal-bg').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('show');}));
-
-function resetAll(){
-  if(!confirm('確定要重設所有資料回預設值嗎？'))return;
-  D=JSON.parse(JSON.stringify(DEFAULT_DATA));localStorage.removeItem('mg26v5');
-  renderAll();document.getElementById('notes').value='';document.getElementById('lu').textContent='—';
-}
-
-function renderAll(){renderKpiCards();renderTasks();renderGantt();renderBudget();renderKpis();}
-
-function exportClient(){
-  const now=new Date().toLocaleDateString('zh-TW');
-  const clone=document.documentElement.cloneNode(true);
-  clone.querySelector('.toolbar').remove();
-  clone.querySelectorAll('.modal-bg').forEach(m=>m.remove());
-  clone.querySelectorAll('.btn-add').forEach(b=>b.remove());
-  clone.querySelectorAll('.del-row,.kc-del').forEach(b=>b.remove());
-  clone.querySelectorAll('[contenteditable]').forEach(el=>el.removeAttribute('contenteditable'));
-  clone.querySelectorAll('input[type=range]').forEach((r,i)=>{
-    const pp=document.getElementById('pp'+i);
-    const span=document.createElement('span');span.style.cssText='font-size:12px;font-weight:600;color:#0F6E56';
-    span.textContent=pp?pp.textContent:r.value+'%';r.parentElement.replaceWith(span);
+/* ========== 渲染：KPI ========== */
+function renderKpi(){
+  const tbody = $('#kpiBody'); tbody.innerHTML = '';
+  if (state.kpi.length === 0){
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:20px">尚無 KPI 項目</td></tr>`;
+    return;
+  }
+  state.kpi.forEach(k => {
+    const achieve = (k.targetNum && +k.targetNum > 0) ? Math.round((+k.actual || 0) / +k.targetNum * 100) : 0;
+    let st = 'wait';
+    if (achieve >= 100) st = 'done';
+    else if (achieve >= 50) st = 'prog';
+    else if (achieve > 0) st = 'delay';
+    k.status = st;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><button class="del-row">✕</button></td>
+      <td><input data-f="item" value="${escapeAttr(k.item)}" placeholder="執行項目"/></td>
+      <td><input data-f="metric" value="${escapeAttr(k.metric)}" placeholder="KPI 指標"/></td>
+      <td>
+        <input data-f="targetText" value="${escapeAttr(k.targetText||'')}" placeholder="顯示文字 (選填)" style="font-size:12px"/>
+        <input type="number" data-f="targetNum" value="${k.targetNum||0}" min="0" style="font-size:12px;margin-top:2px" placeholder="數字"/>
+      </td>
+      <td><input type="number" data-f="actual" value="${k.actual||0}" min="0"/></td>
+      <td><strong style="color:var(--rose-deep);font-family:'Cormorant Garamond',serif;font-size:16px">${achieve}%</strong></td>
+      <td><span class="status-sel s-${st}" style="display:inline-block;pointer-events:none">${STATUS_LABELS[st]}</span></td>
+    `;
+    tr.querySelector('.del-row').onclick = () => {
+      if (confirm('確定刪除此 KPI？')) { state.kpi = state.kpi.filter(x=>x.id!==k.id); markDirty(); renderKpi(); }
+    };
+    tr.querySelectorAll('[data-f]').forEach(n => {
+      const h = () => {
+        const f = n.dataset.f;
+        if (f === 'targetNum' || f === 'actual'){ k[f] = +n.value || 0; }
+        else { k[f] = n.value; }
+        markDirty(); renderKpi();
+      };
+      n.addEventListener('change', h);
+      if (n.tagName === 'INPUT') n.addEventListener('blur', h);
+    });
+    tbody.appendChild(tr);
   });
-  clone.querySelectorAll('select.ss').forEach(sel=>{
-    const cm={'sw-wait':'background:#F1EFE8;color:#5F5E5A','sw-prog':'background:#FAEEDA;color:#854F0B','sw-talk':'background:#E1F5EE;color:#0F6E56','sw-pend':'background:#E6F1FB;color:#185FA5','sw-done':'background:#EAF3DE;color:#3B6D11'};
-    const span=document.createElement('span');const cls=Array.from(sel.classList).find(c=>c.startsWith('sw-'))||'sw-wait';
-    span.style.cssText=(cm[cls]||'')+';font-size:12px;padding:3px 10px;border-radius:20px;font-weight:500;display:inline-block';
-    span.textContent=sel.value;sel.parentElement.replaceWith(span);
-  });
-  clone.querySelectorAll('select.ph-sel').forEach(sel=>{
-    const lm={1:'口碑醞釀',2:'母親節期',3:'熱度維繫'};
-    const span=document.createElement('span');span.className='ptag pt'+(sel.value||1);span.textContent=lm[sel.value]||'—';sel.replaceWith(span);
-  });
-  clone.querySelectorAll('input.url-input').forEach(inp=>{
-    const v=inp.value.trim();
-    if(v){const a=document.createElement('a');a.href=v;a.target='_blank';a.className='url-link';a.textContent='🔗 查看';inp.replaceWith(a);}
-    else{const span=document.createElement('span');span.style.color='#bbb';span.style.fontSize='11px';span.textContent='—';inp.replaceWith(span);}
-  });
-  clone.querySelectorAll('input[placeholder="填入實際值"]').forEach(inp=>{
-    const span=document.createElement('span');span.style.cssText='font-size:13px;font-weight:600;color:#0F6E56';span.textContent=inp.value||'—';inp.replaceWith(span);
-  });
-  const ta=clone.querySelector('#notes');
-  if(ta){const d=document.createElement('div');d.style.cssText='padding:12px;border:1px solid #D3D1C7;border-radius:8px;font-size:13px;white-space:pre-wrap;background:#fff;min-height:40px';d.textContent=ta.value;ta.replaceWith(d);}
-  clone.querySelectorAll('script').forEach(s=>s.remove());
-  const lu=clone.querySelector('#lu');if(lu)lu.textContent=now;
-  const blob=new Blob(['<!DOCTYPE html>\n'+clone.outerHTML],{type:'text/html;charset=utf-8'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
-  a.download=`超級穀食膳糧_客戶進度報告_${now.replace(/\//g,'')}.html`;a.click();
 }
 
-load();renderAll();
-document.getElementById('notes').addEventListener('blur',saveAll);
+/* ========== Meta 編輯 ========== */
+function bindMetaEditors(){
+  $$('[data-path]').forEach(el => {
+    if (el.tagName === 'TEXTAREA'){
+      el.value = getByPath(state, el.dataset.path) || '';
+      el.addEventListener('input', () => { setByPath(state, el.dataset.path, el.value); markDirty(); });
+    } else {
+      el.innerText = getByPath(state, el.dataset.path) || '';
+      el.addEventListener('blur', () => { setByPath(state, el.dataset.path, el.innerText.trim()); markDirty(); });
+    }
+  });
+}
+function getByPath(obj, path){ return path.split('.').reduce((o,k)=>o&&o[k], obj); }
+function setByPath(obj, path, v){
+  const ks = path.split('.'); let o = obj;
+  for (let i=0;i<ks.length-1;i++){ if(!o[ks[i]]) o[ks[i]] = {}; o = o[ks[i]]; }
+  o[ks[ks.length-1]] = v;
+}
+
+/* ========== 全部渲染 ========== */
+function renderAll(){
+  bindMetaEditors();
+  renderKpiCards(); renderPhases(); renderItems(); renderGantt(); renderBudget(); renderKpi();
+  $('#notesBox').value = state.notes || '';
+  $('#lastEditBox').textContent = state.lastEdit && state.lastEdit.editor
+    ? `${state.lastEdit.editor}・${formatTime(state.lastEdit.time)}`
+    : '—';
+}
+function formatTime(iso){
+  if (!iso) return '—';
+  try { const d = new Date(iso); return d.toLocaleString('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}); }
+  catch(e){ return iso; }
+}
+
+/* ========== 新增資料 ========== */
+$('#btnAddKpiCard').onclick = () => {
+  state.kpiCards.push({ id: uid('kc'), label: '新指標', val: '—', hint: '' });
+  markDirty(); renderKpiCards();
+};
+$('#btnAddItem').onclick = () => {
+  openModal('新增執行項目', [
+    {k:'name',label:'執行項目名稱',ph:'例：Threads 話題預熱'},
+    {k:'owner',label:'負責人',ph:'例：Milla'},
+    {k:'dateRange',label:'執行日期',ph:'4/20 或 4/20-5/8'},
+    {k:'phase',label:'波段',type:'select',opts: state.phases.map(p=>({v:p.id,t:p.name}))},
+    {k:'kpi',label:'目標 KPI',ph:'例：觸及 3 萬'},
+    {k:'link',label:'成果連結（選填）',ph:'https://...'}
+  ], v => {
+    state.items.push({ id: uid('i'), ...v, progress:0, status:'wait' });
+    markDirty(); renderItems(); renderGantt(); renderPhases();
+  });
+};
+$('#btnAddBudget').onclick = () => {
+  openModal('新增預算項目', [
+    {k:'name',label:'項目名稱',ph:'例：KOL 合作費'},
+    {k:'desc',label:'費用說明',ph:'選填'},
+    {k:'amount',label:'金額 (NT$)',type:'number',ph:'留 0 表示另計'},
+    {k:'owner',label:'負責人'},
+    {k:'phase',label:'波段',type:'select',opts: state.phases.map(p=>({v:p.id,t:p.name}))},
+  ], v => {
+    state.budget.push({ id: uid('b'), ...v, amount: +v.amount || 0 });
+    markDirty(); renderBudget();
+  });
+};
+$('#btnAddKpi').onclick = () => {
+  openModal('新增 KPI 追蹤', [
+    {k:'item',label:'執行項目',ph:'例：全聯抽獎'},
+    {k:'metric',label:'KPI 指標',ph:'例：參加人數'},
+    {k:'targetText',label:'目標值顯示文字',ph:'例：1 萬人'},
+    {k:'targetNum',label:'目標值數字',type:'number',ph:'用於計算達成率'},
+  ], v => {
+    state.kpi.push({ id: uid('k'), ...v, targetNum: +v.targetNum || 0, actual: 0, status: 'wait' });
+    markDirty(); renderKpi();
+  });
+};
+
+/* ========== Modal ========== */
+function openModal(title, fields, onSubmit){
+  const box = $('#modalBox');
+  box.innerHTML = `<h3>${escapeHtml(title)}</h3>` +
+    fields.map(f => {
+      if (f.type === 'select'){
+        return `<div class="field"><label>${escapeHtml(f.label)}</label>
+          <select name="${f.k}">${f.opts.map(o=>`<option value="${o.v}">${escapeHtml(o.t)}</option>`).join('')}</select></div>`;
+      }
+      return `<div class="field"><label>${escapeHtml(f.label)}</label>
+        <input type="${f.type||'text'}" name="${f.k}" placeholder="${escapeAttr(f.ph||'')}" /></div>`;
+    }).join('') +
+    `<div class="actions">
+      <button class="btn" id="mCancel">取消</button>
+      <button class="btn primary" id="mOk">新增</button>
+    </div>`;
+  $('#modalBack').classList.add('open');
+  $('#mCancel').onclick = () => $('#modalBack').classList.remove('open');
+  $('#mOk').onclick = () => {
+    const v = {};
+    fields.forEach(f => { v[f.k] = box.querySelector(`[name="${f.k}"]`).value.trim(); });
+    if (!v[fields[0].k]){ toast('請至少填寫第一個欄位'); return; }
+    onSubmit(v);
+    $('#modalBack').classList.remove('open');
+  };
+}
+$('#modalBack').onclick = e => { if (e.target === $('#modalBack')) $('#modalBack').classList.remove('open'); };
+
+/* ========== Notes ========== */
+$('#notesBox').addEventListener('input', () => { state.notes = $('#notesBox').value; markDirty(); });
+
+/* ========== 儲存 / 載入（Apps Script 或 localStorage） ========== */
+function markDirty(){ dirty = true; setStatus('saving', '有未儲存變更'); clearTimeout(markDirty._h); markDirty._h = setTimeout(save, 2500); }
+
+async function save(){
+  if (!dirty || saving) return;
+  saving = true;
+  setStatus('saving', '儲存中...');
+  state.lastEdit = { editor: getEditor(), time: new Date().toISOString() };
+
+  if (API_URL){
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ action:'save', docId: DOC_ID, data: state })
+      });
+      const j = await res.json();
+      if (!j.ok) throw new Error(j.error || 'server error');
+      dirty = false;
+      lastPulledHash = hash(JSON.stringify(state));
+      setStatus('online', '已同步・' + formatTime(state.lastEdit.time));
+      $('#lastEditBox').textContent = `${state.lastEdit.editor}・${formatTime(state.lastEdit.time)}`;
+      toast('✓ 已儲存到雲端');
+    } catch(e){
+      console.error(e);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      setStatus('offline', '雲端失敗・已存本機');
+      toast('⚠️ 雲端儲存失敗，已存本機');
+    }
+  } else {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    dirty = false;
+    setStatus('offline', '本機模式・' + formatTime(state.lastEdit.time));
+    $('#lastEditBox').textContent = `${state.lastEdit.editor}・${formatTime(state.lastEdit.time)}`;
+    toast('✓ 已儲存到本機');
+  }
+  saving = false;
+}
+
+async function load(silent=false){
+  if (API_URL){
+    setStatus('saving', '載入中...');
+    try {
+      const res = await fetch(API_URL + '?action=load&docId=' + encodeURIComponent(DOC_ID) + '&t=' + Date.now());
+      const j = await res.json();
+      if (j.ok && j.data){
+        const newHash = hash(JSON.stringify(j.data));
+        if (dirty && !silent){ setStatus('online', '有本地變更未儲存'); return; }
+        if (newHash === lastPulledHash && silent) { setStatus('online', '已同步・' + formatTime(state.lastEdit && state.lastEdit.time)); return; }
+        state = Object.assign({}, DEFAULT_DATA, j.data);
+        ['kpiCards','phases','items','budget','kpi'].forEach(k => { if (!Array.isArray(state[k])) state[k] = DEFAULT_DATA[k]; });
+        if (!state.lastEdit) state.lastEdit = { editor:'', time:'' };
+        lastPulledHash = newHash;
+        renderAll();
+        setStatus('online', '已同步・' + formatTime(state.lastEdit.time));
+        if (!silent) toast('✓ 已載入最新資料');
+      } else {
+        // 雲端還沒資料 → 先看本機有沒有，有的話就用本機並推上雲端
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw){
+          try {
+            state = Object.assign({}, DEFAULT_DATA, JSON.parse(raw));
+            ['kpiCards','phases','items','budget','kpi'].forEach(k => { if (!Array.isArray(state[k])) state[k] = DEFAULT_DATA[k]; });
+            if (!state.lastEdit) state.lastEdit = { editor:'', time:'' };
+            renderAll();
+            setStatus('online', '首次上雲・推送本機資料中');
+            markDirty();
+            return;
+          } catch(e){}
+        }
+        setStatus('online', '雲端無資料・使用預設');
+        renderAll();
+      }
+    } catch(e){
+      console.error(e);
+      loadLocal();
+      setStatus('offline', '無法連線雲端・已改用本機');
+      if (!silent) toast('⚠️ 無法連線雲端，改用本機資料');
+    }
+  } else {
+    loadLocal();
+    setStatus('offline', '本機模式（未設定雲端）');
+  }
+}
+function loadLocal(){
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (raw){
+    try { state = Object.assign({}, DEFAULT_DATA, JSON.parse(raw)); } catch(e){}
+  }
+  ['kpiCards','phases','items','budget','kpi'].forEach(k => { if (!Array.isArray(state[k])) state[k] = DEFAULT_DATA[k]; });
+  if (!state.lastEdit) state.lastEdit = { editor:'', time:'' };
+  renderAll();
+}
+
+/* ========== Utility ========== */
+function escapeHtml(s){ return (s==null?'':String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function escapeAttr(s){ return escapeHtml(s); }
+
+/* ========== 按鈕 ========== */
+$('#btnSave').onclick = () => { dirty = true; save(); };
+$('#btnRefresh').onclick = () => { if (dirty && !confirm('有未儲存變更，確定要重新載入？')) return; dirty = false; load(false); };
+$('#btnPrint').onclick = () => window.print();
+
+/* ========== 初始化 ========== */
+document.addEventListener('DOMContentLoaded', () => {
+  $('#editorName').value = localStorage.getItem('cunlu_editor') || '';
+  renderAll();
+  load(true);
+  setInterval(() => { if (!dirty && !saving) load(true); }, AUTO_REFRESH_SEC * 1000);
+  window.addEventListener('beforeunload', e => {
+    if (dirty){ e.preventDefault(); e.returnValue = ''; }
+  });
+});
 </script>
 </body>
 </html>
