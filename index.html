@@ -227,6 +227,39 @@
   }
   td .del-row:hover{color:var(--danger);background:#fde8e4}
 
+  /* Drag handle + drag states */
+  td.row-actions{
+    padding:4px 4px !important;text-align:center;white-space:nowrap;vertical-align:middle;
+  }
+  .drag-handle{
+    display:inline-block;cursor:grab;color:#c9c0b2;font-size:15px;user-select:none;
+    padding:4px 4px;line-height:1;border-radius:4px;transition:color .15s;
+  }
+  .drag-handle:hover{color:var(--rose-deep);background:var(--pink)}
+  .drag-handle:active{cursor:grabbing}
+  tr.dragging{opacity:.4;background:var(--pink) !important}
+  tr.drag-over-top{box-shadow:inset 0 3px 0 var(--rose-deep)}
+  tr.drag-over-bottom{box-shadow:inset 0 -3px 0 var(--rose-deep)}
+
+  /* Multi-line editable cells */
+  td .cell-edit{
+    min-height:22px;padding:5px 8px;border-radius:4px;outline:none;
+    white-space:pre-wrap;word-break:break-word;cursor:text;font-family:inherit;font-size:14px;
+    line-height:1.5;transition:background .1s, box-shadow .1s;
+  }
+  td .cell-edit:hover{background:rgba(106,30,42,.04)}
+  td .cell-edit:focus{background:var(--bg);box-shadow:0 0 0 2px var(--pink)}
+  td .cell-edit:empty::before{content:attr(data-placeholder);color:#bbb;font-style:italic}
+  td .cell-edit.cell-owner{font-size:13px;color:var(--ink-soft)}
+  td .cell-edit.cell-kpi,td .cell-edit.cell-desc{font-size:12px;color:var(--ink-soft)}
+  td .cell-edit.cell-expkpi{
+    font-size:12px;color:var(--berry);background:rgba(106,30,42,.03);
+    border-left:2px solid var(--rose-deep);padding-left:10px;
+  }
+  td .cell-edit.cell-expkpi:hover{background:rgba(106,30,42,.07)}
+  td .cell-edit.cell-expkpi:empty::before{color:var(--rose-deep);opacity:.4}
+  td .cell-edit.cell-link{font-size:12px;color:var(--blue-hint,#185fa5)}
+
   /* Status chips */
   .status-sel{
     border:1px solid var(--line);border-radius:20px;padding:3px 8px;font-size:12px;cursor:pointer;
@@ -494,7 +527,7 @@
       <table>
         <thead>
           <tr>
-            <th style="width:34px"></th>
+            <th style="width:52px"></th>
             <th>執行項目</th>
             <th>負責人</th>
             <th style="width:150px">執行日期</th>
@@ -509,7 +542,7 @@
       </table>
     </div>
     <div style="margin-top:10px;font-size:12px;color:var(--muted)">
-      ✏️ 點擊任一欄位直接編輯・日期格式：<code style="background:var(--bg-soft);padding:1px 6px;border-radius:4px">4/20</code> 或 <code style="background:var(--bg-soft);padding:1px 6px;border-radius:4px">4/20-5/8</code>
+      ✏️ 點擊任一欄位直接編輯（Enter 可換行）・<span style="color:var(--rose-deep)">⠿</span> 拖拉調整順序・日期格式：<code style="background:var(--bg-soft);padding:1px 6px;border-radius:4px">4/20</code> 或 <code style="background:var(--bg-soft);padding:1px 6px;border-radius:4px">4/20-5/8</code>
     </div>
   </section>
 
@@ -546,23 +579,27 @@
   <section class="card">
     <div class="sec-head">
       <span class="sec-num">05</span>
-      <h2 class="sec-title">預算總覽</h2>
+      <h2 class="sec-title">預算 & 預期成效</h2>
       <button class="btn sec-action" id="btnAddBudget">＋ 新增預算</button>
     </div>
     <div class="tbl-wrap">
       <table>
         <thead>
           <tr>
-            <th style="width:34px"></th>
-            <th>項目</th>
+            <th style="width:52px"></th>
+            <th style="width:18%">項目</th>
             <th>費用說明</th>
             <th style="width:120px">金額 (NT$)</th>
-            <th style="width:120px">負責人</th>
+            <th>預期 KPI 成效</th>
+            <th style="width:110px">負責人</th>
             <th style="width:110px">波段</th>
           </tr>
         </thead>
         <tbody id="budgetBody"></tbody>
       </table>
+    </div>
+    <div style="margin-top:10px;font-size:12px;color:var(--muted)">
+      💡 「預期 KPI 成效」= 這筆錢花下去預計帶來的結果（觸及數、銷售、ROAS 等）
     </div>
     <div class="total-bar">
       <div class="t-label">已確認預算合計</div>
@@ -669,11 +706,11 @@ const DEFAULT_DATA = {
     { id:'i17', name:'618 檔期優惠',          owner:'柔彥',          dateRange:'6/2-6/18',   phase:'p2', kpi:'母親節 ≥3,000包｜618 ≥4,200包', progress:0, status:'wait', link:'' }
   ],
   budget: [
-    { id:'b1', name:'KOL Reels-榆兒の美食日記', desc:'產品介紹 reels＋投廣 2 個月',     amount:20000,  owner:'Milla',      phase:'p2' },
-    { id:'b2', name:'全聯社團抽獎',              desc:'好物老實說 獎品成本 ×10 名',      amount:120000, owner:'Milla+小編', phase:'p2' },
-    { id:'b3', name:'全聯社團口碑文',            desc:'素人口碑文 ×3 篇＋Dcard ×1 篇',    amount:12000,  owner:'Milla',      phase:'p2' },
-    { id:'b4', name:'KOL Reels-郭春桃',          desc:'FB/IG 雙平台 3 個月',              amount:30000,  owner:'Milla',      phase:'p2' },
-    { id:'b5', name:'廣告投遞（新品+促銷）',    desc:'新品上市 + KOL Reels 加投（另計）', amount:0,     owner:'Paul',       phase:'p2' }
+    { id:'b1', name:'KOL Reels-榆兒の美食日記', desc:'產品介紹 reels＋投廣 2 個月',     amount:20000,  expectedKpi:'每支觀看 ≥200,000｜互動率 ≥3%',           owner:'Milla',      phase:'p2' },
+    { id:'b2', name:'全聯社團抽獎',              desc:'好物老實說 獎品成本 ×10 名',      amount:120000, expectedKpi:'留言 ≥3,000｜社團曝光 ≥50,000｜帶動全聯銷售', owner:'Milla+小編', phase:'p2' },
+    { id:'b3', name:'全聯社團口碑文',            desc:'素人口碑文 ×3 篇＋Dcard ×1 篇',    amount:12000,  expectedKpi:'每篇互動 ≥50｜Dcard 互動 ≥30',            owner:'Milla',      phase:'p2' },
+    { id:'b4', name:'KOL Reels-郭春桃',          desc:'FB/IG 雙平台 3 個月',              amount:30000,  expectedKpi:'每支觀看 ≥500,000｜觸及中年客群',         owner:'Milla',      phase:'p2' },
+    { id:'b5', name:'廣告投遞（新品+促銷）',    desc:'新品上市 + KOL Reels 加投（另計）', amount:0,     expectedKpi:'ROAS ≥4｜CPA ≤$150｜觸及 ≥100,000',       owner:'Paul',       phase:'p2' }
   ],
   kpi: [
     { id:'k01', item:'IP 社群預告影片',   metric:'觸及數',         targetText:'10,000',        targetNum:10000,  actual:0, status:'wait' },
@@ -769,6 +806,63 @@ function renderPhases(){
 }
 
 /* ========== 渲染：執行項目 ========== */
+/* ========== 可編輯多行儲存格 helper ========== */
+function bindEditCell(el, getter, setter, onAfter){
+  // 以 innerText 保留換行；blur 時寫入
+  el.innerText = getter() || '';
+  el.addEventListener('blur', () => {
+    const v = el.innerText.replace(/\u00a0/g,' '); // 轉換 nbsp
+    setter(v);
+    markDirty();
+    if (onAfter) onAfter();
+  });
+  // 貼上時剝除 HTML 樣式，只留純文字
+  el.addEventListener('paste', e => {
+    e.preventDefault();
+    const text = (e.clipboardData || window.clipboardData).getData('text/plain');
+    document.execCommand('insertText', false, text);
+  });
+}
+
+/* ========== 拖拉排序 helper ========== */
+function bindRowDrag(tr, tbody, arr, onReorder){
+  tr.draggable = true;
+  tr.addEventListener('dragstart', e => {
+    tr.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', tr.dataset.id);
+  });
+  tr.addEventListener('dragend', () => {
+    tr.classList.remove('dragging');
+    tbody.querySelectorAll('tr').forEach(t => t.classList.remove('drag-over-top','drag-over-bottom'));
+  });
+  tr.addEventListener('dragover', e => {
+    e.preventDefault();
+    if (tr.classList.contains('dragging')) return;
+    const rect = tr.getBoundingClientRect();
+    const isTop = e.clientY < rect.top + rect.height/2;
+    tbody.querySelectorAll('tr').forEach(t => t.classList.remove('drag-over-top','drag-over-bottom'));
+    tr.classList.add(isTop ? 'drag-over-top' : 'drag-over-bottom');
+  });
+  tr.addEventListener('drop', e => {
+    e.preventDefault();
+    const fromId = e.dataTransfer.getData('text/plain');
+    const toId = tr.dataset.id;
+    if (!fromId || fromId === toId) return;
+    const fromIdx = arr.findIndex(x => x.id === fromId);
+    if (fromIdx === -1) return;
+    const [moved] = arr.splice(fromIdx, 1);
+    let toIdx = arr.findIndex(x => x.id === toId);
+    if (toIdx === -1) toIdx = arr.length;
+    const rect = tr.getBoundingClientRect();
+    const insertAfter = e.clientY >= rect.top + rect.height/2;
+    arr.splice(insertAfter ? toIdx + 1 : toIdx, 0, moved);
+    markDirty();
+    onReorder();
+  });
+}
+
+/* ========== 渲染：執行項目 ========== */
 function renderItems(){
   const tbody = $('#itemsBody'); tbody.innerHTML = '';
   if (state.items.length === 0){
@@ -777,15 +871,19 @@ function renderItems(){
   }
   state.items.forEach(it => {
     const tr = document.createElement('tr');
+    tr.dataset.id = it.id;
     const phOpts = state.phases.map(p => `<option value="${p.id}" ${p.id===it.phase?'selected':''}>${escapeHtml(p.name)}</option>`).join('');
     const stOpts = Object.entries(STATUS_LABELS).map(([k,v]) => `<option value="${k}" ${k===it.status?'selected':''}>${v}</option>`).join('');
     tr.innerHTML = `
-      <td><button class="del-row" title="刪除">✕</button></td>
-      <td><input data-f="name" value="${escapeAttr(it.name)}" placeholder="項目名稱"/></td>
-      <td><input data-f="owner" value="${escapeAttr(it.owner)}" placeholder="負責人"/></td>
+      <td class="row-actions">
+        <span class="drag-handle" title="拖拉排序">⠿</span>
+        <button class="del-row" title="刪除">✕</button>
+      </td>
+      <td><div class="cell-edit" data-f="name" data-placeholder="項目名稱"></div></td>
+      <td><div class="cell-edit cell-owner" data-f="owner" data-placeholder="負責人"></div></td>
       <td><input data-f="dateRange" value="${escapeAttr(it.dateRange)}" placeholder="4/20 或 4/20-5/8"/></td>
       <td><select data-f="phase" class="status-sel">${phOpts}</select></td>
-      <td><input data-f="kpi" value="${escapeAttr(it.kpi)}" placeholder="目標 KPI"/></td>
+      <td><div class="cell-edit cell-kpi" data-f="kpi" data-placeholder="目標 KPI"></div></td>
       <td>
         <div class="prog-cell">
           <div class="prog-bar"><div class="prog-fill" style="width:${it.progress||0}%"></div></div>
@@ -793,24 +891,35 @@ function renderItems(){
         </div>
       </td>
       <td><select data-f="status" class="status-sel s-${it.status}">${stOpts}</select></td>
-      <td><input data-f="link" value="${escapeAttr(it.link)}" placeholder="https://..."/></td>
+      <td><div class="cell-edit cell-link" data-f="link" data-placeholder="https://..."></div></td>
     `;
     tr.querySelector('.del-row').onclick = () => {
       if (confirm('確定刪除此項目？')) { state.items = state.items.filter(x=>x.id!==it.id); markDirty(); renderItems(); renderGantt(); renderPhases(); }
     };
-    tr.querySelectorAll('[data-f]').forEach(n => {
-      n.addEventListener('change', () => {
+    // contenteditable 欄位
+    tr.querySelectorAll('.cell-edit[data-f]').forEach(el => {
+      const f = el.dataset.f;
+      bindEditCell(el, () => it[f], v => { it[f] = v; }, () => {
+        if (f === 'name') renderGantt();
+      });
+    });
+    // input/select 欄位
+    tr.querySelectorAll('input[data-f],select[data-f]').forEach(n => {
+      const h = () => {
         const f = n.dataset.f;
         if (f === 'progress'){ it.progress = Math.max(0, Math.min(100, +n.value||0)); }
         else { it[f] = n.value; }
         markDirty();
         if (f === 'status'){ n.className = 'status-sel s-' + it.status; }
         if (f === 'progress'){ tr.querySelector('.prog-fill').style.width = it.progress + '%'; }
-        if (f === 'dateRange' || f === 'status'){ renderGantt(); }
+        if (f === 'dateRange' || f === 'status' || f === 'phase'){ renderGantt(); }
         if (f === 'phase'){ renderPhases(); }
-      });
-      if (n.tagName === 'INPUT'){ n.addEventListener('blur', () => n.dispatchEvent(new Event('change'))); }
+      };
+      n.addEventListener('change', h);
+      if (n.tagName === 'INPUT') n.addEventListener('blur', h);
     });
+    // 拖拉排序
+    bindRowDrag(tr, tbody, state.items, () => { renderItems(); renderGantt(); renderPhases(); });
     tbody.appendChild(tr);
   });
 }
@@ -888,11 +997,7 @@ function renderGantt(){
     body.innerHTML = '<div class="g-empty">尚無含日期的執行項目，在上方表格填入日期後會自動連動</div>';
     return;
   }
-
-  tasks.sort((a,b) => {
-    const ra = parseRange(a.dateRange), rb = parseRange(b.dateRange);
-    return mdOrd(ra.start.mo, ra.start.d) - mdOrd(rb.start.mo, rb.start.d);
-  });
+  // 保留執行項目表格順序（使用者拖拉後的順序），不再依日期排序
 
   const colWidth = 100 / GANTT_TOTAL_COLS;
   const gap = 0.6; // 每格兩側的小留白（百分比）
@@ -947,23 +1052,34 @@ function renderGantt(){
 function renderBudget(){
   const tbody = $('#budgetBody'); tbody.innerHTML = '';
   if (state.budget.length === 0){
-    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:20px">尚無預算項目</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:20px">尚無預算項目</td></tr>`;
   } else {
     state.budget.forEach(b => {
       const phOpts = state.phases.map(p => `<option value="${p.id}" ${p.id===b.phase?'selected':''}>${escapeHtml(p.name)}</option>`).join('');
       const tr = document.createElement('tr');
+      tr.dataset.id = b.id;
       tr.innerHTML = `
-        <td><button class="del-row">✕</button></td>
-        <td><input data-f="name" value="${escapeAttr(b.name)}" placeholder="項目名稱"/></td>
-        <td><input data-f="desc" value="${escapeAttr(b.desc)}" placeholder="說明"/></td>
+        <td class="row-actions">
+          <span class="drag-handle" title="拖拉排序">⠿</span>
+          <button class="del-row" title="刪除">✕</button>
+        </td>
+        <td><div class="cell-edit" data-f="name" data-placeholder="項目名稱"></div></td>
+        <td><div class="cell-edit cell-desc" data-f="desc" data-placeholder="說明"></div></td>
         <td><input type="number" data-f="amount" value="${b.amount||0}" min="0"/></td>
-        <td><input data-f="owner" value="${escapeAttr(b.owner)}" placeholder="負責人"/></td>
+        <td><div class="cell-edit cell-expkpi" data-f="expectedKpi" data-placeholder="例：觸及 ≥5萬｜ROAS ≥4｜銷售 +20%"></div></td>
+        <td><div class="cell-edit cell-owner" data-f="owner" data-placeholder="負責人"></div></td>
         <td><select data-f="phase" class="status-sel">${phOpts}</select></td>
       `;
       tr.querySelector('.del-row').onclick = () => {
         if (confirm('確定刪除此預算？')) { state.budget = state.budget.filter(x=>x.id!==b.id); markDirty(); renderBudget(); }
       };
-      tr.querySelectorAll('[data-f]').forEach(n => {
+      // contenteditable 欄位
+      tr.querySelectorAll('.cell-edit[data-f]').forEach(el => {
+        const f = el.dataset.f;
+        bindEditCell(el, () => b[f], v => { b[f] = v; });
+      });
+      // input/select 欄位
+      tr.querySelectorAll('input[data-f],select[data-f]').forEach(n => {
         const h = () => {
           const f = n.dataset.f;
           if (f === 'amount'){ b.amount = Math.max(0, +n.value||0); updateBudgetTotal(); }
@@ -973,6 +1089,8 @@ function renderBudget(){
         n.addEventListener('change', h);
         if (n.tagName === 'INPUT') n.addEventListener('blur', h);
       });
+      // 拖拉排序
+      bindRowDrag(tr, tbody, state.budget, () => renderBudget());
       tbody.appendChild(tr);
     });
   }
@@ -1084,6 +1202,7 @@ $('#btnAddBudget').onclick = () => {
     {k:'name',label:'項目名稱',ph:'例：KOL 合作費'},
     {k:'desc',label:'費用說明',ph:'選填'},
     {k:'amount',label:'金額 (NT$)',type:'number',ph:'留 0 表示另計'},
+    {k:'expectedKpi',label:'預期 KPI 成效',ph:'例：觸及 ≥5萬｜銷售 +20%'},
     {k:'owner',label:'負責人'},
     {k:'phase',label:'波段',type:'select',opts: state.phases.map(p=>({v:p.id,t:p.name}))},
   ], v => {
@@ -1186,6 +1305,7 @@ async function load(silent=false){
         state = Object.assign({}, DEFAULT_DATA, j.data);
         ['kpiCards','phases','items','budget','kpi'].forEach(k => { if (!Array.isArray(state[k])) state[k] = DEFAULT_DATA[k]; });
         if (!state.lastEdit) state.lastEdit = { editor:'', time:'' };
+        migrateState();
         lastPulledHash = newHash;
         renderAll();
         setStatus('online', '已同步・' + formatTime(state.lastEdit.time));
@@ -1198,6 +1318,7 @@ async function load(silent=false){
             state = Object.assign({}, DEFAULT_DATA, JSON.parse(raw));
             ['kpiCards','phases','items','budget','kpi'].forEach(k => { if (!Array.isArray(state[k])) state[k] = DEFAULT_DATA[k]; });
             if (!state.lastEdit) state.lastEdit = { editor:'', time:'' };
+            migrateState();
             renderAll();
             setStatus('online', '首次上雲・推送本機資料中');
             markDirty();
@@ -1218,6 +1339,16 @@ async function load(silent=false){
     setStatus('offline', '本機模式（未設定雲端）');
   }
 }
+/* 為舊資料補上新欄位（讓現有雲端資料相容於之後加的欄位）*/
+function migrateState(){
+  (state.budget || []).forEach(b => { if (b.expectedKpi == null) b.expectedKpi = ''; });
+  (state.items || []).forEach(i => {
+    if (i.progress == null) i.progress = 0;
+    if (i.status == null)   i.status = 'wait';
+    if (i.link == null)     i.link = '';
+  });
+}
+
 function loadLocal(){
   const raw = localStorage.getItem(STORAGE_KEY);
   if (raw){
@@ -1225,6 +1356,7 @@ function loadLocal(){
   }
   ['kpiCards','phases','items','budget','kpi'].forEach(k => { if (!Array.isArray(state[k])) state[k] = DEFAULT_DATA[k]; });
   if (!state.lastEdit) state.lastEdit = { editor:'', time:'' };
+  migrateState();
   renderAll();
 }
 
