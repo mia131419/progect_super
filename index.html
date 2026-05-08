@@ -260,6 +260,25 @@
   td .cell-edit.cell-expkpi:empty::before{color:var(--rose-deep);opacity:.4}
   td .cell-edit.cell-link{font-size:12px;color:var(--blue-hint,#185fa5)}
 
+  /* Link cell with open button */
+  .link-cell{display:flex;gap:6px;align-items:center}
+  .link-input{
+    flex:1;background:transparent;border:1px solid transparent;font-family:inherit;
+    font-size:12px;color:#185fa5;padding:4px 6px;border-radius:4px;min-width:120px;
+  }
+  .link-input::placeholder{color:#bbb;font-style:italic}
+  .link-input:hover{background:rgba(106,30,42,.04)}
+  .link-input:focus{outline:none;background:var(--bg);border-color:var(--rose-deep);box-shadow:0 0 0 2px var(--pink)}
+  .link-open{
+    flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;
+    width:24px;height:24px;border-radius:4px;font-size:13px;text-decoration:none;
+    background:var(--bg-soft);color:var(--rose-deep);transition:all .15s;
+  }
+  .link-open:hover{background:var(--rose-deep);color:#fff;transform:translateY(-1px)}
+  .link-open.disabled{
+    pointer-events:none;background:transparent;color:#d4cdc1;cursor:not-allowed;
+  }
+
   /* Status chips */
   .status-sel{
     border:1px solid var(--line);border-radius:20px;padding:3px 8px;font-size:12px;cursor:pointer;
@@ -273,14 +292,31 @@
   .status-sel.s-delay{background:#f7d9d4;color:#a32d2d;border-color:#ebb5ac}
 
   /* Progress bar */
-  .prog-cell{display:flex;align-items:center;gap:8px;min-width:120px}
-  .prog-bar{flex:1;height:6px;background:var(--line-soft);border-radius:99px;overflow:hidden;position:relative}
-  .prog-fill{height:100%;background:linear-gradient(90deg,var(--rose),var(--rose-deep));border-radius:99px;transition:width .3s}
-  .prog-num{font-size:12px;font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--rose-deep);min-width:30px;text-align:right}
-  .prog-num-input{
-    width:36px;border:none;background:transparent;font-size:12px;font-family:'Cormorant Garamond',serif;
-    font-weight:600;color:var(--rose-deep);text-align:right;padding:0;
+  .prog-cell{display:flex;align-items:center;gap:8px;min-width:140px}
+  .prog-bar{flex:1;height:8px;background:var(--line-soft);border-radius:99px;overflow:hidden;position:relative;min-width:50px}
+  .prog-bar-clickable{
+    cursor:pointer;height:18px;display:flex;align-items:center;
+    background:transparent;
   }
+  .prog-bar-clickable::before{
+    content:'';position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
+    height:8px;background:var(--line-soft);border-radius:99px;pointer-events:none;
+  }
+  .prog-bar-clickable .prog-fill{position:relative;z-index:1;height:8px;border-radius:99px}
+  .prog-bar-clickable:hover::before{background:#ead3cd}
+  .prog-fill{height:100%;background:linear-gradient(90deg,var(--rose),var(--rose-deep));border-radius:99px;transition:width .2s}
+  .prog-num-input{
+    width:46px;border:1px solid var(--line);background:#fff;font-size:13px;
+    font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--rose-deep);
+    text-align:right;padding:3px 5px;border-radius:5px;cursor:text;
+  }
+  .prog-num-input:hover{border-color:var(--rose-deep)}
+  .prog-num-input:focus{outline:none;border-color:var(--rose-deep);box-shadow:0 0 0 2px var(--pink);background:#fff}
+  /* hide spinners on Webkit so they don't steal width */
+  .prog-num-input::-webkit-inner-spin-button,
+  .prog-num-input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+  .prog-num-input{-moz-appearance:textfield}
+  .prog-pct{font-size:11px;color:var(--ink-soft);font-weight:500}
 
   /* Phase chip in cell */
   .phase-chip{
@@ -808,7 +844,8 @@ function renderPhases(){
 /* ========== 渲染：執行項目 ========== */
 /* ========== 可編輯多行儲存格 helper ========== */
 function bindEditCell(el, getter, setter, onAfter){
-  // 以 innerText 保留換行；blur 時寫入
+  // 重要：cell-edit class 本身沒有 contenteditable 屬性，一定要在這裡補上，否則點進去無法輸入
+  el.setAttribute('contenteditable', 'true');
   el.innerText = getter() || '';
   el.addEventListener('blur', () => {
     const v = el.innerText.replace(/\u00a0/g,' '); // 轉換 nbsp
@@ -886,12 +923,20 @@ function renderItems(){
       <td><div class="cell-edit cell-kpi" data-f="kpi" data-placeholder="目標 KPI"></div></td>
       <td>
         <div class="prog-cell">
-          <div class="prog-bar"><div class="prog-fill" style="width:${it.progress||0}%"></div></div>
-          <input type="number" min="0" max="100" data-f="progress" value="${it.progress||0}" class="prog-num-input"/><span class="prog-num">%</span>
+          <div class="prog-bar prog-bar-clickable" data-prog-bar title="點擊或拖曳調整進度">
+            <div class="prog-fill" style="width:${it.progress||0}%"></div>
+          </div>
+          <input type="number" min="0" max="100" step="5" data-f="progress" value="${it.progress||0}" class="prog-num-input"/>
+          <span class="prog-pct">%</span>
         </div>
       </td>
       <td><select data-f="status" class="status-sel s-${it.status}">${stOpts}</select></td>
-      <td><div class="cell-edit cell-link" data-f="link" data-placeholder="https://..."></div></td>
+      <td>
+        <div class="link-cell">
+          <input type="url" data-f="link" value="${escapeAttr(it.link||'')}" placeholder="https://..." class="link-input"/>
+          <a class="link-open ${(it.link||'').match(/^https?:\/\//) ? '' : 'disabled'}" href="${escapeAttr(it.link||'#')}" target="_blank" rel="noopener" title="開啟連結">↗</a>
+        </div>
+      </td>
     `;
     tr.querySelector('.del-row').onclick = () => {
       if (confirm('確定刪除此項目？')) { state.items = state.items.filter(x=>x.id!==it.id); markDirty(); renderItems(); renderGantt(); renderPhases(); }
@@ -903,6 +948,30 @@ function renderItems(){
         if (f === 'name') renderGantt();
       });
     });
+    // 進度 ↔ 狀態 連動
+    function syncProgressStatus(){
+      let statusChanged = false;
+      // 進度 100 → 自動已完成
+      if (it.progress === 100 && it.status !== 'done'){
+        it.status = 'done'; statusChanged = true;
+      }
+      // 進度從 100 降下來、且原本是已完成 → 退回進行中
+      else if (it.progress < 100 && it.status === 'done'){
+        it.status = 'prog'; statusChanged = true;
+      }
+      // 狀態設成已完成 → 進度自動 100
+      if (it.status === 'done' && it.progress !== 100){
+        it.progress = 100;
+        tr.querySelector('.prog-fill').style.width = '100%';
+        tr.querySelector('.prog-num-input').value = 100;
+      }
+      if (statusChanged){
+        const stSel = tr.querySelector('select[data-f="status"]');
+        if (stSel){ stSel.value = it.status; stSel.className = 'status-sel s-' + it.status; }
+        renderGantt();
+      }
+    }
+
     // input/select 欄位
     tr.querySelectorAll('input[data-f],select[data-f]').forEach(n => {
       const h = () => {
@@ -912,14 +981,41 @@ function renderItems(){
         markDirty();
         if (f === 'status'){ n.className = 'status-sel s-' + it.status; }
         if (f === 'progress'){ tr.querySelector('.prog-fill').style.width = it.progress + '%'; }
+        if (f === 'progress' || f === 'status'){ syncProgressStatus(); }
         if (f === 'dateRange' || f === 'status' || f === 'phase'){ renderGantt(); }
         if (f === 'phase'){ renderPhases(); }
+        if (f === 'link'){
+          const a = tr.querySelector('.link-open');
+          const valid = /^https?:\/\//.test(n.value);
+          if (a){
+            a.href = valid ? n.value : '#';
+            a.classList.toggle('disabled', !valid);
+          }
+        }
       };
       n.addEventListener('change', h);
+      n.addEventListener('input', h);  // 即時更新（特別是 link 欄的 ↗ 按鈕）
       if (n.tagName === 'INPUT') n.addEventListener('blur', h);
     });
     // 拖拉排序
     bindRowDrag(tr, tbody, state.items, () => { renderItems(); renderGantt(); renderPhases(); });
+
+    // 點擊進度條設定進度
+    const progBar = tr.querySelector('[data-prog-bar]');
+    if (progBar){
+      const setFromEvent = e => {
+        const rect = progBar.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const pct = Math.max(0, Math.min(100, Math.round((clientX - rect.left) / rect.width * 100 / 5) * 5));
+        it.progress = pct;
+        tr.querySelector('.prog-fill').style.width = pct + '%';
+        tr.querySelector('.prog-num-input').value = pct;
+        syncProgressStatus();
+        markDirty();
+      };
+      progBar.addEventListener('click', setFromEvent);
+    }
+
     tbody.appendChild(tr);
   });
 }
